@@ -5,12 +5,16 @@ import classes from "./NavigationItem.module.css";
 
 const NavigationItem = (props) => {
   const style = {
-    color: "red",
+    color: "#00BFFF",
     fontWeight: "bold",
   };
   return (
     <li className={classes.NavigationItem}>
-      <NavLink to={props.location} activeStyle={style}>
+      <NavLink
+        to={props.location}
+        activeStyle={style}
+        className={classes.NavLink}
+      >
         {props.children}
       </NavLink>
     </li>

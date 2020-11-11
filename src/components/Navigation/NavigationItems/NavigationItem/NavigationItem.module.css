@@ -1,0 +1,37 @@
+.NavigationItem {
+  list-style-type: none;
+  text-decoration: none;
+  display: inline;
+  padding: 20px;
+}
+
+.NavLink {
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  padding: 20px 0px;
+  margin: 0px 20px;
+  display: inline-block;
+  position: relative;
+  opacity: 1;
+}
+
+.NavLink:hover {
+  opacity: 1;
+}
+
+.NavLink::before {
+  transition: 300ms;
+  height: 5px;
+  content: "";
+  position: absolute;
+  background-color: #00BFFF;
+  width: 0%;
+  bottom: 10px;
+}
+
+.NavLink:hover::before {
+  width: 100%;
+}

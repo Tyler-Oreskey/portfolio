@@ -4,12 +4,14 @@ import Projects from "../components/Projects/Projects";
 import Project from "../components/Projects/Project/Project";
 import About from "../components/About/About";
 import ContactForm from "./ContactForm/ContactForm";
-import NavigationItems from "../components/Navigation/NavigationItems/NavigationItems";
+import Toolbar from "../components/Navigation/Toolbar/Toolbar";
+
+import classes from "./Portfolio.module.css";
 
 const Portfolio = () => {
   return (
-    <div>
-      <NavigationItems />
+    <div className={classes.Portfolio}>
+      <Toolbar />
       <Switch>
         <Route path="/about" component={About} />
         <Route path="/contact" component={ContactForm} />
