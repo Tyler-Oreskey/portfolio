@@ -34,7 +34,7 @@ class Projects extends Component {
         <Link
           key={project.id}
           to={{
-            pathname: `/${project.id}`,
+            pathname: `${this.props.match.url}/${project.id}`,
             state: {
               name: project.name,
               description: project.description,
