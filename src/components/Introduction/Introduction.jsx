@@ -1,8 +1,9 @@
 import React from "react";
 import Carousel from "./Carousel/Carousel";
+import SocialIcons from "./SocialIcons/SocialIcons";
 
 import classes from "./Introduction.module.css";
-import code from "../../assets/images/code.png";
+import code from "../../assets/images/icons/code.png";
 
 const Introduction = () => {
   return (
@@ -14,6 +15,7 @@ const Introduction = () => {
         Full Stack Web Developer
       </h3>
       <Carousel />
+      <SocialIcons />
     </div>
   );
 };
