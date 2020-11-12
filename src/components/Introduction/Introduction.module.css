@@ -1,0 +1,36 @@
+.Introduction {
+  color: white;
+  font-family: "PT Sans";
+  position: fixed;
+  top: 30%;
+  left: 5%;
+}
+
+img {
+  height: 27px;
+  width: auto;
+  padding: 0 7px;
+}
+
+.Introduction h1 {
+  font-size: 30px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.Introduction h2 {
+  font-size: 70px;
+  font-weight: 700;
+}
+
+.Introduction h3 {
+  font-size: 30px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.Introduction h1,
+.Introduction h2,
+.Introduction h3 {
+  margin: 0;
+}

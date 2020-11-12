@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Introduction from "../Introduction/Introduction";
 
 import classes from "./Projects.module.css";
 
@@ -48,8 +49,8 @@ class Projects extends Component {
 
     return (
       <div className={classes.Projects}>
-        <h1>Projects Page!!!</h1>
-        <ul>{projects}</ul>
+        <Introduction />
+        {/* <ul>{projects}</ul> */}
       </div>
     );
   }
