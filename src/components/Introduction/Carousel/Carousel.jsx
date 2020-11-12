@@ -5,7 +5,7 @@ import classes from "./Carousel.module.css";
 
 const Carousel = () => {
   const [carouselItems] = useState([
-    "yeetus 0",
+    "yeetus 0 jhgasdjfgakjhsdfhgujyasdfkjhyguasgdkhjfggasdkhjfgaksjhdfgakjhsdgfkhjassadfasdfasdfasdfasdfasfjkhfasdkjlfhajskldfhajklsdhfljkasdhlfjkashdfjk",
     "fetus 1",
     "destroyer",
     "ddd",
@@ -33,8 +33,12 @@ const Carousel = () => {
   }, [slideIndex, carouselItems, slideTimer]);
 
   const animatedItems = fadingText.map(({ item, props, key }) => (
-    <animated.div key={key} style={{ ...props, position: "absolute" }}>
-      <p>{item}</p>
+    <animated.div
+      className={classes.Carousel}
+      key={key}
+      style={{ ...props, position: "absolute" }}
+    >
+      {item}
     </animated.div>
   ));
 

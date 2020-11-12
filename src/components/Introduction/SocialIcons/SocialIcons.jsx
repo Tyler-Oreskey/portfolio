@@ -35,7 +35,7 @@ const SocialIcons = () => {
     />
   ));
 
-  return <div>{formattedIcons}</div>;
+  return <div className={classes.SocialIcons}>{formattedIcons}</div>;
 };
 
 export default SocialIcons;
