@@ -25,37 +25,45 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={(event) => this.handleSubmit(event)}>
-          <label>
-            Your Name:
-            <input
-              type="text"
-              name="name"
-              value={this.state.form.name}
-              onChange={(event) => this.handleInputChange(event)}
-            />
-          </label>
-          <label>
-            Your Email:
-            <input
-              type="email"
-              name="email"
-              value={this.state.form.email}
-              onChange={(event) => this.handleInputChange(event)}
-            />
-          </label>
-          <label>
-            Message:
-            <textarea
-              name="message"
-              value={this.state.form.message}
-              onChange={(event) => this.handleInputChange(event)}
-            />
-          </label>
-          <input type="submit" value="SUBMIT" />
-        </form>
-      </div>
+      <form onSubmit={(event) => this.handleSubmit(event)}>
+        <div className="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            name="name"
+            className="form-control"
+            placeholder="Enter Name"
+            onChange={(event) => this.handleInputChange(event)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            className="form-control"
+            placeholder="Enter Email"
+            onChange={(event) => this.handleInputChange(event)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Example textarea</label>
+          <textarea
+            name="message"
+            className="form-control"
+            placeholder="Enter Message"
+            rows="3"
+            onChange={(event) => this.handleInputChange(event)}
+          />
+        </div>
+        <div className="form-check">
+          <input type="checkbox" className="form-check-input" />
+          <label className="form-check-label">Check me out</label>
+        </div>
+        <button type="submit" className="btn btn-primary">
+          SUBMIT
+        </button>
+      </form>
     );
   }
 }
