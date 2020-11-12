@@ -5,11 +5,10 @@ import classes from "./Carousel.module.css";
 
 const Carousel = () => {
   const [carouselItems] = useState([
-    "yeetus 0 jhgasdjfgakjhsdfhgujyasdfkjhyguasgdkhjfggasdkhjfgaksjhdfgakjhsdgfkhjassadfasdfasdfasdfasdfasfjkhfasdkjlfhajskldfhajklsdhfljkasdhlfjkashdfjk",
-    "fetus 1",
-    "destroyer",
-    "ddd",
-    "sdsfddsf 2",
+    "yeetus 0 jhg asdjfg akjhsd  fkjhy uasgdkhjfggasd khjfga ksjhdfgakjhs dgfk hjassadf asdfa sdfasdfa sdfasf jkhf asdkjlfh ajskldf hajklsdjka shdf jk",
+    "yeetus 1 jhg asdjfg akjhsd fhgujyasd fkjhy uasghs dgfk hjassadf asdfa sdfasdfa sdfasf jkhf asdkjlfh ajskldf hajklsd hfljka sdhlfjka shdf jk",
+    "yeetus 2 jhg asdjfg akjhsd fhgujyasd fkjhy uas sdfasf jkhf asdkjlfh ajskldf hajklsd hfljka sdhlfjka shdf jk",
+    "yeetus 3 jhg asdjfg akjhsd fhgujyasd fkjhy uasgdkhjfggasd khjfga ksjhdfgakjhs dgfk khf asdkjlfh ajskldf hajklsd hfljka sdhlfjka shdf jk",
   ]);
   const [slideTimer, setSlideTimer] = useState(15000);
   let [slideIndex, setSlideIndex] = useState(0);
@@ -38,7 +37,7 @@ const Carousel = () => {
       key={key}
       style={{ ...props, position: "absolute" }}
     >
-      {item}
+      <p>{item}</p>
     </animated.div>
   ));
 

@@ -20,6 +20,7 @@
 
 .NavLink:hover {
   opacity: 0.75;
+  text-decoration: none;
 }
 
 .NavLink::before {
@@ -27,7 +28,7 @@
   height: 5px;
   content: "";
   position: absolute;
-  background-color: #00BFFF;
+  background-color: #00bfff;
   width: 0%;
   bottom: 10px;
 }

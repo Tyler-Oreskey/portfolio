@@ -7,15 +7,22 @@ import code from "../../assets/images/icons/code.png";
 
 const Introduction = () => {
   return (
-    <div className={classes.Introduction}>
-      <h1>Hello, I'm</h1>
-      <h2>Tyler Oreskey</h2>
-      <h3>
-        <img src={code} alt="</>" />
-        Full Stack Web Developer
-      </h3>
-      <Carousel />
-      <SocialIcons />
+    <div className={`${classes.Introduction} container`}>
+      <div className="row">
+        <div className="col">
+          <h1>Hello, I'm</h1>
+          <h2>Tyler Oreskey</h2>
+          <h3>
+            <img src={code} alt="</>" />
+            Full Stack Web Developer
+          </h3>
+          <SocialIcons />
+          <Carousel />
+        </div>
+        <div className="col">
+          <h1>Picture Here!!!</h1>
+        </div>
+      </div>
     </div>
   );
 };
