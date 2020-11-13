@@ -1,0 +1,27 @@
+.ContactForm {
+  margin: 0 auto;
+  border-radius: 2px;
+  color: white;
+  opacity: 0.75;
+}
+
+.ContactForm form {
+  padding: 20px;
+}
+
+.ContactForm input,
+.ContactForm textarea,
+.ContactForm input:focus,
+.ContactForm textarea:focus {
+  background-color: #020b16;
+  color: white;
+}
+
+.ContactForm textarea {
+  resize: none;
+}
+
+.ContactForm span {
+  background-color: #020b16;
+  color: white;
+}

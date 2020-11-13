@@ -10,7 +10,7 @@ const Carousel = () => {
     "yeetus 2 jhg asdjfg akjhsd fhgujyasd fkjhy uas sdfasf jkhf asdkjlfh ajskldf hajklsd hfljka sdhlfjka shdf jk",
     "yeetus 3 jhg asdjfg akjhsd fhgujyasd fkjhy uasgdkhjfggasd khjfga ksjhdfgakjhs dgfk khf asdkjlfh ajskldf hajklsd hfljka sdhlfjka shdf jk",
   ]);
-  const [slideTimer, setSlideTimer] = useState(15000);
+  const [slideTimer, setSlideTimer] = useState(10000);
   let [slideIndex, setSlideIndex] = useState(0);
 
   const fadingText = useTransition(
