@@ -12,6 +12,42 @@ const validateForm = (errors) => {
   return valid;
 };
 
+const checkErrorsOnChange = (errors, name, value, lengths) => {
+  const lengthError =
+    "You've reached the max amount of characters for this field!";
+  if (name === "name") {
+    if (value.length < 3) {
+      errors.name = "Name must be at least 3 characters long!";
+    } else if (value.length === lengths.name) {
+      errors.name = lengthError;
+    } else {
+      errors.name = "";
+    }
+  }
+
+  if (name === "email") {
+    if (!validEmailRegex.test(value)) {
+      errors.email = "Email is not valid!";
+    } else if (value.length === lengths.email) {
+      errors.email = lengthError;
+    } else {
+      errors.email = "";
+    }
+  }
+
+  if (name === "message") {
+    if (value.length < 15) {
+      errors.message = "Message must be at least 15 characters long!";
+    } else if (value.length === lengths.message) {
+      errors.email = lengthError;
+    } else {
+      errors.message = "";
+    }
+  }
+
+  return errors;
+};
+
 class ContactForm extends Component {
   state = {
     form: {
@@ -35,28 +71,10 @@ class ContactForm extends Component {
     const { name, value } = event.target;
     const form = { ...this.state.form };
     form[name] = value;
-    const charCount = { ...this.state.charCount };
-    charCount[name] = value.length;
-
-    let errors = { ...this.state.errors };
-    switch (name) {
-      case "name":
-        errors.name =
-          value.length < 3 ? "Name must be atleast 3 characters long!" : "";
-        break;
-      case "email":
-        errors.email = validEmailRegex.test(value) ? "" : "Email is not valid!";
-        break;
-      case "message":
-        errors.message =
-          value.length < 15
-            ? "Message must be atleast 15 characters long!"
-            : "";
-        break;
-      default:
-        break;
-    }
-    this.setState({ form, charCount, errors });
+    const errors = checkErrorsOnChange({ ...this.state.errors }, name, value, {
+      ...this.state.maxLength,
+    });
+    this.setState({ form, errors });
   };
 
   handleSubmit = (event) => {
@@ -74,21 +92,19 @@ class ContactForm extends Component {
     let nameError = null;
 
     if (errors.name.length > 0) {
-      nameError = <span className={classes.FormError}>{errors.name}</span>;
+      nameError = <p className={classes.FormError}>{errors.name}</p>;
     }
 
     let emailError = null;
 
     if (errors.email.length > 0) {
-      emailError = <span className={classes.FormError}>{errors.email}</span>;
+      emailError = <p className={classes.FormError}>{errors.email}</p>;
     }
 
     let messageError = null;
 
     if (errors.message.length > 0) {
-      messageError = (
-        <span className={classes.FormError}>{errors.message}</span>
-      );
+      messageError = <p className={classes.FormError}>{errors.message}</p>;
     }
 
     return (

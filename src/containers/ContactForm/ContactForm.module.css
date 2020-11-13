@@ -27,5 +27,8 @@
 }
 
 .FormError {
-  color: red;
+  color: #f54029;
+  letter-spacing: 0.1rem;
+  font-size: 15px;
+  font-weight: 700;
 }
