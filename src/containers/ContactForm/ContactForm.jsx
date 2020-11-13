@@ -2,6 +2,16 @@ import React, { Component } from "react";
 
 import classes from "./ContactForm.module.css";
 
+const validEmailRegex = RegExp(
+  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+);
+
+const validateForm = (errors) => {
+  let valid = true;
+  Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
+  return valid;
+};
+
 class ContactForm extends Component {
   state = {
     form: {
@@ -19,6 +29,11 @@ class ContactForm extends Component {
       email: 0,
       message: 0,
     },
+    errors: {
+      name: "",
+      email: "",
+      message: "",
+    },
   };
 
   handleInputChange = (event) => {
@@ -27,19 +42,65 @@ class ContactForm extends Component {
     form[name] = value;
     const charCount = { ...this.state.charCount };
     charCount[name] = value.length;
-    this.setState({ form, charCount });
+
+    let errors = { ...this.state.errors };
+    switch (name) {
+      case "name":
+        errors.name =
+          value.length < 3 ? "Name must be atleast 3 characters long!" : "";
+        break;
+      case "email":
+        errors.email = validEmailRegex.test(value) ? "" : "Email is not valid!";
+        break;
+      case "message":
+        errors.message =
+          value.length < 15
+            ? "Message must be atleast 15 characters long!"
+            : "";
+        break;
+      default:
+        break;
+    }
+    this.setState({ form, charCount, errors });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
+    if (validateForm(this.state.errors)) {
+      console.info("Valid Form");
+    } else {
+      console.error("Invalid Form");
+    }
   };
 
   render() {
+    const { errors } = this.state;
+
+    let nameError = null;
+
+    if (errors.name.length > 0) {
+      nameError = <span className={classes.FormError}>{errors.name}</span>;
+    }
+
+    let emailError = null;
+
+    if (errors.email.length > 0) {
+      emailError = <span className={classes.FormError}>{errors.email}</span>;
+    }
+
+    let messageError = null;
+
+    if (errors.message.length > 0) {
+      messageError = (
+        <span className={classes.FormError}>{errors.message}</span>
+      );
+    }
+
     return (
       <div className={classes.ContactForm}>
-        <form onSubmit={(event) => this.handleSubmit(event)}>
+        <form onSubmit={(event) => this.handleSubmit(event)} noValidate>
           <div className="form-group">
-            <label>Name</label>
+            <label>Your Name</label>
             <div className="input-group">
               <input
                 type="text"
@@ -55,10 +116,11 @@ class ContactForm extends Component {
                 </span>
               </div>
             </div>
+            {nameError}
           </div>
 
           <div className="form-group">
-            <label>Email</label>
+            <label>Your Email</label>
             <div className="input-group">
               <input
                 type="email"
@@ -74,6 +136,7 @@ class ContactForm extends Component {
                 </span>
               </div>
             </div>
+            {emailError}
           </div>
 
           <div className="form-group form-text-area">
@@ -93,6 +156,7 @@ class ContactForm extends Component {
                 </span>
               </div>
             </div>
+            {messageError}
           </div>
 
           <button type="submit" className="btn btn-primary">
