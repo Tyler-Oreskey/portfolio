@@ -24,11 +24,6 @@ class ContactForm extends Component {
       email: 50,
       message: 500,
     },
-    charCount: {
-      name: 0,
-      email: 0,
-      message: 0,
-    },
     errors: {
       name: "",
       email: "",
@@ -108,11 +103,12 @@ class ContactForm extends Component {
                 className="form-control"
                 placeholder="Enter Name"
                 maxLength={this.state.maxLength.name}
+                value={this.state.form.name}
                 onChange={(event) => this.handleInputChange(event)}
               />
               <div className="input-group-append">
                 <span className="input-group-text">
-                  {`${this.state.charCount.name}/${this.state.maxLength.name}`}
+                  {`${this.state.form.name.length}/${this.state.maxLength.name}`}
                 </span>
               </div>
             </div>
@@ -128,11 +124,12 @@ class ContactForm extends Component {
                 className="form-control"
                 placeholder="Enter Email"
                 maxLength={this.state.maxLength.email}
+                value={this.state.form.email}
                 onChange={(event) => this.handleInputChange(event)}
               />
               <div className="input-group-append">
                 <span className="input-group-text">
-                  {this.state.charCount.email}/{this.state.maxLength.email}
+                  {this.state.form.email.length}/{this.state.maxLength.email}
                 </span>
               </div>
             </div>
@@ -148,11 +145,13 @@ class ContactForm extends Component {
                 placeholder="Enter Message"
                 rows="5"
                 maxLength={this.state.maxLength.message}
+                value={this.state.form.message}
                 onChange={(event) => this.handleInputChange(event)}
               />
               <div className="input-group-append">
                 <span className="input-group-text">
-                  {this.state.charCount.message}/{this.state.maxLength.message}
+                  {this.state.form.message.length}/
+                  {this.state.maxLength.message}
                 </span>
               </div>
             </div>
