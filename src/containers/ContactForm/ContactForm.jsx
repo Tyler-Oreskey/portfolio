@@ -39,7 +39,7 @@ const checkErrorsOnChange = (errors, name, value, lengths) => {
     if (value.length < 15) {
       errors.message = "Message must be at least 15 characters long!";
     } else if (value.length === lengths.message) {
-      errors.email = lengthError;
+      errors.message = lengthError;
     } else {
       errors.message = "";
     }
