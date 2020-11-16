@@ -11,25 +11,38 @@ const Project = (props) => {
     config: { mass: 5, tension: 500, friction: 80 },
   });
 
+  let flipText = null;
+
+  if (flipped) {
+    flipText = "View Photo";
+  } else {
+    flipText = "View Description";
+  }
+
   return (
     <div onClick={() => setFlipped(!flipped)} className={classes.ProjectCard}>
-      <div className={classes.ProjectCardInner}>
-        <animated.div
-          className={`card ${classes.Front}`}
-          style={{ opacity: opacity.interpolate((o) => 1 - o), transform }}
-        >
-          <img src={props.image} alt="img" />
-        </animated.div>
-        <animated.div
-          className={`card ${classes.Back}`}
-          style={{
-            opacity,
-            transform: transform.interpolate((t) => `${t} rotateX(180deg)`),
-          }}
-        >
-          <p>{props.description}</p>
-        </animated.div>
-      </div>
+      <animated.div
+        className={`card ${classes.Front}`}
+        style={{
+          opacity: opacity.interpolate((o) => 1 - o),
+          transform,
+          backgroundImage: `url(${props.image})`,
+          backgroundSize: "cover",
+        }}
+      >
+        <h1>{props.name}</h1>
+        <div className={classes.FlipText}>{flipText}</div>
+      </animated.div>
+      <animated.div
+        className={`card ${classes.Back}`}
+        style={{
+          opacity,
+          transform: transform.interpolate((t) => `${t} rotateX(180deg)`),
+        }}
+      >
+        <p>{props.description}</p>
+        <div className={classes.FlipText}>{flipText}</div>
+      </animated.div>
     </div>
   );
 };
