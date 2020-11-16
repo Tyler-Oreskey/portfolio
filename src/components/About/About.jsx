@@ -1,9 +1,15 @@
 import React from "react";
 
+import Introduction from "../Introduction/Introduction";
+
 import classes from "./About.module.css";
 
-const About = (props) => {
-  return <h1>About Page!!!</h1>;
+const About = () => {
+  return (
+    <div>
+      <Introduction />
+    </div>
+  );
 };
 
 export default About;

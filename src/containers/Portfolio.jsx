@@ -17,7 +17,7 @@ const Portfolio = () => {
         <Route path="/contact" component={ContactForm} />
         <Route path="/projects/:id" component={Project} />
         <Route path="/projects" component={Projects} />
-        <Redirect from="/" to="/projects" />
+        <Redirect from="/" to="/about" />
       </Switch>
     </div>
   );
