@@ -12,7 +12,7 @@ const Project = (props) => {
   });
 
   return (
-    <div onClick={() => setFlipped(!flipped)} className={classes.ProjectCard}>
+    <div className={classes.ProjectCard}>
       <animated.div
         className={classes.Card}
         id={classes.Back}
@@ -22,7 +22,12 @@ const Project = (props) => {
         }}
       >
         <p>{props.description}</p>
-        <div className={classes.FlipText}>View Photo</div>
+        <button
+          onClick={() => setFlipped(!flipped)}
+          className={classes.FlipText}
+        >
+          PHOTO
+        </button>
       </animated.div>
       <animated.div
         className={classes.Card}
@@ -34,7 +39,12 @@ const Project = (props) => {
         }}
       >
         <h1>{props.name}</h1>
-        <div className={classes.FlipText}>View Description</div>
+        <button
+          onClick={() => setFlipped(!flipped)}
+          className={classes.FlipText}
+        >
+          DESCRIPTION
+        </button>
       </animated.div>
     </div>
   );
