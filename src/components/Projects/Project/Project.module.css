@@ -44,10 +44,35 @@
   border-radius: 7px;
 }
 
-p,
-h1 {
+.ProjectCard p,
+.ProjectCard h1,
+.ProjectCard h2,
+.ProjectCard h3 {
   color: white;
-  padding: 5px;
+  padding: 3px 10px 5px 10px;
+}
+
+.ProjectCard h2 {
+  padding-top: 5px;
+  text-align: center;
+  border-bottom: 1px solid white;
+  padding-bottom: 3px;
+}
+
+.ProjectCard h1,
+.ProjectCard h2,
+.ProjectCard h3 {
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.ProjectCard h3 {
+  font-size: 20px;
+}
+
+.ProjectCard p {
+  font-size: 17px;
+  letter-spacing: 2px;
 }
 
 #Back {

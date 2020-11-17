@@ -11,6 +11,17 @@ const Project = (props) => {
     config: { mass: 5, tension: 500, friction: 80 },
   });
 
+  let formattedTechs = props.techs
+    .map((tech, index) => {
+      if (index === props.techs.length - 1) {
+        return `and ${tech}.`;
+      }
+      return tech;
+    })
+    .join(", ");
+
+  formattedTechs = formattedTechs.replace(/,([^,]*)$/, "$1");
+
   return (
     <div className={classes.ProjectCard}>
       <animated.div
@@ -21,7 +32,12 @@ const Project = (props) => {
           transform: transform.interpolate((t) => `${t} rotateX(180deg)`),
         }}
       >
+        <h2>{props.name}</h2>
         <p>{props.description}</p>
+        <div>
+          <h3>Techs Used:</h3>
+          <p>{formattedTechs}</p>
+        </div>
         <button
           onClick={() => setFlipped(!flipped)}
           className={classes.FlipText}
