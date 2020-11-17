@@ -1,0 +1,28 @@
+.About {
+  color: white;
+  font-family: "PT Sans";
+}
+
+img {
+  height: 27px;
+  width: auto;
+  padding: 0 7px;
+}
+
+.About h2 {
+  font-size: 70px;
+  font-weight: 700;
+}
+
+.About h1,
+.About h3 {
+  font-size: 30px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.About h1,
+.About h2,
+.About h3 {
+  margin: 0;
+}
