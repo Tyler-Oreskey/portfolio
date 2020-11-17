@@ -22,7 +22,7 @@ const SocialIcons = () => {
     },
     {
       icon: facebook,
-      destination: "https://www.facebook.com/",
+      destination: "https://www.facebook.com/tyler.oreskey.5",
       name: "Facebook",
     },
   ];
