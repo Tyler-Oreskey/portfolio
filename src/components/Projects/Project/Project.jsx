@@ -22,7 +22,18 @@ const Project = (props) => {
   return (
     <div onClick={() => setFlipped(!flipped)} className={classes.ProjectCard}>
       <animated.div
-        className={`card ${classes.Front}`}
+        className={classes.Card}
+        id={classes.Back}
+        style={{
+          opacity,
+          transform: transform.interpolate((t) => `${t} rotateX(180deg)`),
+        }}
+      >
+        <p>{props.description}</p>
+        <div className={classes.FlipText}>{flipText}</div>
+      </animated.div>
+      <animated.div
+        className={classes.Card}
         style={{
           opacity: opacity.interpolate((o) => 1 - o),
           transform,
@@ -31,16 +42,6 @@ const Project = (props) => {
         }}
       >
         <h1>{props.name}</h1>
-        <div className={classes.FlipText}>{flipText}</div>
-      </animated.div>
-      <animated.div
-        className={`card ${classes.Back}`}
-        style={{
-          opacity,
-          transform: transform.interpolate((t) => `${t} rotateX(180deg)`),
-        }}
-      >
-        <p>{props.description}</p>
         <div className={classes.FlipText}>{flipText}</div>
       </animated.div>
     </div>
