@@ -12,6 +12,22 @@ import NavContext from "../context/nav-context";
 import classes from "./Portfolio.module.css";
 
 const Portfolio = () => {
+  const [navItems] = useState(
+    [
+      {
+        location: "/about",
+        label: "About",
+      },
+      {
+        location: "/projects",
+        label: "Projects",
+      },
+      {
+        location: "/contact",
+        label: "Contact",
+      },
+    ].map((navItem, index) => ({ ...navItem, id: index }))
+  );
   const [currentNavID, setCurrentNavID] = useState(1);
   const [reverse, setReverse] = useState(false);
   const location = useLocation();
@@ -26,24 +42,6 @@ const Portfolio = () => {
       transform: `translate3d(${reverse ? "100%" : "-100%"},0,0)`,
     },
   });
-
-  const navItems = [
-    {
-      location: "/about",
-      label: "About",
-      id: 1,
-    },
-    {
-      location: "/projects",
-      label: "Projects",
-      id: 2,
-    },
-    {
-      location: "/contact",
-      label: "Contact",
-      id: 3,
-    },
-  ];
 
   useEffect(() => {
     const currentNavItem = navItems.find(
