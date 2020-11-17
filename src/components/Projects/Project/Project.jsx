@@ -11,14 +11,6 @@ const Project = (props) => {
     config: { mass: 5, tension: 500, friction: 80 },
   });
 
-  let flipText = null;
-
-  if (flipped) {
-    flipText = "View Photo";
-  } else {
-    flipText = "View Description";
-  }
-
   return (
     <div onClick={() => setFlipped(!flipped)} className={classes.ProjectCard}>
       <animated.div
@@ -30,7 +22,7 @@ const Project = (props) => {
         }}
       >
         <p>{props.description}</p>
-        <div className={classes.FlipText}>{flipText}</div>
+        <div className={classes.FlipText}>View Photo</div>
       </animated.div>
       <animated.div
         className={classes.Card}
@@ -42,7 +34,7 @@ const Project = (props) => {
         }}
       >
         <h1>{props.name}</h1>
-        <div className={classes.FlipText}>{flipText}</div>
+        <div className={classes.FlipText}>View Description</div>
       </animated.div>
     </div>
   );
