@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
 import classes from "./NavigationItem.module.css";
 
 const NavigationItem = (props) => {
@@ -8,8 +7,12 @@ const NavigationItem = (props) => {
     color: "#00BFFF",
     fontWeight: "bold",
   };
+
   return (
-    <li className={classes.NavigationItem}>
+    <li
+      className={classes.NavigationItem}
+      onClick={() => props.clicked(props.navID)}
+    >
       <NavLink
         to={props.location}
         activeStyle={style}

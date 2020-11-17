@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 import { animated, useTransition } from "react-spring";
 
@@ -7,22 +7,62 @@ import About from "../components/About/About";
 import ContactForm from "./ContactForm/ContactForm";
 import Toolbar from "../components/Navigation/Toolbar/Toolbar";
 import AbsoluteWrapper from "../hoc/AbsoluteWrapper/AbsoluteWrapper";
+import NavContext from "../context/nav-context";
 
 import classes from "./Portfolio.module.css";
 
 const Portfolio = () => {
+  const [currentNavID, setCurrentNavID] = useState(1);
+  const [reverse, setReverse] = useState(false);
   const location = useLocation();
   const transition = useTransition(location, (location) => location.pathname, {
     from: {
-      transform: "translate3d(100%,0,0)",
       opacity: 0,
+      transform: `translate3d(${reverse ? "-100%" : "100%"},0,0)`,
     },
     enter: { opacity: 1, transform: "translate3d(0%,0,0)" },
-    leave: { opacity: 0, transform: "translate3d(-50%,0,0)" },
+    leave: {
+      opacity: 0,
+      transform: `translate3d(${reverse ? "100%" : "-100%"},0,0)`,
+    },
   });
+
+  const navItems = [
+    {
+      location: "/about",
+      label: "About",
+      id: 1,
+    },
+    {
+      location: "/projects",
+      label: "Projects",
+      id: 2,
+    },
+    {
+      location: "/contact",
+      label: "Contact",
+      id: 3,
+    },
+  ];
+
+  useEffect(() => {
+    const currentNavItem = navItems.find(
+      (navItem) => location.pathname === navItem.location
+    );
+    setCurrentNavID(currentNavItem.id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const setNavItem = (navID) => {
+    setCurrentNavID(navID);
+    setReverse(currentNavID > navID);
+  };
+
   return (
     <div className={classes.Portfolio}>
-      <Toolbar />
+      <NavContext.Provider value={{ navItems, setNavItem }}>
+        <Toolbar />
+      </NavContext.Provider>
       {transition.map(({ item: location, props, key }) => (
         <animated.div style={props} key={key}>
           <AbsoluteWrapper>
