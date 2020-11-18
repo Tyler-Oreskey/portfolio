@@ -44,9 +44,8 @@ const Portfolio = () => {
   });
 
   useEffect(() => {
-    const currentNavItem = navItems.find(
-      (navItem) => location.pathname === navItem.location
-    );
+    const currentNavItem =
+      navItems.find((navItem) => location.pathname === navItem.location) || 1;
     setCurrentNavID(currentNavItem.id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
