@@ -32,3 +32,27 @@
   font-size: 15px;
   font-weight: 700;
 }
+
+@media (min-width: 576px) {
+  .ContactForm {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .ContactForm {
+    max-width: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  .ContactForm {
+    max-width: 60%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ContactForm {
+    max-width: 40%;
+  }
+}

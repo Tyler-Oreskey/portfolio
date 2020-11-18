@@ -108,7 +108,7 @@ class ContactForm extends Component {
     }
 
     return (
-      <div className={classes.ContactForm}>
+      <div className={`col-md-6 ${classes.ContactForm}`}>
         <form onSubmit={(event) => this.handleSubmit(event)} noValidate>
           <div className="form-group">
             <label>Your Name</label>
