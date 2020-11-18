@@ -173,10 +173,11 @@ class ContactForm extends Component {
             </div>
             {messageError}
           </div>
-
-          <button type="submit" className="btn btn-primary">
-            SUBMIT
-          </button>
+          <div className={classes.FormSubmit}>
+            <button type="submit" className="btn btn-outline-light">
+              SUBMIT
+            </button>
+          </div>
         </form>
       </div>
     );
