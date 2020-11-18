@@ -32,8 +32,7 @@
 
 .Card p,
 .Card h1,
-.Card h2,
-.Card h3 {
+.Card h2 {
   padding: 3px 10px 5px 10px;
 }
 
@@ -51,13 +50,22 @@
   letter-spacing: 2px;
 }
 
+.Card h1 {
+  font-size: 2.5vw;
+}
+
+.Card h2 {
+  font-size: 2.5vw;
+}
+
 .Card h3 {
-  font-size: 20px;
+  font-size: 2.5vw;
+  padding: 0 0 1px 10px;
 }
 
 .Card p {
-  font-size: 17px;
-  letter-spacing: 2px;
+  font-size: 2.2vw;
+  letter-spacing: 1px;
 }
 
 .CardIcons {
@@ -97,12 +105,46 @@
 }
 
 @media (min-width: 320px) {
+  .Card {
+    width: 95%;
+    height: 200px;
+  }
+
+  .Card > div {
+    overflow: auto;
+  }
+
+  .Back {
+    height: 300px;
+  }
+
+  .Back button {
+    top: 140%;
+    left: 5%;
+  }
+
+  .Card h1 {
+    font-size: 5vw;
+  }
+
+  .Card h2 {
+    font-size: 5vw;
+  }
+
+  .Card h3 {
+    font-size: 3vw;
+  }
+
+  .Card p {
+    font-size: 3vw;
+    letter-spacing: 1px;
+  }
+
   .FlipText {
     cursor: pointer;
     background-color: transparent;
     color: white;
     border-radius: 4px;
-    font-size: 30px;
     border: 1px solid white;
     position: absolute;
     top: 90%;
@@ -122,19 +164,173 @@
   }
 }
 
+@media (min-width: 400px) {
+  .Card {
+    height: 255px;
+  }
+  .Back {
+    height: 320px;
+  }
+
+  .Back button {
+    top: 116%;
+    left: 5%;
+  }
+
+  .Card h1 {
+    font-size: 6vw;
+  }
+
+  .Card h2 {
+    font-size: 6vw;
+  }
+
+  .Card h3 {
+    font-size: 3vw;
+  }
+
+  .Card p {
+    font-size: 3vw;
+    letter-spacing: 1px;
+  }
+}
+
+@media (min-width: 460px) {
+  .Card {
+    height: 280px;
+  }
+  .Back {
+    height: 340px;
+  }
+
+  .Back button {
+    top: 113%;
+    left: 5%;
+  }
+
+  .Card h1 {
+    font-size: 6vw;
+  }
+
+  .Card h2 {
+    font-size: 6vw;
+  }
+
+  .Card h3 {
+    font-size: 3vw;
+  }
+
+  .Card p {
+    font-size: 3vw;
+    letter-spacing: 1px;
+  }
+}
+
+@media (min-width: 530px) {
+  .Card {
+    height: 280px;
+  }
+  .Back {
+    height: 360px;
+  }
+
+  .Back button {
+    top: 120%;
+    left: 5%;
+  }
+
+  .Card h1 {
+    font-size: 6vw;
+  }
+
+  .Card h2 {
+    font-size: 6vw;
+  }
+
+  .Card h3 {
+    font-size: 3vw;
+  }
+
+  .Card p {
+    font-size: 3vw;
+    letter-spacing: 1px;
+  }
+}
+
 @media (min-width: 576px) {
+  .FlipText {
+    font-size: 25px;
+  }
   .Card {
-    max-width: 80%;
+    height: 310px;
+  }
+  .Back {
+    height: 400px;
+  }
+
+  .Back button {
+    top: 120%;
+    left: 5%;
+  }
+
+  .Card h1 {
+    font-size: 6vw;
+  }
+
+  .Card h2 {
+    font-size: 6vw;
+  }
+
+  .Card h3 {
+    font-size: 3vw;
+  }
+
+  .Card p {
+    font-size: 3vw;
+    letter-spacing: 1px;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 650px) {
   .Card {
-    max-width: 90%;
+    width: 95%;
+    height: 400px;
+  }
+  .Card > div {
+    overflow: none;
+  }
+
+  .Back button {
+    top: 90%;
+    left: 5%;
+  }
+
+  .Card h1 {
+    font-size: 30px;
+  }
+
+  .Card h2 {
+    font-size: 25px;
+  }
+
+  .Card h3 {
+    font-size: 20px;
+  }
+
+  .Card p {
+    font-size: 17px;
+    letter-spacing: 2px;
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 810px) {
+  .Card {
+    width: 800px;
+    height: 400px;
+  }
+}
+
+@media (min-width: 1025px) {
   .FlipText {
     visibility: hidden;
   }
