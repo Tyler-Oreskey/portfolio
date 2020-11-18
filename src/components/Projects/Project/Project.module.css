@@ -17,41 +17,12 @@
   box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
 }
 
-.Card .Front:hover:before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.Card:hover .FlipText {
-  cursor: pointer;
-  background-color: transparent;
-  visibility: visible;
-  color: white;
-  border-radius: 4px;
-  font-size: 30px;
-  border: 1px solid white;
-  position: absolute;
-  top: 90%;
-  left: 5%;
-  transform: translate(-10%, -90%);
-  padding: 5px;
-}
-
 .Front,
 .Back {
   width: 100%;
   height: 100%;
   background-size: cover;
   border-radius: 7px !important;
-}
-
-.FlipText {
-  visibility: hidden;
 }
 
 .Back {
@@ -123,4 +94,77 @@
   border: 5px solid #cd201f;
   box-shadow: 0 0 15px #cd201f;
   transition: all 0.5s ease;
+}
+
+@media (min-width: 320px) {
+  .FlipText {
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border-radius: 4px;
+    font-size: 30px;
+    border: 1px solid white;
+    position: absolute;
+    top: 90%;
+    left: 5%;
+    transform: translate(-10%, -90%);
+    padding: 5px;
+  }
+
+  .Card .Front:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (min-width: 576px) {
+  .Card {
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .Card {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 992px) {
+  .FlipText {
+    visibility: hidden;
+  }
+
+  .Card .Front:hover:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .Card:hover .FlipText {
+    cursor: pointer;
+    background-color: transparent;
+    visibility: visible;
+    color: white;
+    border-radius: 4px;
+    font-size: 30px;
+    border: 1px solid white;
+    position: absolute;
+    top: 90%;
+    left: 5%;
+    transform: translate(-10%, -90%);
+    padding: 5px;
+  }
+
+  .Card .Front:before {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 }
