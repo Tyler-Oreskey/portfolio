@@ -1,6 +1,7 @@
 .About {
   color: white;
   font-family: "PT Sans";
+  max-width: 1000px;
 }
 
 img {
@@ -25,4 +26,7 @@ img {
 .About h2,
 .About h3 {
   margin: 0;
+}
+
+@media (min-width: 320px) {
 }

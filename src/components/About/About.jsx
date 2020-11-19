@@ -9,7 +9,7 @@ const About = () => {
   return (
     <div className={`${classes.About} container`}>
       <div className="row">
-        <div className="col">
+        <div className="col-12 col-md-7">
           <h1>Hello, I'm</h1>
           <h2>Tyler Oreskey</h2>
           <h3>
@@ -19,7 +19,7 @@ const About = () => {
           <SocialIcons />
           <Carousel />
         </div>
-        <div className="col">
+        <div className="col-12 order-first order-md-0 col-md-5">
           <h1>Picture Here!!!</h1>
         </div>
       </div>
