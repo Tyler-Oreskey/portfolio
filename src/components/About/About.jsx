@@ -16,10 +16,10 @@ const About = () => {
             <h1>Hello, I'm</h1>
             <h2>Tyler Oreskey</h2>
             <h3>
-              <img src={code} alt="</>" />
+              <img src={code} className={classes.DevIcon} alt="</>" />
             Full Stack Web Developer
-          </h3>
             <SocialIcons />
+            </h3>
             <Carousel />
           </div>
         </div>

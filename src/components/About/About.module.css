@@ -4,12 +4,6 @@
   max-width: 1300px;
 }
 
-img {
-  height: 27px;
-  width: auto;
-  padding: 0 7px;
-}
-
 .About h2 {
   font-weight: 700;
 }
@@ -43,6 +37,12 @@ img {
 
   .About h3 {
     font-size: 20px;
+  }
+
+  .About .DevIcon {
+    height: 27px;
+    width: auto;
+    padding: 0 7px;
   }
 
   .About h1,
@@ -119,6 +119,10 @@ img {
 
   .About h3 {
     font-size: 30px;
+  }
+
+  .About .DevIcon {
+    height: 35px;
   }
 }
 

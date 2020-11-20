@@ -70,36 +70,28 @@
 
 .CardIcons {
   position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -90%);
   display: flex;
 }
+
 .CardIcons a {
-  width: 75px;
-  height: 75px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  border: 5px solid;
   border-color: rgba(0, 0, 0, 0.5);
   margin-left: 15px;
 }
 
 .CardIcons img {
-  width: 70px;
   height: auto;
 }
 
 .CardIcons a:hover:nth-child(1) {
-  border: 5px solid #00405d;
   box-shadow: 0 0 15px #00405d;
   transition: all 0.5s ease;
 }
 
 .CardIcons a:hover:nth-child(2) {
-  border: 5px solid #cd201f;
   box-shadow: 0 0 15px #cd201f;
   transition: all 0.5s ease;
 }
@@ -162,6 +154,29 @@
     left: 0px;
     background-color: rgba(0, 0, 0, 0.3);
   }
+
+  .CardIcons {
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+  }
+  
+  .CardIcons a {
+    width: 47px;
+    height: 47px;
+  }
+  
+  .CardIcons img {
+    width: 43px;
+  }
+  
+  .CardIcons a:hover:nth-child(1) {
+    border: 3px solid #00405d;
+  }
+  
+  .CardIcons a:hover:nth-child(2) {
+    border: 3px solid #cd201f;
+  }
 }
 
 @media (min-width: 400px) {
@@ -192,6 +207,12 @@
   .Card p {
     font-size: 3vw;
     letter-spacing: 1px;
+  }
+
+  .CardIcons {
+    top: 125%;
+    left: 50%;
+    transform: translate(-50%, -125%);
   }
 }
 
@@ -224,6 +245,12 @@
     font-size: 3vw;
     letter-spacing: 1px;
   }
+
+  .CardIcons {
+    top: 120%;
+    left: 50%;
+    transform: translate(-50%, -120%);
+  }
 }
 
 @media (min-width: 530px) {
@@ -254,6 +281,12 @@
   .Card p {
     font-size: 3vw;
     letter-spacing: 1px;
+  }
+
+  .CardIcons {
+    top: 125%;
+    left: 50%;
+    transform: translate(-50%, -125%);
   }
 }
 
@@ -289,6 +322,29 @@
     font-size: 3vw;
     letter-spacing: 1px;
   }
+
+  .CardIcons {
+    top: 125%;
+    left: 50%;
+    transform: translate(-50%, -125%);
+  }
+  
+  .CardIcons a {
+    width: 57px;
+    height: 57px;
+  }
+  
+  .CardIcons img {
+    width: 53px;
+  }
+  
+  .CardIcons a:hover:nth-child(1) {
+    border:4px solid #00405d;
+  }
+  
+  .CardIcons a:hover:nth-child(2) {
+    border: 4px solid #cd201f;
+  }
 }
 
 @media (min-width: 650px) {
@@ -320,6 +376,28 @@
   .Card p {
     font-size: 17px;
     letter-spacing: 2px;
+  }
+
+  .CardIcons {
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+  }
+  .CardIcons a {
+    width: 75px;
+    height: 75px;
+  }
+  
+  .CardIcons img {
+    width: 70px;
+  }
+  
+  .CardIcons a:hover:nth-child(1) {
+    border: 5px solid #00405d;
+  }
+
+  .CardIcons a:hover:nth-child(2) {
+    border: 5px solid #cd201f;
   }
 }
 

@@ -1,4 +1,21 @@
 .SocialIcons {
-  text-align: center;
   padding: 12px 0 12px;
 }
+
+.SocialIcons img {
+  width: auto;
+  padding: 0 7px;
+}
+
+@media (min-width: 320px) {
+  .SocialIcons img {
+    height: 37px;
+  }
+}
+
+@media (min-width: 576px) {
+  .SocialIcons img {
+    height: 45px;
+  }
+}
+
