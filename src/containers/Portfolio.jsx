@@ -4,6 +4,7 @@ import { animated, useTransition } from "react-spring";
 
 import Projects from "../components/Projects/Projects";
 import About from "../components/About/About";
+import Experience from "../components/Experience/Experience";
 import ContactForm from "./ContactForm/ContactForm";
 import Toolbar from "../components/Navigation/Toolbar/Toolbar";
 import AbsoluteWrapper from "../hoc/AbsoluteWrapper/AbsoluteWrapper";
@@ -17,6 +18,10 @@ const Portfolio = () => {
       {
         location: "/about",
         label: "About",
+      },
+      {
+        location: "/experience",
+        label: "Experience",
       },
       {
         location: "/projects",
@@ -66,6 +71,7 @@ const Portfolio = () => {
             <Switch location={location}>
               <Route path="/about" component={About} />
               <Route path="/contact" component={ContactForm} />
+              <Route path="/experience" component={Experience} />
               <Route path="/projects" component={Projects} />
               <Redirect from="/" to="/about" />
             </Switch>
