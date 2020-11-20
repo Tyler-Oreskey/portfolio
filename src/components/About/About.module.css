@@ -1,7 +1,7 @@
 .About {
   color: white;
   font-family: "PT Sans";
-  max-width: 1000px;
+  max-width: 1200px;
 }
 
 img {
@@ -11,7 +11,6 @@ img {
 }
 
 .About h2 {
-  font-size: 70px;
   font-weight: 700;
 }
 
@@ -29,4 +28,97 @@ img {
 }
 
 @media (min-width: 320px) {
+  .Me {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+  }
+  .About h2 {
+    font-size: 45px;
+    padding-bottom: 10px;
+  }
+
+  .About h3 {
+    font-size: 20px;
+  }
+
+  .About h1,
+  .About h2,
+  .About h3,
+  .About p {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 }
+
+@media (min-width: 576px) {
+  .Me {
+    width: 80%;
+  }
+  .About h2 {
+    font-size: 50px;
+    padding-bottom: 10px;
+  }
+
+  .About h3 {
+    font-size: 25px;
+  }
+
+  .About h1,
+  .About h2,
+  .About h3,
+  .About p {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .About .Col1 {
+    margin-top: 190px;
+  }
+
+  .About .Col2 {
+    text-align: center;
+    margin-top: 150px;
+  }
+
+  .Me {
+    width: 100%;
+  }
+
+  .About h2 {
+    font-size: 50px;
+  }
+
+  .About h3 {
+    font-size: 27px;
+  }
+
+  .About h1,
+  .About h2,
+  .About h3,
+  .About p {
+    padding: none;
+  }
+}
+
+
+@media (min-width: 922px) {
+  .About .Col2 {
+    margin-top: 100px;
+  }
+
+  .About h2 {
+    font-size: 80px;
+  }
+
+  .About h3 {
+    font-size: 30px;
+  }
+}
+
