@@ -11,7 +11,7 @@ const About = () => {
   return (
     <div className={`${classes.About} container`}>
       <div className="row">
-        <div className="col-12 col-md-7">
+        <div className="col-12 col-md-6">
           <div className={classes.Col1}>
             <h1>Hello, I'm</h1>
             <h2>Tyler Oreskey</h2>
@@ -23,7 +23,7 @@ const About = () => {
             <Carousel />
           </div>
         </div>
-        <div className="col-12 order-first order-md-0 col-md-5">
+        <div className="col-12 order-first order-md-0 col-md-6">
           <div className={classes.Col2}>
             <img className={classes.Me} src={about} alt="me" />
           </div>

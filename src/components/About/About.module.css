@@ -1,7 +1,7 @@
 .About {
   color: white;
   font-family: "PT Sans";
-  max-width: 1200px;
+  max-width: 1300px;
 }
 
 img {
@@ -96,7 +96,7 @@ img {
   }
 
   .About h3 {
-    font-size: 27px;
+    font-size: 24px;
   }
 
   .About h1,
@@ -113,6 +113,16 @@ img {
     margin-top: 100px;
   }
 
+  .About h2 {
+    font-size: 60px;
+  }
+
+  .About h3 {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1075px) {
   .About h2 {
     font-size: 80px;
   }
