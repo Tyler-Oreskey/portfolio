@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 
 import classes from "./ContactForm.module.css";
 
@@ -6,45 +7,19 @@ const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 );
 
-const validateForm = (errors) => {
-  let valid = true;
-  Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
-  return valid;
-};
-
-const checkErrorsOnChange = (errors, name, value, lengths) => {
-  const lengthError =
-    "You've reached the max amount of characters for this field!";
-  if (name === "name") {
-    if (value.length < 3) {
-      errors.name = "Name must be at least 3 characters long!";
-    } else if (value.length === lengths.name) {
-      errors.name = lengthError;
-    } else {
-      errors.name = "";
-    }
+const validateForm = (form) => {
+  const errors = {};
+  if (form.name.length < 3) {
+    errors.name = "Name must be at least 3 characters long!";
   }
 
-  if (name === "email") {
-    if (!validEmailRegex.test(value)) {
-      errors.email = "Email is not valid!";
-    } else if (value.length === lengths.email) {
-      errors.email = lengthError;
-    } else {
-      errors.email = "";
-    }
+  if (!validEmailRegex.test(form.email)) {
+    errors.email = "Email is not valid!";
   }
 
-  if (name === "message") {
-    if (value.length < 15) {
-      errors.message = "Message must be at least 15 characters long!";
-    } else if (value.length === lengths.message) {
-      errors.message = lengthError;
-    } else {
-      errors.message = "";
-    }
+  if (form.message.length < 15) {
+    errors.message = "Message must be at least 15 characters long!";
   }
-
   return errors;
 };
 
@@ -60,29 +35,31 @@ class ContactForm extends Component {
       email: 50,
       message: 500,
     },
-    errors: {
-      name: "",
-      email: "",
-      message: "",
-    },
+    errors: {},
   };
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
     const form = { ...this.state.form };
     form[name] = value;
-    const errors = checkErrorsOnChange({ ...this.state.errors }, name, value, {
-      ...this.state.maxLength,
-    });
-    this.setState({ form, errors });
+    this.setState({ form });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    if (validateForm(this.state.errors)) {
-      console.info("Valid Form");
+    const errors = validateForm(this.state.form);
+
+    if (Object.keys(errors).length > 0) {
+      this.setState({ errors });
+      return;
     } else {
-      console.error("Invalid Form");
+      this.setState({ errors: {} });
+      try {
+        await axios.post(`${process.env.REACT_APP_API_URL}/email/sendEmail`, this.state.form);
+        console.log('success')
+      } catch (error) {
+
+      }
     }
   };
 
@@ -91,19 +68,19 @@ class ContactForm extends Component {
 
     let nameError = null;
 
-    if (errors.name.length > 0) {
+    if (errors.name?.length > 0) {
       nameError = <p className={classes.FormError}>{errors.name}</p>;
     }
 
     let emailError = null;
 
-    if (errors.email.length > 0) {
+    if (errors.email?.length > 0) {
       emailError = <p className={classes.FormError}>{errors.email}</p>;
     }
 
     let messageError = null;
 
-    if (errors.message.length > 0) {
+    if (errors.message?.length > 0) {
       messageError = <p className={classes.FormError}>{errors.message}</p>;
     }
 
