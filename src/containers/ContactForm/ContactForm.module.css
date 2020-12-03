@@ -34,8 +34,12 @@
 }
 
 .FormSubmit {
-  padding-top: 10px;
+  padding-top: 7px;
   text-align: center;
+}
+
+.FormSubmit div {
+  margin: auto;
 }
 
 .FormSubmit button {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
+import Spinner from '../../UI/Spinner/Spinner';
 import classes from "./ContactForm.module.css";
 
 const validEmailRegex = RegExp(
@@ -36,6 +37,7 @@ class ContactForm extends Component {
       message: 500,
     },
     errors: {},
+    loading: false
   };
 
   handleInputChange = (event) => {
@@ -55,10 +57,12 @@ class ContactForm extends Component {
     } else {
       this.setState({ errors: {} });
       try {
+        this.setState({ loading: true });
         await axios.post(`${process.env.REACT_APP_API_URL}/email/sendEmail`, this.state.form);
-        console.log('success')
       } catch (error) {
 
+      } finally {
+        this.setState({ loading: false });
       }
     }
   };
@@ -82,6 +86,18 @@ class ContactForm extends Component {
 
     if (errors.message?.length > 0) {
       messageError = <p className={classes.FormError}>{errors.message}</p>;
+    }
+
+    let submission = null;
+
+    if (this.state.loading) {
+      submission = <Spinner size="medium" />;
+    } else {
+      submission = (
+        <button type="submit" className="btn btn-outline-light">
+          SUBMIT
+        </button>
+      );
     }
 
     return (
@@ -151,9 +167,7 @@ class ContactForm extends Component {
             {messageError}
           </div>
           <div className={classes.FormSubmit}>
-            <button type="submit" className="btn btn-outline-light">
-              SUBMIT
-            </button>
+            {submission}
           </div>
         </form>
       </div>
