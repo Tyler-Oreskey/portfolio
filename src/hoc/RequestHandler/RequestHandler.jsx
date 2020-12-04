@@ -6,8 +6,7 @@ import Toast from '../../UI/Toast/Toast';
 const RequestHandler = (WrappedComponent, axios) => {
   return class extends Component {
     state = {
-      error: null,
-      success: null
+      error: null
     }
 
     componentWillMount() {

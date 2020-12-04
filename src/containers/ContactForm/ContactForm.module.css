@@ -33,13 +33,20 @@
   font-weight: 700;
 }
 
-.FormSubmit {
+.FormSubmit,
+.Recaptcha {
   padding-top: 7px;
   text-align: center;
 }
 
-.FormSubmit div {
+.FormSubmit div,
+.Recaptcha div {
   margin: auto;
+}
+
+.Recaptcha {
+  padding-top: 5px;
+  padding-bottom: 12px;
 }
 
 .FormSubmit button {

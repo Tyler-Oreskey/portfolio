@@ -5,13 +5,14 @@ import RequestHandler from '../../hoc/RequestHandler/RequestHandler';
 import Spinner from '../../UI/Spinner/Spinner';
 import classes from "./ContactForm.module.css";
 import Toast from '../../UI/Toast/Toast';
-import Auxiliary from '../../hoc/Auxiliary/Auxiliary'
+import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
+import Recaptcha from '../../auth/Recaptcha/Recaptcha';
 
 const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 );
 
-const validateForm = (form) => {
+const validateForm = (form, recaptchaToken) => {
   const errors = {};
   if (form.name.length < 3) {
     errors.name = "Name must be at least 3 characters long!";
@@ -24,6 +25,11 @@ const validateForm = (form) => {
   if (form.message.length < 15) {
     errors.message = "Message must be at least 15 characters long!";
   }
+
+  if (!recaptchaToken || recaptchaToken === '') {
+    errors.recaptcha = "Please accept the recaptcha!";
+  }
+
   return errors;
 };
 
@@ -41,7 +47,17 @@ class ContactForm extends Component {
     },
     errors: {},
     loading: false,
-    success: false
+    success: false,
+    recapchaReady: false,
+    recaptchaToken: null
+  };
+
+  recaptchaOnLoad = () => {
+    this.setState({ recapchaReady: true });
+  };
+
+  verifyRecaptcha = (captchaResponse) => {
+    this.setState({ recaptchaToken: captchaResponse })
   };
 
   handleInputChange = (event) => {
@@ -53,31 +69,50 @@ class ContactForm extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const errors = validateForm(this.state.form);
+
+    const errors = validateForm(this.state.form, this.state.recaptchaToken);
 
     if (Object.keys(errors).length > 0) {
       this.setState({ errors });
       return;
-    } else {
-      this.setState({ errors: {} });
-      try {
-        this.setState({ loading: true });
-        const res = await axios.post('/email/sendEmail', this.state.form);
-        if (res.status === 200) {
-          this.handleSuccessMessage(true);
-        }
+    }
 
-      } catch (error) {
-        // handled by request handler hoc
-      } finally {
-        this.setState({ loading: false });
+    this.setState({ errors: {} });
+
+    try {
+      this.setState({ loading: true });
+
+      const res = await axios
+        .post('/email/sendEmail',
+          { ...this.state.form, recaptchaToken: this.state.recaptchaToken }
+        );
+
+      if (res.status === 200) {
+        this.handleSuccessMessage(true);
+        this.resetValues();
       }
+    } catch (error) {
+      // handled by request handler hoc
+    } finally {
+      this.setState({ loading: false });
     }
   };
 
+  resetValues = () => {
+    this.recaptchaRef.reset();
+    this.setState({
+      form: {
+        name: "",
+        email: "",
+        message: "",
+      },
+      recaptchaToken: null
+    });
+  }
+
   handleSuccessMessage = (value) => {
     this.setState({ success: value });
-  }
+  };
 
   render() {
     const { errors } = this.state;
@@ -100,6 +135,12 @@ class ContactForm extends Component {
       messageError = <p className={classes.FormError}>{errors.message}</p>;
     }
 
+    let recaptchaError = null;
+
+    if (errors.recaptcha?.length > 0) {
+      recaptchaError = <p className={classes.FormError}>{errors.recaptcha}</p>;
+    }
+
     let submission = null;
 
     if (this.state.loading) {
@@ -109,7 +150,7 @@ class ContactForm extends Component {
         <button
           type="submit"
           className="btn btn-outline-light"
-          disabled={this.state.success}>
+          disabled={this.state.success || !this.state.recapchaReady}>
           SUBMIT
         </button>
       );
@@ -194,6 +235,14 @@ class ContactForm extends Component {
                 </div>
               </div>
               {messageError}
+            </div>
+            <div className={classes.Recaptcha}>
+              <Recaptcha
+                recaptchaRef={e => (this.recaptchaRef = e)}
+                verifyRecaptcha={this.verifyRecaptcha}
+                recaptchaOnLoad={this.recaptchaOnLoad}
+              />
+              {recaptchaError}
             </div>
             <div className={classes.FormSubmit}>
               {submission}

@@ -25,7 +25,7 @@ const Toast = (props) => {
         }
         const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
         return () => clearInterval(timer);
-    }, [counter]);
+    }, [counter, props]);
 
     const styles = {
         error: {
