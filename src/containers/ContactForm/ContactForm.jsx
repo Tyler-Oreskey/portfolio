@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from '../../axios';
 
+import RequestHandler from '../../hoc/RequestHandler/RequestHandler';
 import Spinner from '../../UI/Spinner/Spinner';
 import classes from "./ContactForm.module.css";
+import Toast from '../../UI/Toast/Toast';
+import Auxiliary from '../../hoc/Auxiliary/Auxiliary'
 
 const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
@@ -37,7 +40,8 @@ class ContactForm extends Component {
       message: 500,
     },
     errors: {},
-    loading: false
+    loading: false,
+    success: false
   };
 
   handleInputChange = (event) => {
@@ -58,14 +62,22 @@ class ContactForm extends Component {
       this.setState({ errors: {} });
       try {
         this.setState({ loading: true });
-        await axios.post(`${process.env.REACT_APP_API_URL}/email/sendEmail`, this.state.form);
-      } catch (error) {
+        const res = await axios.post('/email/sendEmail', this.state.form);
+        if (res.status === 200) {
+          this.handleSuccessMessage(true);
+        }
 
+      } catch (error) {
+        // handled by request handler hoc
       } finally {
         this.setState({ loading: false });
       }
     }
   };
+
+  handleSuccessMessage = (value) => {
+    this.setState({ success: value });
+  }
 
   render() {
     const { errors } = this.state;
@@ -94,85 +106,103 @@ class ContactForm extends Component {
       submission = <Spinner size="medium" />;
     } else {
       submission = (
-        <button type="submit" className="btn btn-outline-light">
+        <button
+          type="submit"
+          className="btn btn-outline-light"
+          disabled={this.state.success}>
           SUBMIT
         </button>
       );
     }
 
+    let successMessage = null;
+
+    if (this.state.success) {
+      successMessage = (
+        <Toast
+          message="Sent!"
+          type="success"
+          toggleSuccessMessage={this.handleSuccessMessage}
+        />
+      );
+    }
+
     return (
-      <div className={`col-md-6 ${classes.ContactForm}`}>
-        <form onSubmit={(event) => this.handleSubmit(event)} noValidate>
-          <div className="form-group">
-            <label>Your Name</label>
-            <div className="input-group">
-              <input
-                type="text"
-                name="name"
-                className="form-control"
-                placeholder="Enter Name"
-                maxLength={this.state.maxLength.name}
-                value={this.state.form.name}
-                onChange={(event) => this.handleInputChange(event)}
-              />
-              <div className="input-group-append">
-                <span className="input-group-text">
-                  {`${this.state.form.name.length}/${this.state.maxLength.name}`}
-                </span>
+      <Auxiliary>
+        {successMessage}
+        <div className={`col-md-6 ${classes.ContactForm}`}>
+          <form onSubmit={(event) => this.handleSubmit(event)} noValidate>
+            <div className="form-group">
+              <label>Your Name</label>
+              <div className="input-group">
+                <input
+                  type="text"
+                  name="name"
+                  className="form-control"
+                  placeholder="Enter Name"
+                  maxLength={this.state.maxLength.name}
+                  value={this.state.form.name}
+                  onChange={(event) => this.handleInputChange(event)}
+                />
+                <div className="input-group-append">
+                  <span className="input-group-text">
+                    {`${this.state.form.name.length}/${this.state.maxLength.name}`}
+                  </span>
+                </div>
               </div>
+              {nameError}
             </div>
-            {nameError}
-          </div>
 
-          <div className="form-group">
-            <label>Your Email</label>
-            <div className="input-group">
-              <input
-                type="email"
-                name="email"
-                className="form-control"
-                placeholder="Enter Email"
-                maxLength={this.state.maxLength.email}
-                value={this.state.form.email}
-                onChange={(event) => this.handleInputChange(event)}
-              />
-              <div className="input-group-append">
-                <span className="input-group-text">
-                  {this.state.form.email.length}/{this.state.maxLength.email}
-                </span>
+            <div className="form-group">
+              <label>Your Email</label>
+              <div className="input-group">
+                <input
+                  type="email"
+                  name="email"
+                  className="form-control"
+                  placeholder="Enter Email"
+                  maxLength={this.state.maxLength.email}
+                  value={this.state.form.email}
+                  onChange={(event) => this.handleInputChange(event)}
+                />
+                <div className="input-group-append">
+                  <span className="input-group-text">
+                    {this.state.form.email.length}/{this.state.maxLength.email}
+                  </span>
+                </div>
               </div>
+              {emailError}
             </div>
-            {emailError}
-          </div>
 
-          <div className="form-group form-text-area">
-            <label>Message</label>
-            <div className="input-group">
-              <textarea
-                name="message"
-                className="form-control"
-                placeholder="Enter Message"
-                rows="5"
-                maxLength={this.state.maxLength.message}
-                value={this.state.form.message}
-                onChange={(event) => this.handleInputChange(event)}
-              />
-              <div className="input-group-append">
-                <span className="input-group-text">
-                  {this.state.form.message.length}/
+            <div className="form-group form-text-area">
+              <label>Message</label>
+              <div className="input-group">
+                <textarea
+                  name="message"
+                  className="form-control"
+                  placeholder="Enter Message"
+                  rows="5"
+                  maxLength={this.state.maxLength.message}
+                  value={this.state.form.message}
+                  onChange={(event) => this.handleInputChange(event)}
+                />
+                <div className="input-group-append">
+                  <span className="input-group-text">
+                    {this.state.form.message.length}/
                   {this.state.maxLength.message}
-                </span>
+                  </span>
+                </div>
               </div>
+              {messageError}
             </div>
-            {messageError}
-          </div>
-          <div className={classes.FormSubmit}>
-            {submission}
-          </div>
-        </form>
-      </div>
+            <div className={classes.FormSubmit}>
+              {submission}
+            </div>
+          </form>
+        </div>
+      </Auxiliary>
     );
   }
 }
 
-export default ContactForm;
+export default RequestHandler(ContactForm, axios);
