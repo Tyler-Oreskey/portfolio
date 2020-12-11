@@ -24,7 +24,7 @@ const About = () => {
       <div className="row">
         <div className="col-12 col-md-6">
           <div className={classes.Col1}>
-            <h1>Hello, I'm Testing</h1>
+            <h1>Hello, I'm</h1>
             <h2>Tyler Oreskey</h2>
             <h3>
               <img src={code} className={classes.DevIcon} alt="</>" />
