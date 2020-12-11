@@ -3,4 +3,6 @@ const Config = {
   siteKey: process.env.REACT_APP_SITE_KEY
 };
 
+console.log(Config)
+
 export default Config;
