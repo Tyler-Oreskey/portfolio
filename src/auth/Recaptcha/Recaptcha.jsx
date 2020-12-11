@@ -1,13 +1,13 @@
 import React from 'react';
-import Config from "../../Config";
+import config from "../../config";
 import Reaptcha from "reaptcha";
 
-console.log(Config, 'reeee')
+console.log(config, 'reeee')
 
 const Recaptcha = (props) => {
     return (
         <Reaptcha
-            sitekey={Config.siteKey}
+            sitekey={config.siteKey}
             ref={props.recaptchaRef}
             onVerify={props.verifyRecaptcha}
             onLoad={props.recaptchaOnLoad}
