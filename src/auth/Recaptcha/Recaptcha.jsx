@@ -2,8 +2,6 @@ import React from 'react';
 import config from "../../config";
 import Reaptcha from "reaptcha";
 
-console.log(config, 'reeee')
-
 const Recaptcha = (props) => {
     return (
         <Reaptcha
