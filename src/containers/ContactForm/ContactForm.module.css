@@ -26,6 +26,14 @@
   color: white;
 }
 
+.ContactForm label {
+  padding-bottom: 5px;
+}
+
+.ContactForm div {
+  margin-bottom: 20px;
+}
+
 .FormError {
   color: #f54029;
   letter-spacing: 0.1rem;
@@ -45,8 +53,8 @@
 }
 
 .Recaptcha {
-  padding-top: 5px;
-  padding-bottom: 12px;
+  margin-top: 5px;
+  margin-bottom: 12px;
 }
 
 .FormSubmit button {

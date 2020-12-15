@@ -3,7 +3,6 @@ import React from "react";
 import classes from "./Experience.module.css";
 import tapOnItLogo from "../../assets/images/logos/taponit.jpg";
 import hachLogo from "../../assets/images/logos/hach.jpg";
-import scheelsLogo from "../../assets/images/logos/scheels.jpg";
 
 const Experience = () => {
     const jobs = [

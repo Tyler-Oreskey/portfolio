@@ -76,6 +76,23 @@
   }
 }
 
+.DownloadResume {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.DownloadResume img {
+  height: 20px;
+  width: auto;
+  padding-right: 10px;
+  padding-bottom: 4px;
+}
+
+.DownloadResume div {
+  margin-bottom: 2px;
+  margin-right: 10px;
+}
+
 
 @media (min-width: 768px) {
   .About .Col1 {

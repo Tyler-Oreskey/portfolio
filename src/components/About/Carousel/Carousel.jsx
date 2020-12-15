@@ -1,26 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { animated, useTransition } from "react-spring";
 
-import classes from "./Carousel.module.css";
-
 const Carousel = () => {
   const [carouselItems] = useState([
-    "yeetus 0 jhg asdjfg akjhsd  fkjhy uasgdkhjfggasd khjfga ksjhdfgakjhs dgfk hjassadf asdfa sdfasdfa sdfasf jkhf asdkjlfh ajskldf hajklsdjka shdf jk",
-    "yeetus 1 jhg asdjfg akjhsd fhgujyasd fkjhy uasghs dgfk hjassadf asdfa sdfasdfa sdfasf jkhf asdkjlfh ajskldf hajklsd hfljka sdhlfjka shdf jk",
-    "yeetus 2 jhg asdjfg akjhsd fhgujyasd fkjhy uas sdfasf jkhf asdkjlfh ajskldf hajklsd hfljka sdhlfjka shdf jk",
-    "yeetus 3 jhg asdjfg akjhsd fhgujyasd fkjhy uasgdkhjfggasd khjfga ksjhdfgakjhs dgfk khf asdkjlfh ajskldf hajklsd hfljka sdhlfjka shdf jk",
+    "Work in the software development field on challenging and interesting projects. Ideally, utilizing my skills and passion for analyzing data and rapidly creating robust valuable web solutions driving customer adoption and increased profit.",
+    "Collaborate with fellow developers to construct and scale complex Real-Time applications that make use of large datasets while maintaining excellent user experience.",
+    "Acquire and apply new technologies to improve cost, productivity and application performance. Technology is advancing everyday, we must do the same.",
   ]);
-  const [slideTimer] = useState(7000);
+
+  const [slideTimer] = useState(6000);
   let [slideIndex, setSlideIndex] = useState(0);
 
   const fadingText = useTransition(
     carouselItems[slideIndex],
     (item) => carouselItems.indexOf(item),
     {
-      from: { opacity: 0 },
-      enter: { opacity: 1 },
-      leave: { opacity: 0 },
-      config: { tension: 220, friction: 120 },
+      from: {
+        transform: `translate3d(-100%,0,0)`,
+        opacity: 0
+      },
+      enter: {
+        transform: "translate3d(0%,0,0)",
+        opacity: 1
+      },
+      leave: {
+        transform: `translate3d(100%,0,0)`,
+        opacity: 0,
+        position: "absolute"
+      },
     }
   );
 
@@ -33,9 +40,8 @@ const Carousel = () => {
 
   const animatedItems = fadingText.map(({ item, props, key }) => (
     <animated.div
-      className={classes.Carousel}
       key={key}
-      style={{ ...props, position: "absolute" }}
+      style={props}
     >
       <p>{item}</p>
     </animated.div>

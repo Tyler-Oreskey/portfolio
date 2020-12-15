@@ -185,11 +185,9 @@ class ContactForm extends Component {
                   value={this.state.form.name}
                   onChange={(event) => this.handleInputChange(event)}
                 />
-                <div className="input-group-append">
-                  <span className="input-group-text">
-                    {`${this.state.form.name.length}/${this.state.maxLength.name}`}
-                  </span>
-                </div>
+                <span className="input-group-text">
+                  {`${this.state.form.name.length}/${this.state.maxLength.name}`}
+                </span>
               </div>
               {nameError}
             </div>
@@ -206,11 +204,9 @@ class ContactForm extends Component {
                   value={this.state.form.email}
                   onChange={(event) => this.handleInputChange(event)}
                 />
-                <div className="input-group-append">
-                  <span className="input-group-text">
-                    {this.state.form.email.length}/{this.state.maxLength.email}
-                  </span>
-                </div>
+                <span className="input-group-text">
+                  {this.state.form.email.length}/{this.state.maxLength.email}
+                </span>
               </div>
               {emailError}
             </div>
@@ -227,12 +223,9 @@ class ContactForm extends Component {
                   value={this.state.form.message}
                   onChange={(event) => this.handleInputChange(event)}
                 />
-                <div className="input-group-append">
-                  <span className="input-group-text">
-                    {this.state.form.message.length}/
-                  {this.state.maxLength.message}
-                  </span>
-                </div>
+                <span className="input-group-text">
+                  {this.state.form.message.length}/{this.state.maxLength.message}
+                </span>
               </div>
               {messageError}
             </div>

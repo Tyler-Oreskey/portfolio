@@ -1,15 +1,16 @@
 import React from 'react';
 
-import classes from './Spinner.module.css';
-
 const Spinner = (props) => {
-    const styles = {
-        medium: {
-            fontSize: '3px'
-        }
+    const size = {
+        small: "spinner-border-sm",
+        medium: "spinner-border-md"
     };
 
-    return <div style={styles[props.size]} className={classes.Spinner}></div>;
+    return (
+        <div className={`${size[props.size]} spinner-border text-light`} role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>
+    );
 };
 
 export default Spinner;
