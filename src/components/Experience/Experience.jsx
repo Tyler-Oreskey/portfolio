@@ -26,23 +26,6 @@ const Experience = () => {
             logoURL: "https://yt3.ggpht.com/a/AATXAJzEOOhfxYO0jX2be3cD6umzEl8-xPDwSo545gtYEA=s900-c-k-c0x00ffffff-no-rj"
         },
         {
-            companyName: "Scheels All Sports",
-            title: "Support Evening Leader",
-            startDate: "November 2017",
-            endDate: "August 2018",
-            responsibilities: [
-                "Utilized valuable leadership skills as evening support leader.",
-                "Responsible for customer satisfaction and worker support.",
-                "Contributed to profit by assuring accurate product pricing and strategic floor product placement."
-            ],
-            accomplishments: [
-                "Helped reorganize and recount store inventory saving the company over ten million dollars.",
-                "Onboarded many support members and got them up to speed in less than a week."
-            ],
-            logo: scheelsLogo,
-            logoURL: "https://scheels.scene7.com/is/image/Scheels/03208536945?wid=400&hei=400&&qlt=50"
-        },
-        {
             companyName: "Hach Company",
             title: "Micro Soldering Tech",
             startDate: "May 2016",

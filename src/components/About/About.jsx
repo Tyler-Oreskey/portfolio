@@ -11,12 +11,16 @@ import classes from "./About.module.css";
 const About = () => {
 
   const downloadResume = async () => {
-    const res = await axios.get('/resume/getPDF');
-    const downloadLink = document.createElement("a");
-    const filename = "resume.pdf";
-    downloadLink.href = res.data.blob;
-    downloadLink.download = filename;
-    downloadLink.click();
+    try {
+      const res = await axios.get('/resume/getPDF');
+      const downloadLink = document.createElement("a");
+      const filename = "resume.pdf";
+      downloadLink.href = res.data.blob;
+      downloadLink.download = filename;
+      downloadLink.click();
+    } catch (error) {
+      // handled by request handler hoc
+    }
   };
 
   return (
