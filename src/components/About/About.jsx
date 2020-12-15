@@ -20,18 +20,17 @@ const About = () => {
     try {
       setIsLoading(true);
       const res = await axios.get('/resume/getPDF');
-      const downloadLink = document.createElement("a");
-      const filename = "resume.pdf";
-      downloadLink.href = res.data.blob;
-      downloadLink.download = filename;
-      downloadLink.click();
+      const arr = new Uint8Array(res.data.buffer.data);
+      const blob = new Blob([arr], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+      const pdfWindow = window.open();
+      pdfWindow.location.href = url;
     } catch (error) {
       // handled by request handler hoc
     } finally {
       setIsLoading(false);
     }
   };
-
 
   let icon = <img src={downloadIcon} alt="download" />;
 
