@@ -8,7 +8,7 @@ const Carousel = () => {
     "Acquire and apply new technologies to improve cost, productivity and application performance. Technology is advancing everyday, we must do the same.",
   ]);
 
-  const [slideTimer] = useState(6000);
+  const [slideTimer] = useState(8000);
   let [slideIndex, setSlideIndex] = useState(0);
 
   const fadingText = useTransition(
