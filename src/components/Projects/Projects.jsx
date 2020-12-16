@@ -62,7 +62,6 @@ class Projects extends Component {
         description:
           "Web application that encourages people of all coding skill levels to collaborate and hack together based on similar skill sets or project interests. The app alleviates complexities in finding or creating at team based off skill set, interests, personality, and cultural diversity.",
         techs: [
-          "DOM Manipulation",
           "HTML",
           "CSS",
           "JavaScript",

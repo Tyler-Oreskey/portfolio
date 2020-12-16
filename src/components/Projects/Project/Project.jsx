@@ -38,7 +38,7 @@ class Project extends Component {
           }
           className={classes.FlipText}
         >
-          BACK
+          FLIP
         </button>
       </div>
     );
@@ -67,7 +67,7 @@ class Project extends Component {
           }
           className={classes.FlipText}
         >
-          FRONT
+          FLIP
         </button>
       </div>
     );
