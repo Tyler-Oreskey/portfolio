@@ -16,15 +16,37 @@ const About = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [downloadIcon, setDownloadIcon] = useState(downloadWhite);
 
+  // const downloadResume = async () => {
+  //   try {
+  //     setIsLoading(true);
+  //     const res = await axios.get('/resume/getPDF');
+  //     const arr = new Uint8Array(res.data.buffer.data);
+  //     const blob = new Blob([arr], { type: 'application/pdf' });
+  //     const url = URL.createObjectURL(blob);
+  //     const pdfWindow = window.open();
+  //     pdfWindow.location.href = url;
+  //   } catch (error) {
+  //     // handled by request handler hoc
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+
   const downloadResume = async () => {
     try {
       setIsLoading(true);
       const res = await axios.get('/resume/getPDF');
       const arr = new Uint8Array(res.data.buffer.data);
       const blob = new Blob([arr], { type: 'application/pdf' });
-      const url = URL.createObjectURL(blob);
-      const pdfWindow = window.open();
-      pdfWindow.location.href = url;
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = "file.pdf";
+      link.click();
+      setTimeout(() => {
+        // For Firefox it is necessary to delay revoking the ObjectURL
+        window.URL.revokeObjectURL(url);
+      }, 100);
     } catch (error) {
       // handled by request handler hoc
     } finally {
