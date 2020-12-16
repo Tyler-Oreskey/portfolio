@@ -18,8 +18,8 @@ const Experience = () => {
             ],
             accomplishments: [
                 "Developed an automated NodeJS multi report emailing system that retrieved database numbers, compiled them into a PDF and sent them to assigned emails during schedule time.",
-                "Migrated all databases from MSSQL to PostrgreSQL in order to savet he company money and to enhance performace within the application.",
-                "Onboarded an entry level software engineer."
+                "Migrated all databases from MSSQL to PostrgreSQL in order to save the company money and to enhance performace within the application.",
+                "Aided in the process of onboarding an entry level software engineer."
             ],
             logo: tapOnItLogo,
             logoURL: "https://yt3.ggpht.com/a/AATXAJzEOOhfxYO0jX2be3cD6umzEl8-xPDwSo545gtYEA=s900-c-k-c0x00ffffff-no-rj"
