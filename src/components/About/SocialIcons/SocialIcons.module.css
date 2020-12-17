@@ -1,15 +1,10 @@
 .SocialIcons {
   padding: 12px 0 12px;
+  display: flex;
 }
 
 .SocialIcons img {
-  width: auto;
   padding: 0 7px;
-}
-
-
-.SocialIcons {
-  display: flex;
 }
 
 .SocialIcons a {
@@ -19,10 +14,6 @@
   border-radius: 100%;
   border-color: rgba(0, 0, 0, 0.5);
   margin-left: 20px;
-}
-
-.SocialIcons img {
-  height: auto;
 }
 
 

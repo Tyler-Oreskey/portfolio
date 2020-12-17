@@ -4,6 +4,11 @@
   max-width: 1300px;
 }
 
+
+.About .Col1 button {
+  float: left;
+}
+
 .About h2 {
   font-weight: 700;
 }
@@ -21,64 +26,21 @@
   margin: 0;
 }
 
-@media (min-width: 320px) {
-  .Me {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 20px;
-  }
-  .About h2 {
-    font-size: 45px;
-    padding-bottom: 10px;
-  }
-
-  .About h3 {
-    font-size: 20px;
-  }
-
-  .About .DevIcon {
-    height: 27px;
-    width: auto;
-    padding: 0 7px;
-  }
-
-  .About h1,
-  .About h2,
-  .About h3,
-  .About p {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
+.About .DevIcon {
+  height: 27px;
+  width: auto;
+  padding-right: 7px;
 }
 
-@media (min-width: 576px) {
-  .Me {
-    width: 80%;
-  }
-  .About h2 {
-    font-size: 50px;
-    padding-bottom: 10px;
-  }
-
-  .About h3 {
-    font-size: 25px;
-  }
-
-  .About h1,
-  .About h2,
-  .About h3,
-  .About p {
-    padding-right: 25px;
-    padding-left: 25px;
-  }
+.Me {
+  width: 90%;
+  height: auto;
+  padding-bottom: 20px;
 }
 
 .DownloadResume {
   margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 15px;
 }
 
 .DownloadResume img {
@@ -93,6 +55,25 @@
   margin-right: 10px;
 }
 
+@media (min-width: 320px) {
+  .About h2 {
+    font-size: 45px;
+    padding-bottom: 10px;
+  }
+
+  .About h3 {
+    font-size: 20px;
+  }
+
+  .About h1,
+  .About h2,
+  .About h3,
+  .About p {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
 
 @media (min-width: 768px) {
   .About .Col1 {
@@ -100,27 +81,7 @@
   }
 
   .About .Col2 {
-    text-align: center;
     margin-top: 150px;
-  }
-
-  .Me {
-    width: 100%;
-  }
-
-  .About h2 {
-    font-size: 50px;
-  }
-
-  .About h3 {
-    font-size: 24px;
-  }
-
-  .About h1,
-  .About h2,
-  .About h3,
-  .About p {
-    padding: none;
   }
 }
 
@@ -128,10 +89,6 @@
 @media (min-width: 922px) {
   .About .Col2 {
     margin-top: 100px;
-  }
-
-  .About h2 {
-    font-size: 60px;
   }
 
   .About h3 {
