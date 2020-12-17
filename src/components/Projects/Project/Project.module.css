@@ -17,85 +17,6 @@
   box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
 }
 
-.Front,
-.Back {
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  border-radius: 7px !important;
-}
-
-.Back {
-  border: 1px solid #686868;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.Card p,
-.Card h1,
-.Card h2 {
-  padding: 3px 10px 5px 10px;
-}
-
-.Card h2 {
-  padding-top: 5px;
-  text-align: center;
-  border-bottom: 1px solid #686868;
-  padding-bottom: 3px;
-}
-
-.Card h1,
-.Card h2,
-.Card h3 {
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.Card h1 {
-  font-size: 2.5vw;
-}
-
-.Card h2 {
-  font-size: 2.5vw;
-}
-
-.Card h3 {
-  font-size: 2.5vw;
-  padding: 0 0 1px 10px;
-}
-
-.Card p {
-  font-size: 2.2vw;
-  letter-spacing: 1px;
-}
-
-.CardIcons {
-  position: absolute;
-  display: flex;
-}
-
-.CardIcons a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 100%;
-  border-color: rgba(0, 0, 0, 0.5);
-  margin-left: 15px;
-}
-
-.CardIcons img {
-  height: auto;
-}
-
-.CardIcons a:hover:nth-child(1) {
-  box-shadow: 0 0 15px #00405d;
-  transition: all 0.5s ease;
-}
-
-.CardIcons a:hover:nth-child(2) {
-  box-shadow: 0 0 15px #cd201f;
-  transition: all 0.5s ease;
-}
-
 @media (min-width: 320px) {
   .Card {
     width: 95%;
@@ -105,114 +26,11 @@
   .Card > div {
     overflow: auto;
   }
-
-  .Back {
-    height: 300px;
-  }
-
-  .Back button {
-    top: 140%;
-    left: 5%;
-  }
-
-  .Card h1 {
-    font-size: 5vw;
-  }
-
-  .Card h2 {
-    font-size: 5vw;
-  }
-
-  .Card h3 {
-    font-size: 3vw;
-  }
-
-  .Card p {
-    font-size: 3vw;
-    letter-spacing: 1px;
-  }
-
-  .FlipText {
-    cursor: pointer;
-    background-color: transparent;
-    color: white;
-    border-radius: 4px;
-    border: 1px solid white;
-    position: absolute;
-    top: 90%;
-    left: 5%;
-    transform: translate(-10%, -90%);
-    padding: 5px;
-  }
-
-  .Card .Front:before {
-    content: "";
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-
-  .CardIcons {
-    top: 150%;
-    left: 50%;
-    transform: translate(-50%, -150%);
-  }
-  
-  .CardIcons a {
-    width: 47px;
-    height: 47px;
-  }
-  
-  .CardIcons img {
-    width: 43px;
-  }
-  
-  .CardIcons a:hover:nth-child(1) {
-    border: 3px solid #00405d;
-  }
-  
-  .CardIcons a:hover:nth-child(2) {
-    border: 3px solid #cd201f;
-  }
 }
 
 @media (min-width: 400px) {
   .Card {
     height: 255px;
-  }
-  .Back {
-    height: 320px;
-  }
-
-  .Back button {
-    top: 116%;
-    left: 5%;
-  }
-
-  .Card h1 {
-    font-size: 6vw;
-  }
-
-  .Card h2 {
-    font-size: 6vw;
-  }
-
-  .Card h3 {
-    font-size: 3vw;
-  }
-
-  .Card p {
-    font-size: 3vw;
-    letter-spacing: 1px;
-  }
-
-  .CardIcons {
-    top: 125%;
-    left: 50%;
-    transform: translate(-50%, -125%);
   }
 }
 
@@ -220,130 +38,17 @@
   .Card {
     height: 280px;
   }
-  .Back {
-    height: 340px;
-  }
-
-  .Back button {
-    top: 113%;
-    left: 5%;
-  }
-
-  .Card h1 {
-    font-size: 6vw;
-  }
-
-  .Card h2 {
-    font-size: 6vw;
-  }
-
-  .Card h3 {
-    font-size: 3vw;
-  }
-
-  .Card p {
-    font-size: 3vw;
-    letter-spacing: 1px;
-  }
-
-  .CardIcons {
-    top: 120%;
-    left: 50%;
-    transform: translate(-50%, -120%);
-  }
 }
 
 @media (min-width: 530px) {
   .Card {
     height: 280px;
   }
-  .Back {
-    height: 360px;
-  }
-
-  .Back button {
-    top: 120%;
-    left: 5%;
-  }
-
-  .Card h1 {
-    font-size: 6vw;
-  }
-
-  .Card h2 {
-    font-size: 6vw;
-  }
-
-  .Card h3 {
-    font-size: 3vw;
-  }
-
-  .Card p {
-    font-size: 3vw;
-    letter-spacing: 1px;
-  }
-
-  .CardIcons {
-    top: 125%;
-    left: 50%;
-    transform: translate(-50%, -125%);
-  }
 }
 
 @media (min-width: 576px) {
-  .FlipText {
-    font-size: 25px;
-  }
   .Card {
     height: 310px;
-  }
-  .Back {
-    height: 400px;
-  }
-
-  .Back button {
-    top: 120%;
-    left: 5%;
-  }
-
-  .Card h1 {
-    font-size: 6vw;
-  }
-
-  .Card h2 {
-    font-size: 6vw;
-  }
-
-  .Card h3 {
-    font-size: 3vw;
-  }
-
-  .Card p {
-    font-size: 3vw;
-    letter-spacing: 1px;
-  }
-
-  .CardIcons {
-    top: 125%;
-    left: 50%;
-    transform: translate(-50%, -125%);
-  }
-  
-  .CardIcons a {
-    width: 57px;
-    height: 57px;
-  }
-  
-  .CardIcons img {
-    width: 53px;
-  }
-  
-  .CardIcons a:hover:nth-child(1) {
-    border:4px solid #00405d;
-  }
-  
-  .CardIcons a:hover:nth-child(2) {
-    border: 4px solid #cd201f;
   }
 }
 
@@ -355,90 +60,11 @@
   .Card > div {
     overflow: none;
   }
-
-  .Back button {
-    top: 90%;
-    left: 5%;
-  }
-
-  .Card h1 {
-    font-size: 30px;
-  }
-
-  .Card h2 {
-    font-size: 25px;
-  }
-
-  .Card h3 {
-    font-size: 20px;
-  }
-
-  .Card p {
-    font-size: 17px;
-    letter-spacing: 2px;
-  }
-
-  .CardIcons {
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -90%);
-  }
-  .CardIcons a {
-    width: 75px;
-    height: 75px;
-  }
-  
-  .CardIcons img {
-    width: 70px;
-  }
-  
-  .CardIcons a:hover:nth-child(1) {
-    border: 5px solid #00405d;
-  }
-
-  .CardIcons a:hover:nth-child(2) {
-    border: 5px solid #cd201f;
-  }
 }
 
 @media (min-width: 810px) {
   .Card {
     width: 800px;
     height: 400px;
-  }
-}
-
-@media (min-width: 1025px) {
-  .FlipText {
-    visibility: hidden;
-  }
-
-  .Card .Front:hover:before {
-    content: "";
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-
-  .Card:hover .FlipText {
-    cursor: pointer;
-    background-color: transparent;
-    visibility: visible;
-    color: white;
-    border-radius: 4px;
-    font-size: 30px;
-    border: 1px solid white;
-    position: absolute;
-    top: 90%;
-    left: 5%;
-    transform: translate(-10%, -90%);
-    padding: 5px;
-  }
-
-  .Card .Front:before {
-    background-color: rgba(0, 0, 0, 0.1);
   }
 }
