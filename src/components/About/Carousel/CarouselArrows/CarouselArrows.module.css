@@ -1,0 +1,10 @@
+.PrevButton,
+.NextButton {
+    width: auto;
+    top: -30px;
+}
+
+.PrevButton span,
+.NextButton span {
+  height: 1.5rem;
+}

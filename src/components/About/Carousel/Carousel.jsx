@@ -1,22 +1,92 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { animated, useTransition } from "react-spring";
+
+import CarouselIndicators from "./CarouselIndicators/CarouselIndicators";
+import CarouselArrows from "./CarouselArrows/CarouselArrows"
+
+import classes from "./Carousel.module.css"
 
 const Carousel = () => {
   const [carouselItems] = useState([
     "Work in the software development field on challenging and interesting projects. Ideally, utilizing my skills and passion for analyzing data and rapidly creating robust valuable web solutions driving customer adoption and increased profit.",
-    "Collaborate with fellow developers to construct and scale complex Real-Time applications that make use of large datasets while maintaining excellent user experience.",
-    "Acquire and apply new technologies to improve cost, productivity and application performance. Technology is advancing everyday, we must do the same.",
+    "Collaborate with fellow developers to construct and scale complex Real-Time applications that make use of large datasets while maintaining excellent user experience. Expeditiously create optimal solutions for demanding tasks.",
+    "Continually acquire and apply brand-new or leading technologies to improve cost, productivity and application performance. Technology is advancing everyday along with my passion and curiosity for web developmnent.",
   ]);
 
-  const [slideTimer] = useState(8000);
+  const startingSlideTimer = 8000;
+  const longerSlideTimer = 12000;
+  const [slideTimer, setSlideTimer] = useState(startingSlideTimer);
   let [slideIndex, setSlideIndex] = useState(0);
+  let [slideDirection, setSlideDirection] = useState('right');
+  const [divWidth, setDivWidth] = useState(0);
+  const [moreTime, setMoreTime] = useState(false);
+  const divRef = useRef(null);
 
-  const fadingText = useTransition(
+  // set width of carousel div to ref.
+  useEffect(() => {
+    setDivWidth(divRef.current?.offsetWidth);
+  }, []);
+
+  // update carousel div width on page resize.
+  useLayoutEffect(() => {
+    window.addEventListener('resize', () => {
+      setDivWidth(divRef.current?.offsetWidth);
+    });
+  }, []);
+
+  // keep track of slide timer and proper slide direction.
+  useEffect(() => {
+    moreTime ? setSlideTimer(longerSlideTimer) : setSlideTimer(startingSlideTimer);
+
+    setSlideDirection('right');
+
+    const interval = setInterval(() => {
+      setSlideIndex((slideIndex) => (slideIndex + 1) % carouselItems.length);
+      setMoreTime(false);
+    }, slideTimer);
+    return () => clearInterval(interval);
+  }, [slideIndex, carouselItems.length, slideTimer, moreTime]);
+
+  // go back one slide.
+  const goBack = () => {
+    setMoreTime(true);
+    setSlideDirection('left');
+    if (slideIndex === 0) {
+      setSlideIndex(carouselItems.length - 1);
+    } else {
+      setSlideIndex(slideIndex - 1);
+    }
+  };
+
+  // go forward one slide.
+  const goForward = () => {
+    setMoreTime(true);
+    setSlideDirection('right');
+    if (slideIndex === carouselItems.length - 1) {
+      setSlideIndex(0);
+    } else {
+      setSlideIndex(slideIndex + 1);
+    }
+  };
+
+  // select a specific slide.
+  const selectIndex = (index) => {
+    setMoreTime(true);
+    if (index > slideIndex) {
+      setSlideDirection('right');
+    } else {
+      setSlideDirection('left');
+    }
+    setSlideIndex(index);
+  };
+
+  // transition animation.
+  const swipeText = useTransition(
     carouselItems[slideIndex],
     (item) => carouselItems.indexOf(item),
     {
       from: {
-        transform: `translate3d(-100%,0,0)`,
+        transform: `translate3d(${slideDirection === 'right' ? '-100%' : '100%'},0,0)`,
         opacity: 0
       },
       enter: {
@@ -24,21 +94,16 @@ const Carousel = () => {
         opacity: 1
       },
       leave: {
-        transform: `translate3d(100%,0,0)`,
+        transform: `translate3d(${slideDirection === 'right' ? '100%' : '-100%'},0,0)`,
         opacity: 0,
+        width: divWidth,
         position: "absolute"
-      },
+      }
     }
   );
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSlideIndex((slideIndex) => (slideIndex + 1) % carouselItems.length);
-    }, slideTimer);
-    return () => clearInterval(interval);
-  }, [slideIndex, carouselItems, slideTimer]);
-
-  const animatedItems = fadingText.map(({ item, props, key }) => (
+  // apply transition animation to all carousel items.
+  const animatedItems = swipeText.map(({ item, props, key }) => (
     <animated.div
       key={key}
       style={props}
@@ -47,6 +112,24 @@ const Carousel = () => {
     </animated.div>
   ));
 
-  return animatedItems;
+  return (
+    <div ref={divRef}
+      className={`${classes.Carousel} carousel slide`}
+      data-bs-ride="carousel">
+      <div
+        className={`${classes.CarouselInner} carousel-inner`}>
+        {animatedItems}
+      </div>
+      <CarouselIndicators
+        carouselLength={carouselItems.length}
+        currentSlide={slideIndex}
+        selected={selectIndex} />
+      <CarouselArrows
+        goForward={goForward}
+        goBack={goBack}
+      />
+    </div>
+  );
 };
+
 export default Carousel;
