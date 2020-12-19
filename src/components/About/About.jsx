@@ -35,18 +35,20 @@ const About = () => {
   };
 
   return (
-    <div className={`${classes.About} container`}>
-      <div className="row">
-        <div className="col-12 col-md-6">
-          <ProfileItems />
-          <DownloadResume
-            isLoading={isLoading}
-            downloadResume={downloadResume} />
-          <SocialIcons />
-          <Carousel />
-        </div>
-        <div className="d-flex order-first col-md-6">
-          <ProfilePhoto />
+    <div className={classes.AboutVerticalCenter}>
+      <div className={`${classes.About} container`}>
+        <div className="row">
+          <div className="col-12 col-md-6">
+            <ProfileItems />
+            <DownloadResume
+              isLoading={isLoading}
+              downloadResume={downloadResume} />
+            <SocialIcons />
+            <Carousel />
+          </div>
+          <div className="d-flex order-first col-md-6">
+            <ProfilePhoto />
+          </div>
         </div>
       </div>
     </div>
