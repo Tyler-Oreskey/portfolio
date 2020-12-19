@@ -1,20 +1,17 @@
 import React, { useState } from "react";
-import Carousel from "./Carousel/Carousel";
-import SocialIcons from "./SocialIcons/SocialIcons";
+
 import RequestHandler from '../../hoc/RequestHandler/RequestHandler';
 import axios from '../../axios';
-import about from "../../assets/images/me/about.jpg";
-import Spinner from "../../UI/Spinner/Spinner";
-
-import code from "../../assets/images/icons/code.png";
-import downloadWhite from "../../assets/images/icons/download-white.png";
-import downloadBlack from "../../assets/images/icons/download-black.png"
+import Carousel from "./Carousel/Carousel";
+import SocialIcons from "./SocialIcons/SocialIcons";
+import ProfileItems from "./ProfileItems/ProfileItems";
+import ProfilePhoto from "./ProfilePhoto/ProfilePhoto";
+import DownloadResume from "./DownloadResume/DownloadResume";
 
 import classes from "./About.module.css";
 
 const About = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [downloadIcon, setDownloadIcon] = useState(downloadWhite);
 
   const downloadResume = async () => {
     try {
@@ -27,8 +24,7 @@ const About = () => {
       link.href = url;
       link.download = "resume.pdf";
       link.click();
-      setTimeout(() => {
-        // For Firefox it is necessary to delay revoking the ObjectURL
+      setTimeout(() => { // for firefox and safari browsers
         window.URL.revokeObjectURL(url);
       }, 100);
     } catch (error) {
@@ -38,49 +34,19 @@ const About = () => {
     }
   };
 
-  let icon = <img src={downloadIcon} alt="download" />;
-
-  let iconText = "RESUME";
-
-  if (isLoading) {
-    icon = <Spinner size="small" />;
-    iconText = "DOWNLOADING";
-  }
-
-  let downloadButton = (
-    <button
-      onMouseEnter={() => setDownloadIcon(downloadBlack)}
-      onMouseLeave={() => setDownloadIcon(downloadWhite)}
-      disabled={isLoading}
-      className={`${classes.DownloadResume} btn btn-outline-light`}
-      onClick={() => downloadResume()}>
-      <span className="btn-label">
-        {icon}
-        {iconText}
-      </span>
-    </button>
-  );
-
   return (
     <div className={`${classes.About} container`}>
       <div className="row">
         <div className="col-12 col-md-6">
-          <div className={classes.Col1}>
-            <h1>Hello, I'm</h1>
-            <h2>Tyler Oreskey</h2>
-            <h3>
-              <img src={code} className={classes.DevIcon} alt="</>" />
-            Full Stack Web Developer
-            </h3>
-            {downloadButton}
-            <SocialIcons />
-            <Carousel />
-          </div>
+          <ProfileItems />
+          <DownloadResume
+            isLoading={isLoading}
+            downloadResume={downloadResume} />
+          <SocialIcons />
+          <Carousel />
         </div>
-        <div className="col-12 order-first order-md-0 col-md-6">
-          <div className={classes.Col2}>
-            <img className={classes.Me} src={about} alt="me" />
-          </div>
+        <div className="d-flex col-12 order-first order-md-0 col-md-6">
+          <ProfilePhoto />
         </div>
       </div>
     </div>

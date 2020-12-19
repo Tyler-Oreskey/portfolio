@@ -1,0 +1,25 @@
+.ProfileItems h1,
+.ProfileItems h3 {
+  font-size: 30px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.ProfileItems h2 {
+  font-weight: 700;
+  font-size: 75px;
+}
+
+.ProfileItems h1,
+.ProfileItems h2,
+.ProfileItems h3 {
+  margin: 0;
+}
+
+.ProfileItems img {
+  height: 28px;
+  width: auto;
+  float: left;
+  margin-top: 4px;
+  padding-right: 7px;
+}

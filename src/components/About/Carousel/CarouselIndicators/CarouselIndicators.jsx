@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import classes from "./CarouselIndicators.module.css";
 
@@ -40,4 +40,4 @@ const CarouselIndicators = (props) => {
     );
 };
 
-export default memo(CarouselIndicators);
+export default CarouselIndicators;
