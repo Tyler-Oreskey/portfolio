@@ -7,11 +7,13 @@ import classes from "./ProfileItems.module.css";
 const ProfileItems = () => {
     return (
         <div className={classes.ProfileItems}>
-            <h1>Hello, I'm</h1>
-            <h2>Tyler Oreskey</h2>
-            <img src={codeIcon} className={classes.CodeIcon} alt="</>" />
-            <h3>Full Stack Web Developer</h3>
-        </div>
+            <div>
+                <h1>Hello, I'm</h1>
+                <h2>Tyler Oreskey</h2>
+                <img src={codeIcon} className={classes.CodeIcon} alt="</>" />
+                <span>Full Stack Web Developer</span>
+            </div>
+        </div >
     )
 };
 

@@ -14,3 +14,24 @@
     margin-bottom: 2px;
     margin-right: 10px;
   }
+
+@media(max-width: 767px) {
+  .DownloadResumeWrapper {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 330px;
+  }
+
+  .DownloadResumeWrapper span {
+    margin-right: auto;
+  }
+}
+
+@media(max-width: 360px) {
+  .DownloadResumeWrapper {
+    width: auto;
+  }
+}
+
+

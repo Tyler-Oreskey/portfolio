@@ -18,17 +18,21 @@ const DownloadResume = (props) => {
     }
 
     return (
-        <button
-            onMouseEnter={() => setDownloadIcon(downloadBlack)}
-            onMouseLeave={() => setDownloadIcon(downloadWhite)}
-            disabled={props.isLoading}
-            className={`${classes.DownloadResume} btn btn-outline-light`}
-            onClick={props.downloadResume}>
-            <span className="btn-label">
-                {icon}
-                {iconText}
+        <div className={classes.DownloadResumeWrapper}>
+            <span>
+                <button
+                    onMouseEnter={() => setDownloadIcon(downloadBlack)}
+                    onMouseLeave={() => setDownloadIcon(downloadWhite)}
+                    disabled={props.isLoading}
+                    className={`${classes.DownloadResume} btn btn-outline-light`}
+                    onClick={props.downloadResume}>
+                    <span className="btn-label">
+                        {icon}
+                        {iconText}
+                    </span>
+                </button>
             </span>
-        </button>
+        </div >
     )
 };
 

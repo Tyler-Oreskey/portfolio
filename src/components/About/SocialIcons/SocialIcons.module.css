@@ -29,12 +29,6 @@
   transition: all 0.5s ease;
 }
 
-.SocialIcons a:hover:nth-child(3) {
-  border: 4px solid #3B5998;
-  box-shadow: 0 0 15px #3B5998;
-  transition: all 0.5s ease;
-}
-
 
 @media (min-width: 320px) {
   .SocialIcons img {
