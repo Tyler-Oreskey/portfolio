@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Auxiliary from '../Auxiliary/Auxiliary';
-import Toast from '../../UI/Toast/Toast';
+import Auxiliary from "../Auxiliary/Auxiliary";
+import Toast from "../../UI/Toast/Toast";
 
 const RequestHandler = (WrappedComponent, axios) => {
   return class extends Component {
     state = {
-      error: null
-    }
+      error: null,
+    };
 
     componentDidMount() {
       this.reqInterceptor = axios.interceptors.request.use((req) => {
@@ -15,9 +15,12 @@ const RequestHandler = (WrappedComponent, axios) => {
         return req;
       });
 
-      this.resInterceptor = axios.interceptors.response.use((res) => res, error => {
-        this.setState({ error });
-      });
+      this.resInterceptor = axios.interceptors.response.use(
+        (res) => res,
+        (error) => {
+          this.setState({ error });
+        }
+      );
     }
 
     componentWillUnmount() {
@@ -26,8 +29,9 @@ const RequestHandler = (WrappedComponent, axios) => {
     }
 
     render() {
-
-      const toast = this.state.error ? <Toast message={this.state.error.message} type="error" /> : null;
+      const toast = this.state.error ? (
+        <Toast message={this.state.error.message} type="error" />
+      ) : null;
 
       return (
         <Auxiliary>
@@ -36,7 +40,7 @@ const RequestHandler = (WrappedComponent, axios) => {
         </Auxiliary>
       );
     }
-  }
-}
+  };
+};
 
 export default RequestHandler;

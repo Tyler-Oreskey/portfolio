@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { animated, useTransition } from "react-spring";
 
 import CarouselIndicators from "./CarouselIndicators/CarouselIndicators";
-import CarouselArrows from "./CarouselArrows/CarouselArrows"
+import CarouselArrows from "./CarouselArrows/CarouselArrows";
 
-import classes from "./Carousel.module.css"
+import classes from "./Carousel.module.css";
 
 const Carousel = () => {
   const [carouselItems] = useState([
@@ -17,7 +17,7 @@ const Carousel = () => {
   const longerSlideTimer = 12000;
   const [slideTimer, setSlideTimer] = useState(startingSlideTimer);
   let [slideIndex, setSlideIndex] = useState(0);
-  let [slideDirection, setSlideDirection] = useState('right');
+  let [slideDirection, setSlideDirection] = useState("right");
   const [divWidth, setDivWidth] = useState(0);
   const [moreTime, setMoreTime] = useState(false);
   const divRef = useRef(null);
@@ -30,16 +30,18 @@ const Carousel = () => {
   // update carousel div width on page resize.
   useLayoutEffect(() => {
     const updateDivWidth = () => setDivWidth(divRef.current?.offsetWidth);
-    window.addEventListener('resize', updateDivWidth);
+    window.addEventListener("resize", updateDivWidth);
     // unmount event listener to prevent memory leaks.
     return () => window.removeEventListener("resize", updateDivWidth);
   }, []);
 
   // keep track of slide timer and proper slide direction.
   useEffect(() => {
-    moreTime ? setSlideTimer(longerSlideTimer) : setSlideTimer(startingSlideTimer);
+    moreTime
+      ? setSlideTimer(longerSlideTimer)
+      : setSlideTimer(startingSlideTimer);
 
-    setSlideDirection('right');
+    setSlideDirection("right");
 
     const interval = setInterval(() => {
       setSlideIndex((slideIndex) => (slideIndex + 1) % carouselItems.length);
@@ -51,7 +53,7 @@ const Carousel = () => {
   // go back one slide.
   const goBack = () => {
     setMoreTime(true);
-    setSlideDirection('left');
+    setSlideDirection("left");
     if (slideIndex === 0) {
       setSlideIndex(carouselItems.length - 1);
     } else {
@@ -62,7 +64,7 @@ const Carousel = () => {
   // go forward one slide.
   const goForward = () => {
     setMoreTime(true);
-    setSlideDirection('right');
+    setSlideDirection("right");
     if (slideIndex === carouselItems.length - 1) {
       setSlideIndex(0);
     } else {
@@ -74,9 +76,9 @@ const Carousel = () => {
   const selectIndex = (index) => {
     setMoreTime(true);
     if (index > slideIndex) {
-      setSlideDirection('right');
+      setSlideDirection("right");
     } else {
-      setSlideDirection('left');
+      setSlideDirection("left");
     }
     setSlideIndex(index);
   };
@@ -87,48 +89,48 @@ const Carousel = () => {
     (item) => carouselItems.indexOf(item),
     {
       from: {
-        transform: `translate3d(${slideDirection === 'right' ? '-100%' : '100%'},0,0)`,
-        opacity: 0
+        transform: `translate3d(${
+          slideDirection === "right" ? "-100%" : "100%"
+        },0,0)`,
+        opacity: 0,
       },
       enter: {
         transform: "translate3d(0%,0,0)",
-        opacity: 1
+        opacity: 1,
       },
       leave: {
-        transform: `translate3d(${slideDirection === 'right' ? '100%' : '-100%'},0,0)`,
+        transform: `translate3d(${
+          slideDirection === "right" ? "100%" : "-100%"
+        },0,0)`,
         opacity: 0,
         width: divWidth,
-        position: "absolute"
-      }
+        position: "absolute",
+      },
     }
   );
 
   // apply transition animation to all carousel items.
   const animatedItems = swipeText.map(({ item, props, key }) => (
-    <animated.div
-      key={key}
-      style={props}
-    >
+    <animated.div key={key} style={props}>
       <p>{item}</p>
     </animated.div>
   ));
 
   return (
-    <div ref={divRef}
+    <div
+      ref={divRef}
       className={`${classes.Carousel} carousel slide`}
-      data-bs-ride="carousel">
-      <div
-        className={`${classes.CarouselInner} carousel-inner`}>
+      data-bs-ride="carousel"
+    >
+      <div className={`${classes.CarouselInner} carousel-inner`}>
         {animatedItems}
       </div>
       <CarouselIndicators
         carouselLength={carouselItems.length}
         currentSlide={slideIndex}
-        selected={selectIndex} />
-      <CarouselArrows
-        goForward={goForward}
-        goBack={goBack}
+        selected={selectIndex}
       />
+      <CarouselArrows goForward={goForward} goBack={goBack} />
     </div>
   );
 };

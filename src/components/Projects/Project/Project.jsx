@@ -17,7 +17,8 @@ class Project extends Component {
 
   click = () => this.setState((state) => ({ flipped: !state.flipped }));
 
-  flipHandler = () => this.setState((prevState) => ({ flipped: !prevState.flipped }));
+  flipHandler = () =>
+    this.setState((prevState) => ({ flipped: !prevState.flipped }));
 
   render() {
     const { flipped } = this.state;
@@ -26,7 +27,8 @@ class Project extends Component {
       <Front
         backgroundImage={this.props.image}
         projectName={this.props.name}
-        flip={this.flipHandler} />
+        flip={this.flipHandler}
+      />
     );
 
     const back = (
@@ -39,20 +41,24 @@ class Project extends Component {
           {
             href: this.props.github,
             src: github,
-            alt: "github"
+            alt: "github",
           },
           {
             href: this.props.video,
             src: youtube,
-            alt: "youtube"
-          }
-        ]} />
+            alt: "youtube",
+          },
+        ]}
+      />
     );
 
     return (
       <Spring
         native
-        to={{ transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)` }} >
+        to={{
+          transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
+        }}
+      >
         {(props) => (
           <animated.div className={classes.Card} style={props}>
             <Transition
@@ -61,7 +67,8 @@ class Project extends Component {
               items={flipped}
               from={{ opacity: this.state.hide }}
               enter={{ opacity: this.state.show }}
-              leave={{ opacity: this.state.hide }}>
+              leave={{ opacity: this.state.hide }}
+            >
               {(flipped) => ({ opacity }) => (
                 <animated.div
                   style={{
@@ -70,7 +77,8 @@ class Project extends Component {
                       range: [0, 0.5, 1],
                       output: [0, 0, 1],
                     }),
-                  }}>
+                  }}
+                >
                   {flipped ? back : front}
                 </animated.div>
               )}

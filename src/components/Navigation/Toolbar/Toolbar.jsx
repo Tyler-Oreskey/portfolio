@@ -7,15 +7,17 @@ import classes from "./Toolbar.module.css";
 
 class Toolbar extends Component {
   state = {
-    showSideDrawer: false
-  }
+    showSideDrawer: false,
+  };
 
   sideDrawerClosedHandler = () => {
     this.setState({ showSideDrawer: false });
   };
 
   sideDrawerToggleHandler = () => {
-    this.setState((prevState) => ({ showSideDrawer: !prevState.showSideDrawer }));
+    this.setState((prevState) => ({
+      showSideDrawer: !prevState.showSideDrawer,
+    }));
   };
 
   render() {
@@ -30,7 +32,7 @@ class Toolbar extends Component {
           <NavigationItems />
         </nav>
       </header>
-    )
+    );
   }
 }
 
