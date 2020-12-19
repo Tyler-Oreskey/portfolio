@@ -45,7 +45,7 @@ const About = () => {
           <SocialIcons />
           <Carousel />
         </div>
-        <div className="d-flex col-12 order-first order-md-0 col-md-6">
+        <div className="d-flex order-first col-md-6">
           <ProfilePhoto />
         </div>
       </div>

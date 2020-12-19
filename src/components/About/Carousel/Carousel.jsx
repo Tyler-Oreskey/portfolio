@@ -29,9 +29,10 @@ const Carousel = () => {
 
   // update carousel div width on page resize.
   useLayoutEffect(() => {
-    window.addEventListener('resize', () => {
-      setDivWidth(divRef.current?.offsetWidth);
-    });
+    const updateDivWidth = () => setDivWidth(divRef.current?.offsetWidth);
+    window.addEventListener('resize', updateDivWidth);
+    // unmount event listener to prevent memory leaks.
+    return () => window.removeEventListener("resize", updateDivWidth);
   }, []);
 
   // keep track of slide timer and proper slide direction.

@@ -4,6 +4,7 @@ import classes from "./CarouselArrows.module.css";
 import Auxiliary from "../../../../hoc/Auxiliary/Auxiliary";
 
 const CarouselArrows = (props) => {
+    /* eslint-disable jsx-a11y/anchor-is-valid */
     return (
         <Auxiliary>
             <a
