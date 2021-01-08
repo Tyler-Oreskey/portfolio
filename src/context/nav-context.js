@@ -1,7 +1,7 @@
 import React from "react";
 
 const NavContext = React.createContext({
-  navItems: {},
+  routes: {},
   setNavItem: () => {},
 });
 

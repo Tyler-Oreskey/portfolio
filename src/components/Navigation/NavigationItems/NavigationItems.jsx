@@ -5,13 +5,13 @@ import NavContext from "../../../context/nav-context";
 import classes from "./NavigationItems.module.css";
 
 const NavigationItems = () => {
-  const { setNavItem, navItems } = useContext(NavContext);
+  const { setNavItem, routes } = useContext(NavContext);
 
   const setNavID = (navID) => setNavItem(navID);
 
   return (
     <ul className={classes.NavigationItems}>
-      {navItems.map((navItem) => (
+      {routes.map((navItem) => (
         <NavigationItem
           key={navItem.id}
           navID={navItem.id}
