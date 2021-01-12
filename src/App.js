@@ -9,19 +9,19 @@ import routes from "./routes/routes";
 import classes from "./App.module.css";
 
 const App = () => {
-  const [currentRoute, setCurrentNavID] = useState(1);
+  const [currentRoute, setCurrentRouteID] = useState(1);
   const [reverse, setReverse] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     const foundRoute =
       routes.find((route) => location.pathname === route.location) || 1;
-    setCurrentNavID(foundRoute.id);
+    setCurrentRouteID(foundRoute.id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const setNavItem = (navID) => {
-    setCurrentNavID(navID);
+  const setRoute = (navID) => {
+    setCurrentRouteID(navID);
     setReverse(currentRoute > navID);
   };
 
@@ -41,7 +41,7 @@ const App = () => {
 
   return (
     <div className={classes.App}>
-      <NavContext.Provider value={{ routes, setNavItem }}>
+      <NavContext.Provider value={{ routes, setRoute }}>
         <Toolbar />
       </NavContext.Provider>
       <RouteTransitions

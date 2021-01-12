@@ -5,9 +5,9 @@ import NavContext from "../../../context/nav-context";
 import classes from "./NavigationItems.module.css";
 
 const NavigationItems = () => {
-  const { setNavItem, routes } = useContext(NavContext);
+  const { setRoute, routes } = useContext(NavContext);
 
-  const setNavID = (navID) => setNavItem(navID);
+  const setRouteID = (navID) => setRoute(navID);
 
   return (
     <ul className={classes.NavigationItems}>
@@ -16,7 +16,7 @@ const NavigationItems = () => {
           key={navItem.id}
           navID={navItem.id}
           location={navItem.location}
-          clicked={setNavID}
+          clicked={setRouteID}
         >
           {navItem.label}
         </NavigationItem>
