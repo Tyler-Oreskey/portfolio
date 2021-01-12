@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import axios from '../../axios';
+import axios from "../../axios";
 
-import RequestHandler from '../../hoc/RequestHandler/RequestHandler';
-import Spinner from '../../UI/Spinner/Spinner';
+import RequestHandler from "../../hoc/RequestHandler/RequestHandler";
+import Spinner from "../../UI/Spinner/Spinner";
 import classes from "./ContactForm.module.css";
-import Toast from '../../UI/Toast/Toast';
-import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
-import Recaptcha from '../../auth/Recaptcha/Recaptcha';
+import Toast from "../../UI/Toast/Toast";
+import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
+import Recaptcha from "../../auth/Recaptcha/Recaptcha";
 
 const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
@@ -26,7 +26,7 @@ const validateForm = (form, recaptchaToken) => {
     errors.message = "Message must be at least 15 characters long!";
   }
 
-  if (!recaptchaToken || recaptchaToken === '') {
+  if (!recaptchaToken || recaptchaToken === "") {
     errors.recaptcha = "Please accept the recaptcha!";
   }
 
@@ -49,7 +49,7 @@ class ContactForm extends Component {
     loading: false,
     success: false,
     recapchaReady: false,
-    recaptchaToken: null
+    recaptchaToken: null,
   };
 
   recaptchaOnLoad = () => {
@@ -57,7 +57,7 @@ class ContactForm extends Component {
   };
 
   verifyRecaptcha = (captchaResponse) => {
-    this.setState({ recaptchaToken: captchaResponse })
+    this.setState({ recaptchaToken: captchaResponse });
   };
 
   handleInputChange = (event) => {
@@ -82,10 +82,10 @@ class ContactForm extends Component {
     try {
       this.setState({ loading: true });
 
-      const res = await axios
-        .post('/email/sendEmail',
-          { ...this.state.form, recaptchaToken: this.state.recaptchaToken }
-        );
+      const res = await axios.post("/email/sendEmail", {
+        ...this.state.form,
+        recaptchaToken: this.state.recaptchaToken,
+      });
 
       if (res.status === 200) {
         this.handleSuccessMessage(true);
@@ -106,9 +106,9 @@ class ContactForm extends Component {
         email: "",
         message: "",
       },
-      recaptchaToken: null
+      recaptchaToken: null,
     });
-  }
+  };
 
   handleSuccessMessage = (value) => {
     this.setState({ success: value });
@@ -150,7 +150,8 @@ class ContactForm extends Component {
         <button
           type="submit"
           className="btn btn-outline-light"
-          disabled={this.state.success || !this.state.recapchaReady}>
+          disabled={this.state.success || !this.state.recapchaReady}
+        >
           SUBMIT
         </button>
       );
@@ -224,22 +225,21 @@ class ContactForm extends Component {
                   onChange={(event) => this.handleInputChange(event)}
                 />
                 <span className="input-group-text">
-                  {this.state.form.message.length}/{this.state.maxLength.message}
+                  {this.state.form.message.length}/
+                  {this.state.maxLength.message}
                 </span>
               </div>
               {messageError}
             </div>
             <div className={classes.Recaptcha}>
               <Recaptcha
-                recaptchaRef={e => (this.recaptchaRef = e)}
+                recaptchaRef={(e) => (this.recaptchaRef = e)}
                 verifyRecaptcha={this.verifyRecaptcha}
                 recaptchaOnLoad={this.recaptchaOnLoad}
               />
               {recaptchaError}
             </div>
-            <div className={classes.FormSubmit}>
-              {submission}
-            </div>
+            <div className={classes.FormSubmit}>{submission}</div>
           </form>
         </div>
       </Auxiliary>

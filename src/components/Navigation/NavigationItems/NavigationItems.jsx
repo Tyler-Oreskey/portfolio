@@ -1,22 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import NavigationItem from "./NavigationItem/NavigationItem";
-import NavContext from "../../../context/nav-context";
 
 import classes from "./NavigationItems.module.css";
 
-const NavigationItems = () => {
-  const { setNavItem, navItems } = useContext(NavContext);
-
-  const setNavID = (navID) => setNavItem(navID);
-
+const NavigationItems = (props) => {
   return (
     <ul className={classes.NavigationItems}>
-      {navItems.map((navItem) => (
+      {props.routes.map((navItem) => (
         <NavigationItem
           key={navItem.id}
           navID={navItem.id}
           location={navItem.location}
-          clicked={setNavID}
+          clicked={props.toggleRoute}
         >
           {navItem.label}
         </NavigationItem>

@@ -24,41 +24,40 @@
   padding-right: 7px;
 }
 
-
-@media(max-width: 904px) {
+@media (max-width: 904px) {
   .ProfileItems h2 {
     font-size: 50px;
   }
 }
 
-@media(max-width: 782px) {
+@media (max-width: 782px) {
   .ProfileItems h1,
   .ProfileItems span {
     font-size: 27px;
-  }  
+  }
 }
 
-@media(max-width: 452px) {
+@media (max-width: 452px) {
   .ProfileItems h2 {
     font-size: 45px;
   }
 }
 
-@media(max-width: 395px) {
+@media (max-width: 395px) {
   .ProfileItems h1,
   .ProfileItems span {
     font-size: 27px;
-  }  
+  }
 }
 
-@media(max-width: 391px) {
+@media (max-width: 391px) {
   .ProfileItems h1,
   .ProfileItems span {
     font-size: 27px;
-  }  
+  }
 }
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .ProfileItems {
     padding-top: 20px;
     text-align: center;

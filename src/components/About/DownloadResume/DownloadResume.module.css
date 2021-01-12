@@ -1,21 +1,21 @@
 .DownloadResume {
-    margin-top: 20px;
-    float: left;
-  }
-  
-  .DownloadResume img {
-    height: 20px;
-    width: auto;
-    padding-right: 10px;
-    padding-bottom: 4px;
-  }
-  
-  .DownloadResume div {
-    margin-bottom: 2px;
-    margin-right: 10px;
-  }
+  margin-top: 20px;
+  float: left;
+}
 
-@media(max-width: 767px) {
+.DownloadResume img {
+  height: 20px;
+  width: auto;
+  padding-right: 10px;
+  padding-bottom: 4px;
+}
+
+.DownloadResume div {
+  margin-bottom: 2px;
+  margin-right: 10px;
+}
+
+@media (max-width: 767px) {
   .DownloadResumeWrapper {
     align-items: center;
     justify-content: center;
@@ -28,10 +28,8 @@
   }
 }
 
-@media(max-width: 360px) {
+@media (max-width: 360px) {
   .DownloadResumeWrapper {
     width: auto;
   }
 }
-
-

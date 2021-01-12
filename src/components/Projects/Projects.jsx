@@ -90,7 +90,8 @@ class Projects extends Component {
           techs={project.techs}
           image={project.image}
           github={project.github}
-          video={project.video} />
+          video={project.video}
+        />
       );
     });
 
