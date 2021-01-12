@@ -18,7 +18,10 @@ const SideDrawer = (props) => {
       <Backdrop show={props.open} clicked={props.closed} />
       <div className={attachedClasses.join(" ")}>
         <nav>
-          <NavigationItems routes={props.routes} setRoute={props.setRoute} />
+          <NavigationItems
+            routes={props.routes}
+            toggleRoute={props.toggleRoute}
+          />
         </nav>
       </div>
     </Auxiliary>

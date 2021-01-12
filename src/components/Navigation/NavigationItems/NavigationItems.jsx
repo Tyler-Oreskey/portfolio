@@ -11,7 +11,7 @@ const NavigationItems = (props) => {
           key={navItem.id}
           navID={navItem.id}
           location={navItem.location}
-          clicked={props.setRoute}
+          clicked={props.toggleRoute}
         >
           {navItem.label}
         </NavigationItem>
