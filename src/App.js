@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Route, Redirect, useLocation } from "react-router-dom";
 
 import Toolbar from "./components/Navigation/Toolbar/Toolbar";
-import NavContext from "./context/nav-context";
 import RouteTransitions from "./routes/RouteTransitions/RouteTransitions";
 import routes from "./routes/routes";
 
@@ -41,9 +40,7 @@ const App = () => {
 
   return (
     <div className={classes.App}>
-      <NavContext.Provider value={{ routes, setRoute }}>
-        <Toolbar />
-      </NavContext.Provider>
+      <Toolbar routes={routes} setRoute={setRoute} />
       <RouteTransitions
         reverse={reverse}
         items={routes}

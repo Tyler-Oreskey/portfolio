@@ -10,26 +10,28 @@ class Toolbar extends Component {
     showSideDrawer: false,
   };
 
-  sideDrawerClosedHandler = () => {
-    this.setState({ showSideDrawer: false });
-  };
+  sideDrawerClosedHandler = () => this.setState({ showSideDrawer: false });
 
-  sideDrawerToggleHandler = () => {
+  sideDrawerToggleHandler = () =>
     this.setState((prevState) => ({
       showSideDrawer: !prevState.showSideDrawer,
     }));
-  };
 
   render() {
     return (
       <header className={classes.Toolbar}>
         <DrawerToggle clicked={this.sideDrawerToggleHandler} />
         <SideDrawer
+          routes={this.props.routes}
+          setRoute={this.props.setRoute}
           open={this.state.showSideDrawer}
           closed={this.sideDrawerClosedHandler}
         />
         <nav className={classes.DesktopOnly}>
-          <NavigationItems />
+          <NavigationItems
+            routes={this.props.routes}
+            setRoute={this.props.setRoute}
+          />
         </nav>
       </header>
     );
