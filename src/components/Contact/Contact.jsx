@@ -3,7 +3,7 @@ import axios from "../../axios";
 
 import RequestHandler from "../../hoc/RequestHandler/RequestHandler";
 import Spinner from "../../UI/Spinner/Spinner";
-import classes from "./ContactForm.module.css";
+import classes from "./Contact.module.css";
 import Toast from "../../UI/Toast/Toast";
 import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
 import Recaptcha from "../../auth/Recaptcha/Recaptcha";
@@ -33,7 +33,7 @@ const validateForm = (form, recaptchaToken) => {
   return errors;
 };
 
-class ContactForm extends Component {
+class Contact extends Component {
   state = {
     form: {
       name: "",
@@ -172,7 +172,7 @@ class ContactForm extends Component {
     return (
       <Auxiliary>
         {successMessage}
-        <div className={`col-md-6 ${classes.ContactForm}`}>
+        <div className={`col-md-6 ${classes.Contact}`}>
           <form onSubmit={(event) => this.handleSubmit(event)} noValidate>
             <div className="form-group">
               <label>Your Name</label>
@@ -247,4 +247,4 @@ class ContactForm extends Component {
   }
 }
 
-export default RequestHandler(ContactForm, axios);
+export default RequestHandler(Contact, axios);

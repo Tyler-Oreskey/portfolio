@@ -1,36 +1,36 @@
-.ContactForm {
+.Contact {
   margin: 0 auto;
   border-radius: 2px;
   color: white;
   opacity: 0.75;
 }
 
-.ContactForm form {
+.Contact form {
   padding: 20px;
 }
 
-.ContactForm input,
-.ContactForm textarea,
-.ContactForm input:focus,
-.ContactForm textarea:focus {
+.Contact input,
+.Contact textarea,
+.Contact input:focus,
+.Contact textarea:focus {
   background-color: #020b16;
   color: white;
 }
 
-.ContactForm textarea {
+.Contact textarea {
   resize: none;
 }
 
-.ContactForm span {
+.Contact span {
   background-color: #020b16;
   color: white;
 }
 
-.ContactForm label {
+.Contact label {
   padding-bottom: 5px;
 }
 
-.ContactForm div {
+.Contact div {
   margin-bottom: 20px;
 }
 
@@ -77,25 +77,25 @@ select:-webkit-autofill:focus {
 }
 
 @media (min-width: 576px) {
-  .ContactForm {
+  .Contact {
     max-width: 90%;
   }
 }
 
 @media (min-width: 768px) {
-  .ContactForm {
+  .Contact {
     max-width: 60%;
   }
 }
 
 @media (min-width: 992px) {
-  .ContactForm {
+  .Contact {
     max-width: 60%;
   }
 }
 
 @media (min-width: 1200px) {
-  .ContactForm {
+  .Contact {
     max-width: 40%;
   }
 }

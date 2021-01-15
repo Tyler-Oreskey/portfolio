@@ -1,7 +1,7 @@
 import Projects from "../components/Projects/Projects";
 import About from "../components/About/About";
 import Experience from "../components/Experience/Experience";
-import ContactForm from "../containers/ContactForm/ContactForm";
+import ContactForm from "../components/Contact/Contact";
 
 const routes = [
   {
