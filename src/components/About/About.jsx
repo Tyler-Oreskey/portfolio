@@ -7,6 +7,7 @@ import SocialIcons from "./SocialIcons/SocialIcons";
 import ProfileItems from "./ProfileItems/ProfileItems";
 import ProfilePhoto from "./ProfilePhoto/ProfilePhoto";
 import DownloadResume from "./DownloadResume/DownloadResume";
+import Particles from "../../UI/Particles/Particles";
 
 import classes from "./About.module.css";
 
@@ -37,6 +38,7 @@ const About = () => {
 
   return (
     <div className={classes.AboutVerticalCenter}>
+      <Particles />
       <div className={`${classes.About} container`}>
         <div className="row">
           <div className="col-12 col-md-6">

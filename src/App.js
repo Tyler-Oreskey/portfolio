@@ -1,54 +1,39 @@
-import React, { useState, useEffect } from "react";
-import { Route, Redirect, useLocation } from "react-router-dom";
+import React, { Component } from "react";
+import { Element, Events, animateScroll } from "react-scroll";
 
 import Toolbar from "./components/Navigation/Toolbar/Toolbar";
-import RouteTransitions from "./routes/RouteTransitions/RouteTransitions";
 import routes from "./routes/routes";
-
 import classes from "./App.module.css";
 
-const App = () => {
-  const [currentRoute, setCurrentRouteID] = useState(1);
-  const [reverse, setReverse] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    const foundRoute =
-      routes.find((route) => location.pathname === route.location) || 1;
-    setCurrentRouteID(foundRoute.id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const setRoute = (navID) => {
-    setCurrentRouteID(navID);
-    setReverse(currentRoute > navID);
-  };
-
-  const getRoutes = (navItem) => {
-    if (navItem.redirect) {
-      return <Redirect key={navItem.id} from={navItem.from} to={navItem.to} />;
-    }
-
+class App extends Component {
+  componentDidMount() {
+    Events.scrollEvent.register("begin");
+    Events.scrollEvent.register("end");
+  }
+  scrollToTop() {
+    animateScroll.scrollToTop();
+  }
+  componentWillUnmount() {
+    Events.scrollEvent.remove("begin");
+    Events.scrollEvent.remove("end");
+  }
+  render() {
+    const scrollElements = routes.map((route) => (
+      <Element
+        key={route.label}
+        name={route.label.toLowerCase()}
+        className={classes.element}
+      >
+        <route.component />
+      </Element>
+    ));
     return (
-      <Route
-        key={navItem.id}
-        path={navItem.location}
-        component={navItem.component}
-      />
+      <div>
+        {/* <Toolbar routes={routes} /> */}
+        {scrollElements}
+      </div>
     );
-  };
-
-  return (
-    <div className={classes.App}>
-      <Toolbar routes={routes} setRoute={setRoute} />
-      <RouteTransitions
-        reverse={reverse}
-        items={routes}
-        location={location}
-        getRoutes={getRoutes}
-      />
-    </div>
-  );
-};
+  }
+}
 
 export default App;

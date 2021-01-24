@@ -19,6 +19,7 @@
 }
 
 .NavLink:hover {
+  cursor: pointer;
   opacity: 0.75;
   text-decoration: none;
 }

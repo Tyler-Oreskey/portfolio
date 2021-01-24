@@ -9,4 +9,5 @@
   color: white;
   font-family: "PT Sans";
   max-width: 1300px;
+  z-index: 100;
 }

@@ -1,25 +1,24 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-scroll";
+
 import classes from "./NavigationItem.module.css";
 
 const NavigationItem = (props) => {
-  const style = {
+  const activeStyle = {
     color: "#00BFFF",
     fontWeight: "bold",
   };
-
   return (
-    <li
-      className={classes.NavigationItem}
-      onClick={() => props.clicked(props.navID)}
-    >
-      <NavLink
-        to={props.location}
-        activeStyle={style}
+    <li className={classes.NavigationItem}>
+      <Link
+        to={props.item.label.toLowerCase()}
+        duration={200}
+        activeClass="active"
+        spy={true}
         className={classes.NavLink}
       >
-        {props.children}
-      </NavLink>
+        {props.item.label}
+      </Link>
     </li>
   );
 };
