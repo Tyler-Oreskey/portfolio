@@ -4,7 +4,6 @@ import RequestHandler from "../../hoc/RequestHandler/RequestHandler";
 import axios from "../../axios";
 import Carousel from "./Carousel/Carousel";
 import SocialIcons from "./SocialIcons/SocialIcons";
-import ProfileItems from "./ProfileItems/ProfileItems";
 import ProfilePhoto from "./ProfilePhoto/ProfilePhoto";
 import DownloadResume from "./DownloadResume/DownloadResume";
 import Particles from "../../UI/Particles/Particles";
@@ -42,7 +41,6 @@ const About = () => {
       <div className={`${classes.About} container`}>
         <div className="row">
           <div className="col-12 col-md-6">
-            <ProfileItems />
             <DownloadResume
               isLoading={isLoading}
               downloadResume={downloadResume}

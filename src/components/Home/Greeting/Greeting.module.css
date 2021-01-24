@@ -1,0 +1,12 @@
+.Greeting {
+  font-size: 50px;
+  text-align: center;
+}
+
+.Greeting p {
+  display: inline;
+}
+
+.Greeting span {
+  color: var(--purple);
+}

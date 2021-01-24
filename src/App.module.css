@@ -1,8 +1,10 @@
 body {
   background-color: #020b16;
-  font-family: -apple-system, BlinkMacSystemFont, "PT Sans", "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --purple: #8878e3;
 }
