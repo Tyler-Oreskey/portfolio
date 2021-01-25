@@ -4,9 +4,11 @@
   border: none;
   color: white;
   opacity: 0.9;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.09);
+}
+.ButtonHoverEffectWithRightArrow:hover {
+  background: rgba(0, 0, 0, 0.3);
 }
 .ButtonHoverEffectWithRightArrow span {
   display: block;
@@ -22,7 +24,7 @@
   width: 0;
   height: 2px;
   position: absolute;
-  transition: all 0.2s linear;
+  transition: all 0.1s linear;
   background: #8878e3;
 }
 
@@ -32,7 +34,7 @@
   width: 2px;
   height: 0;
   position: absolute;
-  transition: all 0.2s linear;
+  transition: all 0.1s linear;
   background: #8878e3;
 }
 .ButtonHoverEffectWithRightArrow:hover::before,
@@ -50,7 +52,7 @@
 }
 .ButtonHoverEffectWithRightArrow span::before,
 .ButtonHoverEffectWithRightArrow span::after {
-  transition-delay: 0.2s;
+  transition-delay: 0.1s;
 }
 .ButtonHoverEffectWithRightArrow::before {
   right: 0;
@@ -70,7 +72,7 @@
 }
 .ButtonHoverEffectWithRightArrow:hover::before,
 .ButtonHoverEffectWithRightArrow:hover::after {
-  transition-delay: 0.2s;
+  transition-delay: 0.1s;
 }
 .ButtonHoverEffectWithRightArrow:hover span::before,
 .ButtonHoverEffectWithRightArrow:hover span::after {
@@ -81,8 +83,8 @@
   margin-left: 5px;
   height: 15px;
   width: auto;
-  -webkit-transition: -webkit-transform 0.4s ease-in-out;
-  transition: transform 0.4s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .ButtonHoverEffectWithRightArrow:hover > span img {
