@@ -69,10 +69,10 @@ const About = () => {
     <div className={classes.About}>
       <h1>ABOUT</h1>
       <div className="container">
-        <div className="row">
+        <div className={`${classes.AboutRow} row`}>
           <Adjectives />
         </div>
-        <div className="row">
+        <div className={`${classes.AboutRow} row`}>
           <Profile />
           <BarChart />
         </div>

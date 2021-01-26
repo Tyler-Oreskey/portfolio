@@ -1,6 +1,15 @@
+.About {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
 .About h1 {
   font-weight: 700;
   color: var(--custom-grey);
   text-align: center;
-  padding: 100px 0 80px;
+  padding-bottom: 50px;
+}
+
+.AboutRow {
+  padding-bottom: 80px;
 }

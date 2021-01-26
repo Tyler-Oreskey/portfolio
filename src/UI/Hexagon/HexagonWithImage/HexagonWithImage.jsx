@@ -3,9 +3,9 @@ import React from "react";
 import classes from "./HexagonWithImage.module.css";
 
 const HexagonWithImage = (props) => (
-  <div className={classes.HexagonWithImage}>
-    <div className={classes.HexagonWithImageInside}>
-      <div className={classes.HexagonImage}>
+  <div className={classes.HexagonContainer}>
+    <div className={classes.Hexagon}>
+      <div className={classes.Shape}>
         <img src={props.image} alt="" />
       </div>
     </div>

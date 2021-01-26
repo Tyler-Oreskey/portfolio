@@ -24,7 +24,15 @@ export default [
     percent: 70,
   },
   {
+    name: "REST",
+    percent: 70,
+  },
+  {
     name: "Vue.js",
+    percent: 50,
+  },
+  {
+    name: "React Native",
     percent: 50,
   },
   {

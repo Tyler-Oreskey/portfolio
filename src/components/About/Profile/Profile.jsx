@@ -7,7 +7,7 @@ import profilePhoto from "../../../assets/images/photos/profile-photo.png";
 import classes from "./Profile.module.css";
 
 const Profile = () => (
-  <div className={`${classes.Profile} col-md-5`}>
+  <div className={`${classes.Profile} col-lg-6`}>
     <HexagonWithImage image={profilePhoto} />
     <h3>Who am I?</h3>
     <Carousel />
