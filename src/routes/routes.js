@@ -5,14 +5,14 @@ import Experience from "../components/Experience/Experience";
 import Contact from "../components/Contact/Contact";
 
 const routes = [
-  {
-    label: "Home",
-    component: Home,
-  },
   // {
-  //   label: "About",
-  //   component: About,
+  //   label: "Home",
+  //   component: Home,
   // },
+  {
+    label: "About",
+    component: About,
+  },
   // {
   //   label: "Experience",
   //   component: Experience,

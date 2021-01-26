@@ -8,7 +8,7 @@ const Occupation = () => (
   <div className={classes.Occupation}>
     <p>
       <img src={codeIcon} alt="</>" />
-      Full-Stack Developer
+      Full-Stack Web Developer
     </p>
   </div>
 );

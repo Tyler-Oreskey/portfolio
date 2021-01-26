@@ -1,0 +1,44 @@
+.HexagonWithImage {
+  width: 430px;
+  height: 230px;
+  transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  -o-transform: rotate(120deg);
+  -webkit-transform: rotate(120deg);
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.HexagonWithImageInside {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -ms-transform: rotate(-60deg);
+  -o-transform: rotate(-60deg);
+  -webkit-transform: rotate(-60deg);
+  overflow: hidden;
+}
+
+.HexagonImage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-color: #c8cbd6;
+  transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -ms-transform: rotate(-60deg);
+  -o-transform: rotate(-60deg);
+  -webkit-transform: rotate(-60deg);
+  visibility: visible;
+}
+
+.HexagonImage img {
+  width: 61%;
+  position: absolute;
+  bottom: 0px;
+}

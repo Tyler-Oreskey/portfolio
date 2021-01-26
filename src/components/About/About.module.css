@@ -1,13 +1,4 @@
-.AboutVerticalCenter {
-  min-height: 75%;
-  min-height: 75vh;
-  display: flex;
-  align-items: center;
-}
-
-.About {
-  color: white;
-  font-family: "PT Sans";
-  max-width: 1300px;
-  z-index: 100;
+.About h1 {
+  font-family: "raleway-bold";
+  text-align: center;
 }

@@ -3,14 +3,12 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 
 import classes from "./NavigationItems.module.css";
 
-const NavigationItems = (props) => {
-  return (
-    <ul className={classes.NavigationItems}>
-      {props.routes.map((navItem) => (
-        <NavigationItem key={navItem.label} item={navItem} />
-      ))}
-    </ul>
-  );
-};
+const NavigationItems = (props) => (
+  <ul className={classes.NavigationItems}>
+    {props.routes.map((navItem) => (
+      <NavigationItem key={navItem.label} item={navItem} />
+    ))}
+  </ul>
+);
 
 export default NavigationItems;
