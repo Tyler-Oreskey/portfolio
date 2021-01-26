@@ -60,6 +60,7 @@ import DownloadResume from "./DownloadResume/DownloadResume";
 
 import Adjectives from "./Adjectives/Adjectives";
 import Profile from "./Profile/Profile";
+import BarChart from "./BarChart/BarChart";
 
 import classes from "./About.module.css";
 
@@ -73,6 +74,7 @@ const About = () => {
         </div>
         <div className="row">
           <Profile />
+          <BarChart />
         </div>
       </div>
     </div>

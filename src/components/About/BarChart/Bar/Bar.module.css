@@ -1,0 +1,33 @@
+.Bar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 28px;
+  background-color: #eee;
+  margin: 0 0 12px;
+  font-size: 15px;
+}
+
+.BarFill {
+  height: 100%;
+  background-color: #00a1a7;
+}
+
+.BarName,
+.PercentTag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.BarName {
+  width: 130px;
+  height: 100%;
+  background-color: var(--custom-light-blue);
+  color: white;
+  font-weight: bold;
+}
+
+.PercentTag {
+  padding-right: 5px;
+}
