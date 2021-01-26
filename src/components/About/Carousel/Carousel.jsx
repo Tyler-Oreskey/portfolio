@@ -119,7 +119,7 @@ const Carousel = () => {
   return (
     <div
       ref={divRef}
-      className={`${classes.Carousel} carousel slide`}
+      className={`${classes.Carousel} carousel carousel-dark slide`}
       data-bs-ride="carousel"
     >
       <div className={`${classes.CarouselInner} carousel-inner`}>

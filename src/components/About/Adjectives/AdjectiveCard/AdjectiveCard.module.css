@@ -5,3 +5,9 @@
 .AdjectiveCard div {
   margin: 0 auto;
 }
+
+.AdjectiveCard h3 {
+  padding-top: 7px;
+  font-weight: 700;
+  color: var(--custom-grey);
+}

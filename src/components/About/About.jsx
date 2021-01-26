@@ -2,7 +2,6 @@
 
 // import RequestHandler from "../../hoc/RequestHandler/RequestHandler";
 // import axios from "../../axios";
-// import Carousel from "./Carousel/Carousel";
 // import SocialIcons from "./SocialIcons/SocialIcons";
 // import DownloadResume from "./DownloadResume/DownloadResume";
 
@@ -43,7 +42,6 @@
 //               downloadResume={downloadResume}
 //             />
 //             <SocialIcons />
-//             <Carousel />
 //           </div>
 //         </div>
 //       </div>
@@ -57,7 +55,6 @@ import React from "react";
 
 import RequestHandler from "../../hoc/RequestHandler/RequestHandler";
 import axios from "../../axios";
-import Carousel from "./Carousel/Carousel";
 import SocialIcons from "./SocialIcons/SocialIcons";
 import DownloadResume from "./DownloadResume/DownloadResume";
 

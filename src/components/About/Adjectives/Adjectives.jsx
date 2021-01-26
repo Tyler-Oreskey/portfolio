@@ -31,7 +31,7 @@ const Adjectives = () => {
       image: heart,
       adjective: "Custom",
       description:
-        "Laboured with love, customized to fit your needs and wants.",
+        "Laboured with love, customized to fulfill your needs and wants.",
     },
   ];
 

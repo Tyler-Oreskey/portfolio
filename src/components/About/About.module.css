@@ -1,4 +1,6 @@
 .About h1 {
-  font-family: "raleway-bold";
+  font-weight: 700;
+  color: var(--custom-grey);
   text-align: center;
+  padding: 100px 0 80px;
 }

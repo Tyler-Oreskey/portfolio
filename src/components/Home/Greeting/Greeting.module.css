@@ -10,5 +10,5 @@
 }
 
 .Greeting span {
-  color: var(--purple);
+  color: var(--custom-purple);
 }
