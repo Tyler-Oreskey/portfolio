@@ -1,13 +1,13 @@
 .About {
-  padding-top: 90px;
-  padding-bottom: 90px;
+  padding-top: var(--component-top-padding);
+  padding-bottom: var(--component-bottom-padding);
 }
 
 .About h1 {
-  font-weight: 700;
+  font-weight: var(--header-font-weight);
   color: var(--custom-grey);
   text-align: center;
-  padding-bottom: 50px;
+  padding-bottom: var(--header-bottom-padding);
 }
 
 .AboutRow {

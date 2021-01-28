@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Spinner from "../../../UI/Spinner/Spinner";
+import Spinner from "../../UI/Spinner/Spinner";
 import downloadWhite from "../../../assets/images/icons/download-white.png";
 import downloadBlack from "../../../assets/images/icons/download-black.png";
 

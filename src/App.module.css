@@ -8,4 +8,9 @@ body {
   --custom-purple: #8878e3;
   --custom-grey: #505050;
   --custom-light-blue: #04c2c9;
+  --component-top-padding: 90px;
+  --component-bottom-padding: 40px;
+  --header-font-weight: 700;
+  --header-top-padding: 90px;
+  --header-bottom-padding: 50px;
 }
