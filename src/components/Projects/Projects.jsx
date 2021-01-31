@@ -1,25 +1,16 @@
-import React, { useState } from "react";
-import Project from "./Project/Project";
+import React from "react";
+import ProjectNav from "./ProjectNav/ProjectNav";
 
 import classes from "./Projects.module.css";
 
 import projectItems from "../../displayData/projects";
 
 const Projects = () => {
-  const projects = projectItems.map((project) => (
-    <Project
-      key={project.id}
-      name={project.name}
-      description={project.description}
-      techs={project.techs}
-      image={project.image}
-      github={project.github}
-      video={project.video}
-    />
-  ));
+  projectItems["All"] = Object.values(projectItems).flat();
   return (
     <div className={classes.Projects}>
       <h1>PROJECTS</h1>
+      <ProjectNav projects={projectItems} />
     </div>
   );
 };

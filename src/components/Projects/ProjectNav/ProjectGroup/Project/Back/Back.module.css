@@ -1,0 +1,32 @@
+.Back {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border-radius: 7px !important;
+  border: 1px solid #686868;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.Back h2 {
+  padding: 3px 10px 5px 10px;
+  font-size: 2.5vw;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding-top: 5px;
+  text-align: center;
+  border-bottom: 1px solid #686868;
+  padding-bottom: 3px;
+}
+
+.Back h3 {
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 2.5vw;
+  padding: 0 0 1px 10px;
+}
+
+.Back p {
+  padding: 3px 10px 5px 10px;
+  font-size: 2.2vw;
+  letter-spacing: 1px;
+}
