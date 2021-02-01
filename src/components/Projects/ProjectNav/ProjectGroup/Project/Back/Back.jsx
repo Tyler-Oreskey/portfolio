@@ -7,7 +7,7 @@ const Back = (props) => {
     <div className={classes.Back}>
       <h2>{props.projectName}</h2>
       <button onClick={props.flip} className={classes.FlipText}>
-        FLIP
+        LEARN MORE
       </button>
     </div>
   );
