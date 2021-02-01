@@ -29,7 +29,7 @@ class Projects extends Component {
 
   handleClickShowModal = (modalContent) => {
     this.setState({
-      modalContent: <ProjectModalContent modalContent={modalContent} />,
+      modalContent,
       showModal: true,
     });
   };
@@ -60,7 +60,7 @@ class Projects extends Component {
           </div>
         </div>
         <Modal show={this.state.showModal} closeModal={this.handleCloseModal}>
-          {this.state.modalContent}
+          <ProjectModalContent modalContent={this.state.modalContent} />
         </Modal>
       </Auxiliary>
     );
