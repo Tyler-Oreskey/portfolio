@@ -5,15 +5,26 @@ import ButtonHoverEffect from "../../../../../../UI/Buttons/ButtonHoverEffect/Bu
 import classes from "./Back.module.css";
 
 const Back = (props) => {
-  const { projectName } = props;
-  const toggleModal = () => {
-    console.log("hello");
-  };
+  let { projectName, techs } = props;
+
+  const formattedTechs = techs
+    .map((tech, index) => {
+      if (index === techs.length - 1) {
+        return `and ${tech}.`;
+      }
+      return tech;
+    })
+    .join(", ")
+    .replace(/,([^,]*)$/, "$1");
+
   return (
     <div className={classes.Back}>
       <h1>{projectName}</h1>
       <div className={classes.ToggleModalButton}>
-        <ButtonHoverEffect clicked={toggleModal} buttonText="LEARN MORE" />
+        <ButtonHoverEffect
+          clicked={() => props.clickShowModal({ ...props, formattedTechs })}
+          buttonText="LEARN MORE"
+        />
       </div>
     </div>
   );

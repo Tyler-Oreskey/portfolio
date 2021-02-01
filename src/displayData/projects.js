@@ -17,8 +17,7 @@ export default {
         "JOI validation",
       ],
       github: "https://github.com/Tyler-Oreskey/Fishtopia_Frontend",
-      video:
-        "https://www.youtube.com/watch?v=MLVl4oIc-kE&ab_channel=TylerOreskey",
+      video: "https://www.youtube.com/embed/MLVl4oIc-kE",
       image:
         "https://www.greaterseattleonthecheap.com/wordpress/wp-content/uploads/2020/05/Fly-fishing-with-Emerald-Water-Anglers.jpg",
     },
@@ -41,8 +40,7 @@ export default {
         "JOI validation",
       ],
       github: "https://github.com/Tyler-Oreskey/Good_Samaratin_Frontend",
-      video:
-        "https://www.youtube.com/watch?v=A_fjINvsucw&ab_channel=TylerOreskey",
+      video: "https://www.youtube.com/embed/A_fjINvsucw",
       image:
         "https://www.benzinga.com/files/images/story/2012/life-extension-technology-and-cannabis-formulations.jpg",
     },
@@ -63,8 +61,7 @@ export default {
         "Knex.js",
       ],
       github: "https://github.com/sparkyyc/hackateam",
-      video:
-        "https://www.youtube.com/watch?v=8QH3SKFm9VM&ab_channel=TylerOreskey",
+      video: "https://www.youtube.com/embed/8QH3SKFm9VM",
       image:
         "https://www.phocuswire.com/uploadedimages/uploads/2018/01/hedna-hackathon.jpg?width=800&height=400&scale=both&mode=crop",
     },

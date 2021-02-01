@@ -18,13 +18,15 @@ class Project extends Component {
     this.setState((prevState) => ({ flipped: !prevState.flipped }));
 
   render() {
-    const { project } = this.props;
+    const { project, clickShowModal } = this.props;
     const { flipped, hide, show } = this.state;
 
     const front = <Front backgroundImage={project.image} />;
 
     const back = (
       <Back
+        clickShowModal={clickShowModal}
+        video={project.video}
         projectName={project.name}
         projectDescription={project.description}
         techs={project.techs}

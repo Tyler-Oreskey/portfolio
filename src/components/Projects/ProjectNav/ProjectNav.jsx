@@ -20,7 +20,11 @@ const ProjectNav = (props) => {
     <div className="container">
       <div>{projectGroups}</div>
       <div className="row">
-        <ProjectGroup projectGroup={selectedProjectGroup} projects={projects} />
+        <ProjectGroup
+          projectGroup={selectedProjectGroup}
+          projects={projects}
+          clickShowModal={props.clickShowModal}
+        />
       </div>
     </div>
   );
