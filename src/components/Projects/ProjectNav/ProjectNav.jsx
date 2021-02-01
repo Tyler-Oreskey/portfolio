@@ -1,33 +1,14 @@
-import React, { useState } from "react";
-import ProjectGroup from "./ProjectGroup/ProjectGroup";
+import React from "react";
 
 import classes from "./ProjectNav.module.css";
 
 const ProjectNav = (props) => {
-  const { projects } = props;
-  const [selectedProjectGroup, setProjectGroup] = useState("All");
-
-  const handleSwitchProjectGroup = (projectGroup) =>
-    setProjectGroup(projectGroup);
-
-  const projectGroups = Object.keys(projects).map((projectGroup, index) => (
-    <div key={index} onClick={() => handleSwitchProjectGroup(projectGroup)}>
-      {projectGroup}
+  const projectGroupItems = props.projectGroups.map((group) => (
+    <div key={group} onClick={() => props.handleChangeProjectGroup(group)}>
+      {group}
     </div>
   ));
-
-  return (
-    <div className="container">
-      <div>{projectGroups}</div>
-      <div className="row">
-        <ProjectGroup
-          projectGroup={selectedProjectGroup}
-          projects={projects}
-          clickShowModal={props.clickShowModal}
-        />
-      </div>
-    </div>
-  );
+  return projectGroupItems;
 };
 
 export default ProjectNav;

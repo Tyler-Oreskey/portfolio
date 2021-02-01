@@ -1,6 +1,6 @@
 import React from "react";
 
-import ButtonHoverEffect from "../../../../../../UI/Buttons/ButtonHoverEffect/ButtonHoverEffect";
+import ButtonHoverEffect from "../../../../../UI/Buttons/ButtonHoverEffect/ButtonHoverEffect";
 
 import classes from "./Back.module.css";
 
