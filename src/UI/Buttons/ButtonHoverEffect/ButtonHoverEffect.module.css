@@ -1,0 +1,77 @@
+.ButtonHoverEffect {
+  position: relative;
+  background: none;
+  border: none;
+  color: white;
+  opacity: 0.9;
+  font-size: 20px;
+  cursor: pointer;
+}
+.ButtonHoverEffect span {
+  display: block;
+  padding: 10px 15px 10px 15px;
+}
+.ButtonHoverEffect:focus {
+  outline: none;
+  box-shadow: none;
+}
+.ButtonHoverEffect::before,
+.ButtonHoverEffect::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  transition: all 0.1s linear;
+  background: #8878e3;
+}
+
+.ButtonHoverEffect span::before,
+.ButtonHoverEffect span::after {
+  content: "";
+  width: 2px;
+  height: 0;
+  position: absolute;
+  transition: all 0.1s linear;
+  background: #8878e3;
+}
+.ButtonHoverEffect:hover::before,
+.ButtonHoverEffect:hover::after {
+  width: 100%;
+}
+.ButtonHoverEffect:hover span::before,
+.ButtonHoverEffect:hover span::after {
+  height: 100%;
+}
+
+.ButtonHoverEffect::before,
+.ButtonHoverEffect::after {
+  transition-delay: 0s;
+}
+.ButtonHoverEffect span::before,
+.ButtonHoverEffect span::after {
+  transition-delay: 0.1s;
+}
+.ButtonHoverEffect::before {
+  right: 0;
+  top: 0;
+}
+.ButtonHoverEffect::after {
+  left: 0;
+  bottom: 0;
+}
+.ButtonHoverEffect span::before {
+  left: 0;
+  top: 0;
+}
+.ButtonHoverEffect span::after {
+  right: 0;
+  bottom: 0;
+}
+.ButtonHoverEffect:hover::before,
+.ButtonHoverEffect:hover::after {
+  transition-delay: 0.1s;
+}
+.ButtonHoverEffect:hover span::before,
+.ButtonHoverEffect:hover span::after {
+  transition-delay: 0s;
+}

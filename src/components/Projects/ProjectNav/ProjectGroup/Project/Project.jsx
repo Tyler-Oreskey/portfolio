@@ -15,29 +15,28 @@ class Project extends Component {
   };
 
   handleToggleFlipped = () =>
-    this.setState((state) => ({ flipped: !state.flipped }));
+    this.setState((prevState) => ({ flipped: !prevState.flipped }));
 
   render() {
     const { project } = this.props;
-    const { flipped } = this.state;
+    const { flipped, hide, show } = this.state;
 
     const front = <Front backgroundImage={project.image} />;
 
     const back = (
       <Back
-        projectName={this.props.name}
-        projectDescription={this.props.description}
-        techs={this.props.techs}
+        projectName={project.name}
+        projectDescription={project.description}
+        techs={project.techs}
         projectIcons={[
           {
-            href: this.props.github,
+            href: project.github,
             src: github,
             alt: "github",
           },
         ]}
       />
     );
-
     return (
       <div
         className={classes.Project}
@@ -56,9 +55,9 @@ class Project extends Component {
                 native
                 unique
                 items={flipped}
-                from={{ opacity: this.state.hide }}
-                enter={{ opacity: this.state.show }}
-                leave={{ opacity: this.state.hide }}
+                from={{ opacity: hide }}
+                enter={{ opacity: show }}
+                leave={{ opacity: hide }}
               >
                 {(flipped) => ({ opacity }) => (
                   <animated.div

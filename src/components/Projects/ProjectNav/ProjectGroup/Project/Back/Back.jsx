@@ -1,14 +1,20 @@
 import React from "react";
 
+import ButtonHoverEffect from "../../../../../../UI/Buttons/ButtonHoverEffect/ButtonHoverEffect";
+
 import classes from "./Back.module.css";
 
 const Back = (props) => {
+  const { projectName } = props;
+  const toggleModal = () => {
+    console.log("hello");
+  };
   return (
     <div className={classes.Back}>
-      <h2>{props.projectName}</h2>
-      <button onClick={props.flip} className={classes.FlipText}>
-        LEARN MORE
-      </button>
+      <h1>{projectName}</h1>
+      <div className={classes.ToggleModalButton}>
+        <ButtonHoverEffect clicked={toggleModal} buttonText="LEARN MORE" />
+      </div>
     </div>
   );
 };
