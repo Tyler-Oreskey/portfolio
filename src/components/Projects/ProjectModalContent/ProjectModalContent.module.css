@@ -2,10 +2,6 @@
   text-align: left;
 }
 
-.ProjectModalContent iframe {
-  border-bottom: solid var(--custom-purple) 6px;
-}
-
 .ProjectInfo {
   padding: 30px;
 }
@@ -20,4 +16,37 @@
 .ProjectModalContent span {
   font-weight: 700;
   color: #333;
+}
+
+.AnimatedProjectBorder {
+  width: 100%;
+  height: 15px;
+  background: linear-gradient(
+    45deg,
+    #f17c58,
+    #e94584,
+    #24aadb,
+    #27dbb1,
+    #ffdc18,
+    #ff3706
+  );
+  background-size: 600% 100%;
+  animation: gradient 8s linear infinite;
+  animation-direction: alternate;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.ProjectModalContent iframe {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: block;
 }

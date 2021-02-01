@@ -15,6 +15,7 @@ const ProjectModalContent = (props) => {
         allowFullScreen
         title="video"
       />
+      <div className={classes.AnimatedProjectBorder}></div>
       <div className={classes.ProjectInfo}>
         <h1>{modalContent.projectName}</h1>
         <p>{modalContent.projectDescription}</p>

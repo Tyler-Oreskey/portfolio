@@ -2,15 +2,23 @@
   position: fixed;
   left: 0;
   right: 0;
-  top: 10%;
-  width: 700px;
+  top: 5%;
+  width: 100%;
+  max-width: 700px;
   margin: auto;
   width: 90%;
-  max-width: 700px;
   z-index: 500;
   background-color: white;
   box-sizing: border-box;
   box-shadow: 0 0 10px rgb(0 0 0 / 40%);
+  max-height: 93%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.ModalExit {
+  float: right;
+  padding: 0 10px 10px;
 }
 
 .ModalExit img {
@@ -19,8 +27,6 @@
 }
 
 .ModalExit button {
-  float: right;
-  padding: 0 10px 10px;
   background-color: Transparent;
   background-repeat: no-repeat;
   border: none;
