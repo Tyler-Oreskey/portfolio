@@ -14,8 +14,7 @@ class Project extends Component {
     show: 1,
   };
 
-  handleToggleFlipped = () =>
-    this.setState((prevState) => ({ flipped: !prevState.flipped }));
+  handleToggleFlipped = (flipped) => this.setState({ flipped });
 
   render() {
     const { project, clickShowModal } = this.props;
@@ -42,8 +41,8 @@ class Project extends Component {
     return (
       <div
         className={classes.Project}
-        onMouseEnter={this.handleToggleFlipped}
-        onMouseLeave={this.handleToggleFlipped}
+        onMouseOver={() => this.handleToggleFlipped(true)}
+        onMouseLeave={() => this.handleToggleFlipped(false)}
       >
         <Spring
           native

@@ -10,5 +10,33 @@
   z-index: 500;
   background-color: white;
   box-sizing: border-box;
-  transition: all 0.3s ease-out;
+  box-shadow: 0 0 10px rgb(0 0 0 / 40%);
+}
+
+.ModalExit img {
+  width: 40px;
+  height: auto;
+}
+
+.ModalExit button {
+  float: right;
+  padding: 0 10px 10px;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.ModalHide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.2s, opacity 0.2s linear;
+}
+
+.ModalShow {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s linear;
 }

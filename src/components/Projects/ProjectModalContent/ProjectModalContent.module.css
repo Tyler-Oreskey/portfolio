@@ -2,12 +2,22 @@
   text-align: left;
 }
 
+.ProjectModalContent iframe {
+  border-bottom: solid var(--custom-purple) 6px;
+}
+
+.ProjectInfo {
+  padding: 30px;
+}
+
 .ProjectModalContent h1 {
+  color: #333;
   font-weight: bold;
   padding-bottom: 3px;
-  border-bottom: solid 1px black;
+  border-bottom: solid 1px #c0c0c0;
 }
 
 .ProjectModalContent span {
   font-weight: 700;
+  color: #333;
 }

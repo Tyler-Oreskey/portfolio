@@ -1,0 +1,7 @@
+.ButtonHoverExpand {
+  transition: all 0.2s ease-in-out;
+}
+
+.ButtonHoverExpand:hover {
+  transform: scale(1.2);
+}

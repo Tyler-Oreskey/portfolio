@@ -15,12 +15,14 @@ const ProjectModalContent = (props) => {
         allowFullScreen
         title="video"
       />
-      <h1>{modalContent.projectName}</h1>
-      <p>{modalContent.projectDescription}</p>
-      <p>
-        <span>Technologies Used: </span>
-        {modalContent.formattedTechs}
-      </p>
+      <div className={classes.ProjectInfo}>
+        <h1>{modalContent.projectName}</h1>
+        <p>{modalContent.projectDescription}</p>
+        <p>
+          <span>Technologies Used: </span>
+          {modalContent.formattedTechs}
+        </p>
+      </div>
     </div>
   );
 };
