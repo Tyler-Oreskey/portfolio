@@ -7,8 +7,8 @@ const ProjectModalContent = (props) => {
   return (
     <div className={classes.ProjectModalContent}>
       <iframe
-        width="560"
-        height="315"
+        width="100%"
+        height="400"
         src={modalContent.video}
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -17,7 +17,10 @@ const ProjectModalContent = (props) => {
       />
       <h1>{modalContent.projectName}</h1>
       <p>{modalContent.projectDescription}</p>
-      <p>{modalContent.formattedTechs}</p>
+      <p>
+        <span>Technologies Used: </span>
+        {modalContent.formattedTechs}
+      </p>
     </div>
   );
 };
