@@ -2,7 +2,6 @@
   position: relative;
   background: none;
   border: none;
-  color: white;
   opacity: 0.9;
   font-size: 20px;
   cursor: pointer;
@@ -22,7 +21,7 @@
   height: 2px;
   position: absolute;
   transition: all 0.1s linear;
-  background: #8878e3;
+  background: #dc143c;
 }
 
 .ButtonHoverEffect span::before,
@@ -32,8 +31,9 @@
   height: 0;
   position: absolute;
   transition: all 0.1s linear;
-  background: #8878e3;
+  background: #dc143c;
 }
+
 .ButtonHoverEffect:hover::before,
 .ButtonHoverEffect:hover::after {
   width: 100%;
