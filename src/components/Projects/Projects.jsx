@@ -16,10 +16,18 @@ class Projects extends Component {
     projects: {},
     projectGroups: [],
     selectedProjectGroup: [],
+    navIndex: 0,
   };
 
   componentDidMount() {
     const allProjects = { ...projectItems, All: projectItems };
+
+    Object.entries(allProjects).map(([key, value]) => {
+      if (value.length === 0) {
+        delete allProjects[key];
+      }
+    });
+
     this.setState({
       projectGroups: Object.keys(allProjects),
       projects: allProjects,
@@ -36,8 +44,11 @@ class Projects extends Component {
 
   handleCloseModal = () => this.setState({ showModal: false });
 
-  handleChangeProjectGroup = (projectGroup) =>
-    this.setState({ selectedProjectGroup: this.state.projects[projectGroup] });
+  handleChangeProjectGroup = (projectGroup, navIndex) =>
+    this.setState({
+      selectedProjectGroup: this.state.projects[projectGroup],
+      navIndex,
+    });
 
   render() {
     return (
@@ -47,6 +58,7 @@ class Projects extends Component {
           <div className="container">
             <div className="row">
               <ProjectNav
+                navIndex={this.state.navIndex}
                 projectGroups={this.state.projectGroups}
                 handleChangeProjectGroup={this.handleChangeProjectGroup}
               />

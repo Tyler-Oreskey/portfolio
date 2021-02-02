@@ -66,25 +66,5 @@ export default {
         "https://www.phocuswire.com/uploadedimages/uploads/2018/01/hedna-hackathon.jpg?width=800&height=400&scale=both&mode=crop",
     },
   ],
-  "In Progress": [
-    {
-      name: "Test in progress",
-      description: "Test in progress.",
-      techs: [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Bootstrap",
-        "Node.js",
-        "PostgreSQL",
-        "Express.js",
-        "Knex.js",
-      ],
-      github: "https://github.com/sparkyyc/hackateam",
-      video:
-        "https://www.youtube.com/watch?v=8QH3SKFm9VM&ab_channel=TylerOreskey",
-      image:
-        "https://www.phocuswire.com/uploadedimages/uploads/2018/01/hedna-hackathon.jpg?width=800&height=400&scale=both&mode=crop",
-    },
-  ],
+  "In Progress": [],
 };
