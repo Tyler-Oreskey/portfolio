@@ -1,101 +1,15 @@
 .Contact {
+  background-color: var(--dark-background-color);
+  color: white;
+}
+
+.FormColumn {
   margin: 0 auto;
-  border-radius: 2px;
-  color: white;
-  opacity: 0.75;
-}
-
-.Contact form {
-  padding: 20px;
-}
-
-.Contact input,
-.Contact textarea,
-.Contact input:focus,
-.Contact textarea:focus {
-  background-color: #020b16;
-  color: white;
-}
-
-.Contact textarea {
-  resize: none;
-}
-
-.Contact span {
-  background-color: #020b16;
-  color: white;
-}
-
-.Contact label {
-  padding-bottom: 5px;
-}
-
-.Contact div {
-  margin-bottom: 20px;
-}
-
-.FormError {
-  color: #f54029;
-  letter-spacing: 0.1rem;
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.FormSubmit,
-.Recaptcha {
-  padding-top: 7px;
-  text-align: center;
-}
-
-.FormSubmit div,
-.Recaptcha div {
-  margin: auto;
-}
-
-.Recaptcha {
-  margin-top: 5px;
-  margin-bottom: 12px;
-}
-
-.FormSubmit button {
-  font-size: 20px;
-  width: 120px;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  -webkit-text-fill-color: white;
-  -webkit-box-shadow: 0 0 0px 1000px #020b16 inset;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-@media (min-width: 576px) {
-  .Contact {
-    max-width: 90%;
-  }
-}
-
-@media (min-width: 768px) {
-  .Contact {
-    max-width: 60%;
-  }
-}
-
-@media (min-width: 992px) {
-  .Contact {
-    max-width: 60%;
-  }
+  padding-top: 20px;
 }
 
 @media (min-width: 1200px) {
-  .Contact {
-    max-width: 40%;
+  .FormColumn {
+    max-width: 50%;
   }
 }

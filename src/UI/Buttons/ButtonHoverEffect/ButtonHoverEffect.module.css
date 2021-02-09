@@ -21,7 +21,7 @@
   height: 2px;
   position: absolute;
   transition: all 0.1s linear;
-  background: var(--custom-red);
+  background: var(--custom-purple);
 }
 
 .ButtonHoverEffect span::before,
@@ -31,7 +31,7 @@
   height: 0;
   position: absolute;
   transition: all 0.1s linear;
-  background: var(--custom-red);
+  background: var(--custom-purple);
 }
 
 .ButtonHoverEffect:hover::before,

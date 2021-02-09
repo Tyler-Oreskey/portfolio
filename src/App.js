@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Element, Events, animateScroll } from "react-scroll";
 
-import Toolbar from "./components/Navigation/Toolbar/Toolbar";
+// import Toolbar from "./components/Navigation/Toolbar/Toolbar";
 import routes from "./routes/routes";
 import classes from "./App.module.css";
 

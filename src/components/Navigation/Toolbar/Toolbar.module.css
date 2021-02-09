@@ -1,6 +1,6 @@
 .Toolbar {
   height: 56px;
-  background-color: #020b16;
+  background-color: var(--dark-background-color);
   margin-bottom: 25px;
   width: 100%;
   top: 0;

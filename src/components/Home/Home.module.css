@@ -1,5 +1,5 @@
 .Home {
-  background-color: #020b16;
+  background-color: var(--dark-background-color);
   display: flex;
   justify-content: center;
   align-items: center;

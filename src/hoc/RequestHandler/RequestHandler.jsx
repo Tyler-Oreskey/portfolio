@@ -2,11 +2,16 @@ import React, { Component } from "react";
 
 import Auxiliary from "../Auxiliary/Auxiliary";
 import Toast from "../../UI/Toast/Toast";
+import checkIcon from "../../assets/images/icons/check.png";
+import errorIcon from "../../assets/images/icons/error.png";
 
 const RequestHandler = (WrappedComponent, axios) => {
   return class extends Component {
     state = {
-      error: null,
+      message: null,
+      type: null,
+      icon: null,
+      backgroundColor: null,
     };
 
     componentDidMount() {
@@ -16,9 +21,23 @@ const RequestHandler = (WrappedComponent, axios) => {
       });
 
       this.resInterceptor = axios.interceptors.response.use(
-        (res) => res,
+        (res) => {
+          this.setState({
+            message: res.data.message,
+            type: "Success!",
+            icon: checkIcon,
+            backgroundColor: "#5cb85c",
+          });
+          return res;
+        },
         (error) => {
-          this.setState({ error });
+          this.setState({
+            message: error.response.data.message,
+            type: "Error!",
+            icon: errorIcon,
+            backgroundColor: "#d9534f",
+          });
+          return error;
         }
       );
     }
@@ -29,13 +48,22 @@ const RequestHandler = (WrappedComponent, axios) => {
     }
 
     render() {
-      const toast = this.state.error ? (
-        <Toast message={this.state.error.message} type="error" />
+      const toastList = [
+        {
+          message: this.state.message,
+          type: this.state.type,
+          icon: this.state.icon,
+          backgroundColor: this.state.backgroundColor,
+        },
+      ];
+
+      const messageToDisplay = this.state.message ? (
+        <Toast toastList={toastList} position="bottom-right" />
       ) : null;
 
       return (
         <Auxiliary>
-          {toast}
+          {messageToDisplay}
           <WrappedComponent {...this.props} />
         </Auxiliary>
       );

@@ -20,18 +20,25 @@ class Projects extends Component {
   };
 
   componentDidMount() {
-    const allProjects = { ...projectItems, All: projectItems };
+    const allProjects = { ...projectItems };
 
-    Object.entries(allProjects).map(([key, value]) => {
-      if (value.length === 0) {
+    for (const key in allProjects) {
+      if (allProjects[key].length === 0) {
         delete allProjects[key];
       }
-    });
+    }
+
+    allProjects.all = { ...allProjects };
+
+    const allProjectGroups = Object.keys(allProjects);
+    const all = allProjectGroups.pop();
+
+    allProjectGroups.unshift(all);
 
     this.setState({
-      projectGroups: Object.keys(allProjects),
+      projectGroups: allProjectGroups,
       projects: allProjects,
-      selectedProjectGroup: allProjects["All"],
+      selectedProjectGroup: allProjects[all],
     });
   }
 

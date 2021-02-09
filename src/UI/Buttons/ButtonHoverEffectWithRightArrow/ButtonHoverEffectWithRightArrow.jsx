@@ -6,10 +6,13 @@ import arrow from "../../../assets/images/icons/right-arrow.png";
 
 const ButtonHoverEffectWithRightArrow = (props) => (
   <div className={classes.ButtonHoverEffectWithRightArrowContainer}>
-    <button className={classes.ButtonHoverEffectWithRightArrow}>
+    <button
+      type={props.buttonType || "button"}
+      className={classes.ButtonHoverEffectWithRightArrow}
+    >
       <span>
         {props.buttonText}
-        <img src={arrow} alt="-->" />
+        <img src={arrow} alt="->" />
       </span>
     </button>
   </div>

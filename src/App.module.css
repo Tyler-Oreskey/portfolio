@@ -5,6 +5,7 @@ body {
 }
 
 :root {
+  --dark-background-color: #020b16;
   --custom-purple: #8878e3;
   --custom-grey: #505050;
   --custom-light-blue: #04c2c9;

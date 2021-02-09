@@ -1,248 +1,139 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
+
+import Form from "./Form/Form";
+import classes from "./Contact.module.css";
+import RequestHandler from "../../hoc/RequestHandler/RequestHandler";
 import axios from "../../axios";
 
-import RequestHandler from "../../hoc/RequestHandler/RequestHandler";
-import Spinner from "../../UI/Spinner/Spinner";
-import classes from "./Contact.module.css";
-import Toast from "../../UI/Toast/Toast";
-import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
-import Recaptcha from "../../auth/Recaptcha/Recaptcha";
-
 const validEmailRegex = RegExp(
+  // eslint-disable-next-line no-useless-escape
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 );
 
-const validateForm = (form, recaptchaToken) => {
-  const errors = {};
-  if (form.name.length < 3) {
-    errors.name = "Name must be at least 3 characters long!";
-  }
-
-  if (!validEmailRegex.test(form.email)) {
-    errors.email = "Email is not valid!";
-  }
-
-  if (form.message.length < 15) {
-    errors.message = "Message must be at least 15 characters long!";
-  }
-
-  if (!recaptchaToken || recaptchaToken === "") {
-    errors.recaptcha = "Please accept the recaptcha!";
-  }
-
-  return errors;
-};
-
 class Contact extends Component {
   state = {
-    form: {
-      name: "",
-      email: "",
-      message: "",
+    fields: { name: "", email: "", message: "" },
+    errors: { name: false, email: false, message: false },
+    fieldRules: {
+      name: { minLength: 3, maxLength: 50 },
+      email: { validateEmail: true, maxLength: 50 },
+      message: { minLength: 15, maxLength: 500 },
     },
-    maxLength: {
-      name: 50,
-      email: 50,
-      message: 500,
-    },
-    errors: {},
-    loading: false,
-    success: false,
     recapchaReady: false,
     recaptchaToken: null,
-  };
-
-  recaptchaOnLoad = () => {
-    this.setState({ recapchaReady: true });
-  };
-
-  verifyRecaptcha = (captchaResponse) => {
-    this.setState({ recaptchaToken: captchaResponse });
+    loading: false,
+    recaptchaRef: createRef(null),
   };
 
   handleInputChange = (event) => {
-    const { name, value } = event.target;
-    const form = { ...this.state.form };
-    form[name] = value;
-    this.setState({ form });
+    const { value, name } = event.target;
+    const fields = { ...this.state.fields };
+    fields[name] = value;
+    const errors = this.handleErrorsOnChange({ ...this.state.errors }, event);
+    this.setState({ fields, errors });
+  };
+
+  handleErrorsOnChange = (errors, event) => {
+    const { value, name, type } = event.target;
+    if (value.length <= this.state.fieldRules[name].minLength) {
+      errors[name] = true;
+    } else if (
+      type === "email" &&
+      this.state.fieldRules[name].validateEmail &&
+      !validEmailRegex.test(value)
+    ) {
+      errors[name] = true;
+    } else {
+      errors[name] = false;
+    }
+    return errors;
+  };
+
+  handleErrorsOnSubmit = () => {
+    const errors = {};
+    for (const field in this.state.fields) {
+      if (
+        this.state.fields[field].length <=
+        this.state.fieldRules[field].minLength
+      ) {
+        errors[field] = true;
+      }
+
+      if (
+        field === "email" &&
+        !validEmailRegex.test(this.state.fields[field])
+      ) {
+        errors[field] = true;
+      }
+    }
+
+    if (!this.state.recaptchaToken) {
+      errors.recaptchaError = true;
+    }
+    this.setState({ errors });
+  };
+
+  recaptchaOnLoad = () => this.setState({ recapchaReady: true });
+
+  verifyRecaptcha = (captchaResponse) =>
+    this.setState({ recaptchaToken: captchaResponse });
+
+  resetValues = () => {
+    this.state.recaptchaRef.current.reset();
+    const fields = { ...this.state.fields };
+    for (const key in fields) {
+      fields[key] = "";
+    }
+    this.setState({ fields });
   };
 
   handleSubmit = async (event) => {
     event.preventDefault();
+    await this.handleErrorsOnSubmit();
 
-    const errors = validateForm(this.state.form, this.state.recaptchaToken);
-
-    if (Object.keys(errors).length > 0) {
-      this.setState({ errors });
-      return;
+    if (Object.keys(this.state.errors).length > 0) {
+      return null;
     }
 
-    this.setState({ errors: {} });
+    const body = {
+      ...this.state.fields,
+      recaptchaToken: this.state.recaptchaToken,
+    };
 
     try {
       this.setState({ loading: true });
-
-      const res = await axios.post("/email/sendEmail", {
-        ...this.state.form,
-        recaptchaToken: this.state.recaptchaToken,
-      });
-
+      const res = await axios.post("/email/sendEmail", { ...body });
       if (res.status === 200) {
-        this.handleSuccessMessage(true);
         this.resetValues();
       }
     } catch (error) {
-      // handled by request handler hoc
+      // handled by req handler hoc
     } finally {
       this.setState({ loading: false });
     }
   };
 
-  resetValues = () => {
-    this.recaptchaRef.reset();
-    this.setState({
-      form: {
-        name: "",
-        email: "",
-        message: "",
-      },
-      recaptchaToken: null,
-    });
-  };
-
-  handleSuccessMessage = (value) => {
-    this.setState({ success: value });
-  };
-
   render() {
-    const { errors } = this.state;
-
-    let nameError = null;
-
-    if (errors.name?.length > 0) {
-      nameError = <p className={classes.FormError}>{errors.name}</p>;
-    }
-
-    let emailError = null;
-
-    if (errors.email?.length > 0) {
-      emailError = <p className={classes.FormError}>{errors.email}</p>;
-    }
-
-    let messageError = null;
-
-    if (errors.message?.length > 0) {
-      messageError = <p className={classes.FormError}>{errors.message}</p>;
-    }
-
-    let recaptchaError = null;
-
-    if (errors.recaptcha?.length > 0) {
-      recaptchaError = <p className={classes.FormError}>{errors.recaptcha}</p>;
-    }
-
-    let submission = null;
-
-    if (this.state.loading) {
-      submission = <Spinner size="medium" />;
-    } else {
-      submission = (
-        <button
-          type="submit"
-          className="btn btn-outline-light"
-          disabled={this.state.success || !this.state.recapchaReady}
-        >
-          SUBMIT
-        </button>
-      );
-    }
-
-    let successMessage = null;
-
-    if (this.state.success) {
-      successMessage = (
-        <Toast
-          message="Sent!"
-          type="success"
-          toggleSuccessMessage={this.handleSuccessMessage}
-        />
-      );
-    }
-
     return (
-      <Auxiliary>
-        {successMessage}
-        <div className={`col-md-6 ${classes.Contact}`}>
-          <form onSubmit={(event) => this.handleSubmit(event)} noValidate>
-            <div className="form-group">
-              <label>Your Name</label>
-              <div className="input-group">
-                <input
-                  type="text"
-                  name="name"
-                  className="form-control"
-                  placeholder="Enter Name"
-                  maxLength={this.state.maxLength.name}
-                  value={this.state.form.name}
-                  onChange={(event) => this.handleInputChange(event)}
-                />
-                <span className="input-group-text">
-                  {`${this.state.form.name.length}/${this.state.maxLength.name}`}
-                </span>
-              </div>
-              {nameError}
-            </div>
-
-            <div className="form-group">
-              <label>Your Email</label>
-              <div className="input-group">
-                <input
-                  type="email"
-                  name="email"
-                  className="form-control"
-                  placeholder="Enter Email"
-                  maxLength={this.state.maxLength.email}
-                  value={this.state.form.email}
-                  onChange={(event) => this.handleInputChange(event)}
-                />
-                <span className="input-group-text">
-                  {this.state.form.email.length}/{this.state.maxLength.email}
-                </span>
-              </div>
-              {emailError}
-            </div>
-
-            <div className="form-group form-text-area">
-              <label>Message</label>
-              <div className="input-group">
-                <textarea
-                  name="message"
-                  className="form-control"
-                  placeholder="Enter Message"
-                  rows="5"
-                  maxLength={this.state.maxLength.message}
-                  value={this.state.form.message}
-                  onChange={(event) => this.handleInputChange(event)}
-                />
-                <span className="input-group-text">
-                  {this.state.form.message.length}/
-                  {this.state.maxLength.message}
-                </span>
-              </div>
-              {messageError}
-            </div>
-            <div className={classes.Recaptcha}>
-              <Recaptcha
-                recaptchaRef={(e) => (this.recaptchaRef = e)}
+      <div className={classes.Contact}>
+        <div className="container">
+          <div className="row">
+            <div className={`${classes.FormColumn} col-md-9`}>
+              <Form
+                fields={this.state.fields}
+                errors={this.state.errors}
+                fieldRules={this.state.fieldRules}
+                handleInputChange={this.handleInputChange}
+                handleSubmit={this.handleSubmit}
                 verifyRecaptcha={this.verifyRecaptcha}
                 recaptchaOnLoad={this.recaptchaOnLoad}
+                recaptchaRef={this.state.recaptchaRef}
+                loading={this.state.loading}
               />
-              {recaptchaError}
             </div>
-            <div className={classes.FormSubmit}>{submission}</div>
-          </form>
+          </div>
         </div>
-      </Auxiliary>
+      </div>
     );
   }
 }
