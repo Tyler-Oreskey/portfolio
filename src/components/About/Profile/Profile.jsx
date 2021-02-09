@@ -1,6 +1,6 @@
 import React from "react";
 
-import HexagonWithImage from "../../../UI/Hexagon/HexagonWithImage/HexagonWithImage";
+import HexagonWithImage from "../../../UI/Shapes/Hexagon/HexagonWithImage/HexagonWithImage";
 import Carousel from "../Carousel/Carousel";
 
 import profilePhoto from "../../../assets/images/photos/profile-photo.png";

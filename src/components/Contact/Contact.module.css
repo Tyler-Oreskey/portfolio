@@ -1,6 +1,21 @@
 .Contact {
+  padding-top: var(--component-top-padding);
+  padding-bottom: var(--component-bottom-padding);
   background-color: var(--dark-background-color);
   color: white;
+}
+
+.Contact h1 {
+  text-align: center;
+  font-weight: var(--header-font-weight);
+  opacity: 0.8;
+  padding-bottom: var(--header-bottom-padding);
+}
+
+.ContactSubText {
+  font-weight: 700;
+  color: #04c2c9;
+  text-align: center;
 }
 
 .FormColumn {

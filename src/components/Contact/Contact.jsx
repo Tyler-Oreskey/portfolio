@@ -4,6 +4,8 @@ import Form from "./Form/Form";
 import classes from "./Contact.module.css";
 import RequestHandler from "../../hoc/RequestHandler/RequestHandler";
 import axios from "../../axios";
+import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
+import InvertedTriangle from "../../UI/Shapes/Triangle/InvertedTriangle";
 
 const validEmailRegex = RegExp(
   // eslint-disable-next-line no-useless-escape
@@ -115,25 +117,37 @@ class Contact extends Component {
 
   render() {
     return (
-      <div className={classes.Contact}>
-        <div className="container">
-          <div className="row">
-            <div className={`${classes.FormColumn} col-md-9`}>
-              <Form
-                fields={this.state.fields}
-                errors={this.state.errors}
-                fieldRules={this.state.fieldRules}
-                handleInputChange={this.handleInputChange}
-                handleSubmit={this.handleSubmit}
-                verifyRecaptcha={this.verifyRecaptcha}
-                recaptchaOnLoad={this.recaptchaOnLoad}
-                recaptchaRef={this.state.recaptchaRef}
-                loading={this.state.loading}
-              />
+      <Auxiliary>
+        <InvertedTriangle
+          fillcolor="#020b16"
+          triangleColor="#f5f5f5"
+          outlineColor="#04c2c9"
+          outlineWidth={3}
+        />
+        <div className={classes.Contact}>
+          <h1>CONTACT</h1>
+          <p className={classes.ContactSubText}>
+            Have a question or want to work together?
+          </p>
+          <div className="container">
+            <div className="row">
+              <div className={`${classes.FormColumn} col-md-9`}>
+                <Form
+                  fields={this.state.fields}
+                  errors={this.state.errors}
+                  fieldRules={this.state.fieldRules}
+                  handleInputChange={this.handleInputChange}
+                  handleSubmit={this.handleSubmit}
+                  verifyRecaptcha={this.verifyRecaptcha}
+                  recaptchaOnLoad={this.recaptchaOnLoad}
+                  recaptchaRef={this.state.recaptchaRef}
+                  loading={this.state.loading}
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Auxiliary>
     );
   }
 }
