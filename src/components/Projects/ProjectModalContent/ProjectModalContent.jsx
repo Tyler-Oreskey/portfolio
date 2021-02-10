@@ -23,6 +23,9 @@ const ProjectModalContent = (props) =>
           {props.modalContent.formattedTechs}
         </p>
       </div>
+      <div className={classes.ProjectLinks}>
+        {props.modalContent.projectLinks}
+      </div>
     </div>
   ) : null;
 

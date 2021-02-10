@@ -21,17 +21,6 @@
   padding-top: 5px;
 }
 
-.FormSubmit,
-.Recaptcha {
-  padding-top: 7px;
-  text-align: center;
-}
-
-.FormSubmit div,
-.Recaptcha div {
-  margin: auto;
-}
-
 .ContactForm input:-webkit-autofill,
 .ContactForm input:-webkit-autofill:hover,
 .ContactForm input:-webkit-autofill:focus,
@@ -50,4 +39,28 @@
 .ContactForm textarea,
 .ContactForm span {
   border-radius: 0;
+}
+
+.FormSubmit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.FormRecaptcha {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.FormRecaptcha p {
+  position: absolute;
+  padding-top: 125px;
+}
+
+@media (max-width: 469px) {
+  .FormRecaptcha {
+    justify-content: center;
+    padding-bottom: 50px;
+  }
 }

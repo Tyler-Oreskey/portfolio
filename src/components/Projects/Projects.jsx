@@ -64,11 +64,11 @@ class Projects extends Component {
           <h1>PROJECTS</h1>
           <div className="container">
             <div className="row">
-              <ProjectNav
+              {/* <ProjectNav
                 navIndex={this.state.navIndex}
                 projectGroups={this.state.projectGroups}
                 handleChangeProjectGroup={this.handleChangeProjectGroup}
-              />
+              /> */}
             </div>
             <div className="row">
               <ProjectGroup

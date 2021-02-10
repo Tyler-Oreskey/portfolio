@@ -50,3 +50,12 @@
   padding: 0;
   display: block;
 }
+
+.ProjectLinks {
+  text-align: center;
+}
+
+.ProjectLinks a {
+  text-decoration: none;
+  padding: 15px;
+}

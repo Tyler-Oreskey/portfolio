@@ -15,12 +15,22 @@ const Back = (props) => {
     .join(", ")
     .replace(/,([^,]*)$/, "$1");
 
+  const projectLinks = Object.entries(props.projectLinks).map(
+    ([key, value], index) => (
+      <a target="_blank" rel="noopener noreferrer" key={index} href={value}>
+        {key.toUpperCase()}
+      </a>
+    )
+  );
+
   return (
     <div className={classes.Back}>
       <h1>{props.projectName}</h1>
       <div className={classes.ToggleModalButton}>
         <ButtonHoverEffect
-          clicked={() => props.clickShowModal({ ...props, formattedTechs })}
+          clicked={() =>
+            props.clickShowModal({ ...props, formattedTechs, projectLinks })
+          }
           buttonText="LEARN MORE"
         />
       </div>

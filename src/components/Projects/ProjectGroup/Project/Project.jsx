@@ -3,7 +3,6 @@ import { Spring, Transition, animated } from "react-spring/renderprops";
 
 import Front from "./Front/Front";
 import Back from "./Back/Back";
-import github from "../../../../assets/images/icons/github.png";
 
 import classes from "./Project.module.css";
 
@@ -29,13 +28,7 @@ class Project extends Component {
         projectName={project.name}
         projectDescription={project.description}
         techs={project.techs}
-        projectIcons={[
-          {
-            href: project.github,
-            src: github,
-            alt: "github",
-          },
-        ]}
+        projectLinks={project.projectLinks}
       />
     );
     return (

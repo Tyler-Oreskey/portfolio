@@ -21,10 +21,5 @@
 .FormColumn {
   margin: 0 auto;
   padding-top: 20px;
-}
-
-@media (min-width: 1200px) {
-  .FormColumn {
-    max-width: 50%;
-  }
+  max-width: 550px;
 }
