@@ -1,6 +1,7 @@
 import React from "react";
 
 import ReactParticles from "react-particles-js";
+
 import classes from "./Particles.module.css";
 
 const Particles = () => (

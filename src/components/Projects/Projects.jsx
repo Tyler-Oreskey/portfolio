@@ -1,13 +1,13 @@
 import React, { Component } from "react";
+
 import ProjectNav from "./ProjectNav/ProjectNav";
 import ProjectGroup from "./ProjectGroup/ProjectGroup";
 import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
 import Modal from "../../UI/Modal/Modal";
 import ProjectModalContent from "./ProjectModalContent/ProjectModalContent";
+import projectItems from "../../displayData/projects";
 
 import classes from "./Projects.module.css";
-
-import projectItems from "../../displayData/projects";
 
 class Projects extends Component {
   state = {

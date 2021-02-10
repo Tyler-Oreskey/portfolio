@@ -1,6 +1,6 @@
 .Contact {
   padding-top: var(--component-top-padding);
-  padding-bottom: var(--component-bottom-padding);
+  padding-bottom: 120px;
   background-color: var(--dark-background-color);
   color: white;
 }

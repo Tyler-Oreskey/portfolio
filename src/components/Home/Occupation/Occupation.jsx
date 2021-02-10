@@ -1,8 +1,8 @@
 import React from "react";
 
-import classes from "./Occupation.module.css";
-
 import codeIcon from "../../../assets/images/icons/code.png";
+
+import classes from "./Occupation.module.css";
 
 const Occupation = () => (
   <div className={classes.Occupation}>

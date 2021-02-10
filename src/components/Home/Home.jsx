@@ -1,11 +1,11 @@
 import React from "react";
 
-import classes from "./Home.module.css";
-
 import Particles from "../../UI/Particles/Particles";
 import Greeting from "./Greeting/Greeting";
 import Occupation from "./Occupation/Occupation";
 import ButtonHoverEffectWithRightArrow from "../../UI/Buttons/ButtonHoverEffectWithRightArrow/ButtonHoverEffectWithRightArrow";
+
+import classes from "./Home.module.css";
 
 const Home = () => {
   return (

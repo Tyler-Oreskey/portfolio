@@ -2,8 +2,8 @@ import React from "react";
 
 import HexagonWithImage from "../../../UI/Shapes/Hexagon/HexagonWithImage/HexagonWithImage";
 import Carousel from "../Carousel/Carousel";
-
 import profilePhoto from "../../../assets/images/photos/profile-photo.png";
+
 import classes from "./Profile.module.css";
 
 const Profile = () => (

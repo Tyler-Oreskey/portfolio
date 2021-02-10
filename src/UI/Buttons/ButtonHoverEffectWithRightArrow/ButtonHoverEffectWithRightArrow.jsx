@@ -1,8 +1,8 @@
 import React from "react";
 
-import classes from "./ButtonHoverEffectWithRightArrow.module.css";
-
 import arrow from "../../../assets/images/icons/right-arrow.png";
+
+import classes from "./ButtonHoverEffectWithRightArrow.module.css";
 
 const ButtonHoverEffectWithRightArrow = (props) => (
   <div className={classes.ButtonHoverEffectWithRightArrowContainer}>

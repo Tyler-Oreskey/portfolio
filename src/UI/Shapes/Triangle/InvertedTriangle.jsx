@@ -13,7 +13,7 @@ const InvertedTriangle = (props) => {
         <path
           fill={props.triangleColor}
           stroke={props.outlineColor}
-          stroke-width={props.outlineWidth}
+          strokeWidth={props.outlineWidth}
           d="M0 0 L50 90 L100 0"
         />
       </svg>

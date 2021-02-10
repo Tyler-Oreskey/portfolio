@@ -18,10 +18,10 @@ class App extends Component {
     Events.scrollEvent.remove("end");
   }
   render() {
-    const scrollElements = routes.map((route) => (
+    const scrollElements = routes.map((route, index) => (
       <Element
-        key={route.label}
-        name={route.label.toLowerCase()}
+        key={index}
+        name={route.label?.toLowerCase()}
         className={classes.element}
       >
         <route.component />

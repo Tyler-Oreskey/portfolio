@@ -1,8 +1,8 @@
 import React from "react";
 
-import classes from "./AdjectiveCard.module.css";
-
 import HexagonWithIcon from "../../../../UI/Shapes/Hexagon/HexagonWithIcon/HexagonWithIcon";
+
+import classes from "./AdjectiveCard.module.css";
 
 const AdjectiveCard = (props) => (
   <div className={classes.AdjectiveCard}>

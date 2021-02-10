@@ -1,10 +1,10 @@
 import React from "react";
 
-import classes from "./Form.module.css";
-
 import Recaptcha from "../../../auth/Recaptcha/Recaptcha";
 import ButtonHoverEffect from "../../../UI/Buttons/ButtonHoverEffect/ButtonHoverEffect";
 import Spinner from "../../../UI/Spinner/Spinner";
+
+import classes from "./Form.module.css";
 
 const Form = (props) => {
   let buttonDisplay = (

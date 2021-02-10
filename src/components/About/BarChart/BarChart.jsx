@@ -1,7 +1,6 @@
 import React from "react";
 
 import Bar from "./Bar/Bar";
-
 import barChartData from "../../../displayData/barChart";
 
 const BarChart = () => {

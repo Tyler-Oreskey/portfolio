@@ -1,5 +1,4 @@
 import React from "react";
-
 import { animated, useTransition } from "react-spring";
 
 const CarouselAnimation = (props) => {

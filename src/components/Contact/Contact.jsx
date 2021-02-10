@@ -1,11 +1,12 @@
 import React, { Component, createRef } from "react";
 
 import Form from "./Form/Form";
-import classes from "./Contact.module.css";
 import RequestHandler from "../../hoc/RequestHandler/RequestHandler";
 import axios from "../../axios";
 import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
 import InvertedTriangle from "../../UI/Shapes/Triangle/InvertedTriangle";
+
+import classes from "./Contact.module.css";
 
 const validEmailRegex = RegExp(
   // eslint-disable-next-line no-useless-escape

@@ -2,8 +2,8 @@ import React from "react";
 
 import classes from "./SocialIcon.module.css";
 
-const SocialIcon = (props) => {
-  return (
+const SocialIcon = (props) => (
+  <div className={classes.SocialIcon}>
     <a
       className={classes.SocialIcon}
       href={props.destination}
@@ -12,7 +12,7 @@ const SocialIcon = (props) => {
     >
       <img src={props.icon} alt={props.name} />
     </a>
-  );
-};
+  </div>
+);
 
 export default SocialIcon;
