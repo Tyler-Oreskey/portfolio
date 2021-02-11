@@ -1,12 +1,15 @@
-.AboutVerticalCenter {
-  min-height: 75%;
-  min-height: 75vh;
-  display: flex;
-  align-items: center;
+.About {
+  padding-top: var(--component-top-padding);
+  padding-bottom: var(--component-bottom-padding);
 }
 
-.About {
-  color: white;
-  font-family: "PT Sans";
-  max-width: 1300px;
+.About h1 {
+  font-weight: var(--header-font-weight);
+  color: var(--custom-grey);
+  text-align: center;
+  padding-bottom: var(--header-bottom-padding);
+}
+
+.AboutRow {
+  padding-bottom: 80px;
 }

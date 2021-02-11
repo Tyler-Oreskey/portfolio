@@ -1,0 +1,14 @@
+.Greeting {
+  color: white;
+  font-size: 50px;
+  text-align: center;
+}
+
+.Greeting p {
+  opacity: 0.8;
+  display: inline;
+}
+
+.Greeting span {
+  color: var(--custom-purple);
+}

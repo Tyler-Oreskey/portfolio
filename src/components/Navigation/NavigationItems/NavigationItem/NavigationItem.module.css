@@ -1,29 +1,24 @@
 .NavigationItem {
   list-style-type: none;
   text-decoration: none;
-  display: inline;
-  padding: 15px;
-}
-
-.NavLink {
-  font-weight: bold;
-  font-size: 20px;
+  font-weight: 700;
+  font-size: 15px;
   text-transform: uppercase;
-  text-decoration: none;
   color: white;
-  padding: 20px 0px;
+  padding: 15px 0px;
   margin: 0px 20px;
   display: inline-block;
   position: relative;
   opacity: 1;
 }
 
-.NavLink:hover {
+.NavigationItem:hover {
+  cursor: pointer;
   opacity: 0.75;
   text-decoration: none;
 }
 
-.NavLink::before {
+.NavigationItem::before {
   transition: 300ms;
   height: 5px;
   content: "";
@@ -33,6 +28,6 @@
   bottom: 10px;
 }
 
-.NavLink:hover::before {
+.NavigationItem:hover::before {
   width: 100%;
 }

@@ -3,38 +3,25 @@ import React from "react";
 import classes from "./CarouselIndicators.module.css";
 
 const CarouselIndicators = (props) => {
-  let indicatorStyles = {
-    active: {
-      backgroundColor: "white",
-    },
-    inactive: {
-      backgroundColor: "#B3B3B3",
-    },
-  };
-
   const carouselIndicators = Array(props.carouselLength)
     .fill()
     .map((_, index) => {
-      let indicatorStyle;
-
-      if (props.currentSlide === index) {
-        indicatorStyle = indicatorStyles.active;
-      } else {
-        indicatorStyle = indicatorStyles.inactive;
-      }
+      const indicatorBackground =
+        props.currentSlide === index
+          ? { backgroundColor: "black" }
+          : { backgroundColor: "#696969" };
 
       return (
         <li
           key={index}
+          style={indicatorBackground}
           onClick={() => props.selected(index)}
-          style={indicatorStyle}
-          className={classes.HighlightedCircles}
         ></li>
       );
     });
 
   return (
-    <div className={`${classes.CarouselIndicators}`}>
+    <div className={classes.CarouselIndicators}>
       <ol className={`carousel-indicators`}>{carouselIndicators}</ol>
     </div>
   );

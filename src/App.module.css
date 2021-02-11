@@ -1,8 +1,18 @@
 body {
-  background-color: #020b16;
-  font-family: -apple-system, BlinkMacSystemFont, "PT Sans", "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --dark-background-color: #020b16;
+  --custom-purple: #8878e3;
+  --custom-grey: #505050;
+  --custom-light-blue: #04c2c9;
+  --custom-red: #dc143c;
+  --component-top-padding: 100px;
+  --component-bottom-padding: 50px;
+  --header-font-weight: 700;
+  --header-top-padding: 90px;
+  --header-bottom-padding: 50px;
 }

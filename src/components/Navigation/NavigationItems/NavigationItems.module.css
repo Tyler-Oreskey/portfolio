@@ -2,11 +2,3 @@
   text-align: right;
   list-style: none;
 }
-
-@media (max-width: 750px) {
-  .NavigationItems {
-    flex-flow: row;
-    text-align: center;
-    padding-right: 30px;
-  }
-}

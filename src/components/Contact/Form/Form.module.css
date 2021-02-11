@@ -1,0 +1,51 @@
+.ContactForm input,
+.ContactForm textarea,
+.ContactForm input:focus,
+.ContactForm textarea:focus {
+  background-color: #1e242c;
+  color: white;
+}
+
+.ContactForm textarea {
+  resize: none;
+}
+
+.ContactForm span {
+  background-color: var(--dark-background-color);
+  color: white;
+}
+
+.ContactForm p {
+  color: #f54029;
+  font-size: 14px;
+  padding-top: 5px;
+}
+
+.ContactForm input:-webkit-autofill,
+.ContactForm input:-webkit-autofill:hover,
+.ContactForm input:-webkit-autofill:focus,
+.ContactForm textarea:-webkit-autofill,
+.ContactForm textarea:-webkit-autofill:hover,
+.ContactForm textarea:-webkit-autofill:focus,
+.ContactForm select:-webkit-autofill,
+.ContactForm select:-webkit-autofill:hover,
+.ContactForm select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #1e242c inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.ContactForm input,
+.ContactForm textarea,
+.ContactForm span {
+  border-radius: 0;
+}
+
+.FormRecaptcha div {
+  margin: 0 auto;
+}
+
+.FormSubmit,
+.FormRecaptcha p {
+  text-align: center;
+}

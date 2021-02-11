@@ -1,6 +1,12 @@
 .Projects {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  padding-bottom: var(--component-bottom-padding);
+  background-color: #f5f5f5;
+}
+
+.Projects h1 {
+  font-weight: var(--header-font-weight);
+  color: var(--custom-grey);
+  text-align: center;
+  padding-top: var(--header-top-padding);
+  padding-bottom: var(--header-bottom-padding);
 }

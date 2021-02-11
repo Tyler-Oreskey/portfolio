@@ -1,0 +1,9 @@
+.MobileNav {
+  top: 0;
+  height: 50px;
+  background-color: hsl(213, 27%, 15%);
+  border-bottom: #00bfff 3px solid;
+  width: 100%;
+  position: relative;
+  z-index: 50;
+}

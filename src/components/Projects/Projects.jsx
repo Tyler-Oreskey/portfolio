@@ -1,101 +1,88 @@
 import React, { Component } from "react";
-import Project from "./Project/Project";
+
+import ProjectNav from "./ProjectNav/ProjectNav";
+import ProjectGroup from "./ProjectGroup/ProjectGroup";
+import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
+import Modal from "../../UI/Modal/Modal";
+import ProjectModalContent from "./ProjectModalContent/ProjectModalContent";
+import projectItems from "../../displayData/projects";
 
 import classes from "./Projects.module.css";
 
 class Projects extends Component {
   state = {
-    projects: [],
+    showModal: false,
+    modalContent: null,
+    projects: {},
+    projectGroups: [],
+    selectedProjectGroup: [],
+    navIndex: 0,
   };
 
   componentDidMount() {
-    const projectsData = [
-      {
-        id: 1,
-        name: "Fishtopia",
-        description:
-          "Fishermen web application allowing recording of catch information. Location marker, fish species, equipment, and tackle used are posted into a PostgreSQL database. Data is rendered as a Gmaps API marker and accessible to the rest of the fishermen community.",
-        techs: [
-          "React with Redux",
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "Bootstrap",
-          "Node.js",
-          "PostgreSQL",
-          "Express.js",
-          "Knex",
-          "JOI validation",
-        ],
-        github: "https://github.com/Tyler-Oreskey/Fishtopia_Frontend",
-        video:
-          "https://www.youtube.com/watch?v=MLVl4oIc-kE&ab_channel=TylerOreskey",
-        image:
-          "https://www.greaterseattleonthecheap.com/wordpress/wp-content/uploads/2020/05/Fly-fishing-with-Emerald-Water-Anglers.jpg",
-      },
-      {
-        id: 2,
-        name: "Good Samaratin",
-        description:
-          "Mobile application presenting the user a choice of actions for emergency situations. An emergency event allows the user to call 911 and presents a list of steps to aid the person while help is on its way. Alternate solutions are offered to approach a specific emergency to aid in saving a life.",
-        techs: [
-          "React Native with Redux",
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "Bootstrap",
-          "Node.js",
-          "PostgreSQL",
-          "Express.js",
-          "Knex",
-          "JOI validation",
-        ],
-        github: "https://github.com/Tyler-Oreskey/Good_Samaratin_Frontend",
-        video:
-          "https://www.youtube.com/watch?v=A_fjINvsucw&ab_channel=TylerOreskey",
-        image:
-          "https://www.benzinga.com/files/images/story/2012/life-extension-technology-and-cannabis-formulations.jpg",
-      },
-      {
-        id: 3,
-        name: "Hackateam",
-        description:
-          "Web application that encourages people of all coding skill levels to collaborate and hack together based on similar skill sets or project interests. The app alleviates complexities in finding or creating at team based off skill set, interests, personality, and cultural diversity.",
-        techs: [
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "Bootstrap",
-          "Node.js",
-          "PostgreSQL",
-          "Express.js",
-          "Knex",
-        ],
-        github: "https://github.com/sparkyyc/hackateam",
-        video:
-          "https://www.youtube.com/watch?v=8QH3SKFm9VM&ab_channel=TylerOreskey",
-        image:
-          "https://www.phocuswire.com/uploadedimages/uploads/2018/01/hedna-hackathon.jpg?width=800&height=400&scale=both&mode=crop",
-      },
-    ];
-    this.setState({ projects: projectsData });
+    const allProjects = { ...projectItems };
+
+    for (const key in allProjects) {
+      if (allProjects[key].length === 0) {
+        delete allProjects[key];
+      }
+    }
+
+    allProjects.all = { ...allProjects };
+
+    const allProjectGroups = Object.keys(allProjects);
+    const all = allProjectGroups.pop();
+
+    allProjectGroups.unshift(all);
+
+    this.setState({
+      projectGroups: allProjectGroups,
+      projects: allProjects,
+      selectedProjectGroup: allProjects[all],
+    });
   }
-  render() {
-    const projects = this.state.projects.map((project) => {
-      return (
-        <Project
-          key={project.id}
-          name={project.name}
-          description={project.description}
-          techs={project.techs}
-          image={project.image}
-          github={project.github}
-          video={project.video}
-        />
-      );
+
+  handleClickShowModal = (modalContent) => {
+    this.setState({
+      modalContent,
+      showModal: true,
+    });
+  };
+
+  handleCloseModal = () => this.setState({ showModal: false });
+
+  handleChangeProjectGroup = (projectGroup, navIndex) =>
+    this.setState({
+      selectedProjectGroup: this.state.projects[projectGroup],
+      navIndex,
     });
 
-    return <div className={classes.Projects}>{projects}</div>;
+  render() {
+    return (
+      <Auxiliary>
+        <div className={`${classes.Projects}`} ref={this.props.reference}>
+          <h1>PROJECTS</h1>
+          <div className="container">
+            <div className="row">
+              {/* <ProjectNav
+                navIndex={this.state.navIndex}
+                projectGroups={this.state.projectGroups}
+                handleChangeProjectGroup={this.handleChangeProjectGroup}
+              /> */}
+            </div>
+            <div className="row">
+              <ProjectGroup
+                projectGroup={this.state.selectedProjectGroup}
+                clickShowModal={this.handleClickShowModal}
+              />
+            </div>
+          </div>
+        </div>
+        <Modal show={this.state.showModal} closeModal={this.handleCloseModal}>
+          <ProjectModalContent modalContent={this.state.modalContent} />
+        </Modal>
+      </Auxiliary>
+    );
   }
 }
 

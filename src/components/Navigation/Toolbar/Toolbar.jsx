@@ -1,53 +1,42 @@
-import React, { Component } from "react";
-import NavigationItems from "../NavigationItems/NavigationItems";
-import SideDrawer from "../SideDrawer/SideDrawer";
-import DrawerToggle from "../SideDrawer/DrawerToggle/DrawerToggle";
+import React, { useState, useEffect, useRef } from "react";
+
+import Navbar from "./Navbar/Navbar";
 
 import classes from "./Toolbar.module.css";
 
-class Toolbar extends Component {
-  state = {
-    showSideDrawer: false,
-    routeID: null,
-  };
+const Toolbar = (props) => {
+  const [passedNavbar, setPassedNavbar] = useState(false);
+  const [startingPosition, setStartingPosition] = useState(0);
+  const navbarRef = useRef(null);
 
-  sideDrawerClosedHandler = () => this.setState({ showSideDrawer: false });
+  useEffect(() => {
+    setStartingPosition(navbarRef.current.getBoundingClientRect().bottom);
+  }, []);
 
-  sideDrawerToggleHandler = () =>
-    this.setState((prevState) => ({
-      showSideDrawer: !prevState.showSideDrawer,
-    }));
+  useEffect(() => {
+    const handleScroll = () => {
+      const yScroll = navbarRef.current.getBoundingClientRect().bottom;
+      if (yScroll <= 0 && !passedNavbar) {
+        setPassedNavbar(true);
+      }
+      if (yScroll > 0 && passedNavbar) {
+        setPassedNavbar(false);
+      }
+    };
 
-  toggleRoute = (routeID) => {
-    if (this.state.showSideDrawer) {
-      this.setState((prevState) => ({
-        showSideDrawer: !prevState.showSideDrawer,
-        routeID,
-      }));
-    }
+    document.addEventListener("scroll", handleScroll);
+    return () => document.removeEventListener("scroll", handleScroll);
+  }, [passedNavbar, startingPosition]);
 
-    this.props.setRoute(routeID);
-  };
-
-  render() {
-    return (
-      <header className={classes.Toolbar}>
-        <DrawerToggle clicked={this.sideDrawerToggleHandler} />
-        <SideDrawer
-          routes={this.props.routes}
-          toggleRoute={this.toggleRoute}
-          open={this.state.showSideDrawer}
-          closed={this.sideDrawerClosedHandler}
-        />
-        <nav className={classes.DesktopOnly}>
-          <NavigationItems
-            routes={this.props.routes}
-            toggleRoute={this.toggleRoute}
-          />
-        </nav>
-      </header>
-    );
-  }
-}
+  return (
+    <div className={classes.Toolbar} ref={navbarRef}>
+      <Navbar
+        passedNavbar={passedNavbar}
+        allNavigationRefs={props.allNavigationRefs}
+        scrollToDiv={props.scrollToDiv}
+      />
+    </div>
+  );
+};
 
 export default Toolbar;

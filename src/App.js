@@ -1,52 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { Route, Redirect, useLocation } from "react-router-dom";
+import React, { useRef } from "react";
 
+import Home from "./components/Home/Home";
+import About from "./components/About/About";
+import Projects from "./components/Projects/Projects";
+import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
 import Toolbar from "./components/Navigation/Toolbar/Toolbar";
-import RouteTransitions from "./routes/RouteTransitions/RouteTransitions";
-import routes from "./routes/routes";
 
 import classes from "./App.module.css";
 
 const App = () => {
-  const [currentRoute, setCurrentRouteID] = useState(1);
-  const [reverse, setReverse] = useState(false);
-  const location = useLocation();
+  const scrollToDiv = (ref) => window.scrollTo(0, ref.current.offsetTop);
 
-  useEffect(() => {
-    const foundRoute =
-      routes.find((route) => location.pathname === route.location) || 1;
-    setCurrentRouteID(foundRoute.id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const setRoute = (navID) => {
-    setCurrentRouteID(navID);
-    setReverse(currentRoute > navID);
+  const nonNavigableRefs = {
+    home: { ref: useRef(null), name: "home" },
   };
 
-  const getRoutes = (navItem) => {
-    if (navItem.redirect) {
-      return <Redirect key={navItem.id} from={navItem.from} to={navItem.to} />;
-    }
-
-    return (
-      <Route
-        key={navItem.id}
-        path={navItem.location}
-        component={navItem.component}
-      />
-    );
+  const allNavigationRefs = {
+    about: { ref: useRef(null), name: "about" },
+    projects: { ref: useRef(null), name: "projects" },
+    contact: { ref: useRef(null), name: "contact" },
   };
 
   return (
     <div className={classes.App}>
-      <Toolbar routes={routes} setRoute={setRoute} />
-      <RouteTransitions
-        reverse={reverse}
-        items={routes}
-        location={location}
-        getRoutes={getRoutes}
+      <Home
+        reference={nonNavigableRefs.home.ref}
+        click={() => scrollToDiv(allNavigationRefs.about.ref)}
       />
+      <Toolbar
+        allNavigationRefs={allNavigationRefs}
+        scrollToDiv={scrollToDiv}
+      />
+      <About reference={allNavigationRefs.about.ref} />
+      <Projects reference={allNavigationRefs.projects.ref} />
+      <Contact reference={allNavigationRefs.contact.ref} />
+      <Footer click={() => scrollToDiv(nonNavigableRefs.home.ref)} />
     </div>
   );
 };

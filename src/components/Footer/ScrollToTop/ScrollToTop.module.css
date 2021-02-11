@@ -1,0 +1,19 @@
+.ScrollToTop {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  position: relative;
+  bottom: 25px;
+  width: 45px;
+  height: 45px;
+  background-color: #e31b6d;
+}
+
+.ScrollToTop img {
+  height: 37px;
+  width: auto;
+}
+
+.ScrollToTop:hover {
+  cursor: pointer;
+  transform: translateY(-10px);
+}

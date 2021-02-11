@@ -1,0 +1,13 @@
+.Profile div {
+  margin: 0 auto;
+}
+
+.Profile {
+  text-align: center;
+}
+
+.Profile h3 {
+  padding-top: 13px;
+  font-weight: 700;
+  color: var(--custom-grey);
+}
