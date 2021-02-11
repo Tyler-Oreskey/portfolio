@@ -13,7 +13,11 @@ const Dropdown = (props) => {
 
   return (
     <div className={attachedClasses.join(" ")}>
-      <NavigationItems allNavigationRefs={props.allNavigationRefs} />
+      <NavigationItems
+        closed={props.closed}
+        allNavigationRefs={props.allNavigationRefs}
+        scrollToDiv={props.scrollToDiv}
+      />
     </div>
   );
 };
