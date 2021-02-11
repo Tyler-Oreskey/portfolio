@@ -6,8 +6,13 @@ import classes from "./NavigationItems.module.css";
 
 const NavigationItems = (props) => (
   <ul className={classes.NavigationItems}>
-    {props.routes.map((navItem) => (
-      <NavigationItem key={navItem.label} item={navItem} />
+    {Object.entries(props.allNavigationRefs).map(([key, value], index) => (
+      <NavigationItem
+        key={index}
+        name={key}
+        item={value}
+        scrollToDiv={props.scrollToDiv}
+      />
     ))}
   </ul>
 );

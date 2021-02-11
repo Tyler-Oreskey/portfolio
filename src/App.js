@@ -1,39 +1,43 @@
-import React, { Component } from "react";
-import { Element, Events, animateScroll } from "react-scroll";
+import React, { useRef } from "react";
 
-// import Toolbar from "./components/Navigation/Toolbar/Toolbar";
-import routes from "./routes/routes";
+import Home from "./components/Home/Home";
+import About from "./components/About/About";
+import Projects from "./components/Projects/Projects";
+import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
+import Toolbar from "./components/Navigation/Toolbar/Toolbar";
+
 import classes from "./App.module.css";
 
-class App extends Component {
-  componentDidMount() {
-    Events.scrollEvent.register("begin");
-    Events.scrollEvent.register("end");
-  }
-  scrollToTop() {
-    animateScroll.scrollToTop();
-  }
-  componentWillUnmount() {
-    Events.scrollEvent.remove("begin");
-    Events.scrollEvent.remove("end");
-  }
-  render() {
-    const scrollElements = routes.map((route, index) => (
-      <Element
-        key={index}
-        name={route.label?.toLowerCase()}
-        className={classes.element}
-      >
-        <route.component />
-      </Element>
-    ));
-    return (
-      <div>
-        {/* <Toolbar routes={routes} /> */}
-        {scrollElements}
-      </div>
-    );
-  }
-}
+const App = () => {
+  const scrollToDiv = (ref) => window.scrollTo(0, ref.current.offsetTop);
+
+  const nonNavigableRefs = {
+    home: { ref: useRef(null), name: "home" },
+  };
+
+  const allNavigationRefs = {
+    about: { ref: useRef(null), name: "about" },
+    projects: { ref: useRef(null), name: "projects" },
+    contact: { ref: useRef(null), name: "contact" },
+  };
+
+  return (
+    <div className={classes.App}>
+      <Home
+        reference={nonNavigableRefs.home.ref}
+        click={() => scrollToDiv(allNavigationRefs.about.ref)}
+      />
+      <Toolbar
+        allNavigationRefs={allNavigationRefs}
+        scrollToDiv={scrollToDiv}
+      />
+      <About reference={allNavigationRefs.about.ref} />
+      <Projects reference={allNavigationRefs.projects.ref} />
+      <Contact reference={allNavigationRefs.contact.ref} />
+      <Footer click={() => scrollToDiv(nonNavigableRefs.home.ref)} />
+    </div>
+  );
+};
 
 export default App;

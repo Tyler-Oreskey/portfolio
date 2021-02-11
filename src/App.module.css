@@ -10,8 +10,8 @@ body {
   --custom-grey: #505050;
   --custom-light-blue: #04c2c9;
   --custom-red: #dc143c;
-  --component-top-padding: 90px;
-  --component-bottom-padding: 40px;
+  --component-top-padding: 100px;
+  --component-bottom-padding: 50px;
   --header-font-weight: 700;
   --header-top-padding: 90px;
   --header-bottom-padding: 50px;

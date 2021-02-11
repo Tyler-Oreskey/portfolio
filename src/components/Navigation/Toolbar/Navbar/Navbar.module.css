@@ -1,0 +1,38 @@
+.Navbar {
+  top: 0;
+  height: 50px;
+  background-color: hsl(213, 27%, 15%);
+  border-bottom: #00bfff 3px solid;
+  width: 100%;
+  position: relative;
+  z-index: 50;
+}
+
+.MobileNav {
+  overflow: hidden;
+}
+
+@media (max-width: 500px) {
+  .DesktopNav {
+    display: none;
+  }
+}
+
+@media (min-width: 500px) {
+  .MobileNav {
+    display: none;
+  }
+}
+
+.NavAnimation {
+  animation: smoothScroll 0.5s forwards;
+}
+
+@keyframes smoothScroll {
+  0% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

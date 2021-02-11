@@ -125,7 +125,7 @@ class Contact extends Component {
           outlineColor="#04c2c9"
           outlineWidth={3}
         />
-        <div className={classes.Contact}>
+        <div className={classes.Contact} ref={this.props.reference}>
           <h1>CONTACT</h1>
           <p className={classes.ContactSubText}>
             Have a question or want to work together?

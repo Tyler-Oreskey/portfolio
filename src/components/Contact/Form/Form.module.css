@@ -41,26 +41,11 @@
   border-radius: 0;
 }
 
-.FormSubmit {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.FormRecaptcha div {
+  margin: 0 auto;
 }
 
-.FormRecaptcha {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-}
-
+.FormSubmit,
 .FormRecaptcha p {
-  position: absolute;
-  padding-top: 125px;
-}
-
-@media (max-width: 469px) {
-  .FormRecaptcha {
-    justify-content: center;
-    padding-bottom: 50px;
-  }
+  text-align: center;
 }

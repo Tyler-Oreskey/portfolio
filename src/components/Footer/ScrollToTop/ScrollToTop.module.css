@@ -1,4 +1,4 @@
-.ToBeginning {
+.ScrollToTop {
   display: inline-block;
   transition: transform 0.2s ease;
   position: relative;
@@ -8,12 +8,12 @@
   background-color: #e31b6d;
 }
 
-.ToBeginning img {
+.ScrollToTop img {
   height: 37px;
   width: auto;
 }
 
-.ToBeginning:hover {
+.ScrollToTop:hover {
   cursor: pointer;
   transform: translateY(-10px);
 }

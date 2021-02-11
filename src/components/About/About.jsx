@@ -6,8 +6,8 @@ import BarChart from "./BarChart/BarChart";
 
 import classes from "./About.module.css";
 
-const About = () => (
-  <div className={classes.About}>
+const About = (props) => (
+  <div className={classes.About} ref={props.reference}>
     <h1>ABOUT</h1>
     <div className="container">
       <div className={`${classes.AboutRow} row`}>

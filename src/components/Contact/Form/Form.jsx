@@ -83,22 +83,18 @@ const Form = (props) => {
             : null}
         </p>
       </div>
-      <div className="row">
-        <div className={`${classes.FormRecaptcha} col`}>
-          <Recaptcha
-            recaptchaRef={props.recaptchaRef}
-            verifyRecaptcha={props.verifyRecaptcha}
-            recaptchaOnLoad={props.recaptchaOnLoad}
-          />
-          <p>
-            {props.errors.recaptchaError
-              ? "Please accept the reCAPTCHA!"
-              : null}
-          </p>
-        </div>
-
-        <div className={`${classes.FormSubmit} col`}>{buttonDisplay}</div>
+      <div className={classes.FormRecaptcha}>
+        <Recaptcha
+          recaptchaRef={props.recaptchaRef}
+          verifyRecaptcha={props.verifyRecaptcha}
+          recaptchaOnLoad={props.recaptchaOnLoad}
+        />
+        <p>
+          {props.errors.recaptchaError ? "Please accept the reCAPTCHA!" : null}
+        </p>
       </div>
+
+      <div className={classes.FormSubmit}>{buttonDisplay}</div>
     </form>
   );
 };

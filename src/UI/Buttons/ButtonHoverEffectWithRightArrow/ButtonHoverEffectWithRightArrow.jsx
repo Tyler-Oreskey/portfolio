@@ -9,6 +9,7 @@ const ButtonHoverEffectWithRightArrow = (props) => (
     <button
       type={props.buttonType || "button"}
       className={classes.ButtonHoverEffectWithRightArrow}
+      onClick={props.clicked}
     >
       <span>
         {props.buttonText}

@@ -60,7 +60,7 @@ class Projects extends Component {
   render() {
     return (
       <Auxiliary>
-        <div className={`${classes.Projects}`}>
+        <div className={`${classes.Projects}`} ref={this.props.reference}>
           <h1>PROJECTS</h1>
           <div className="container">
             <div className="row">

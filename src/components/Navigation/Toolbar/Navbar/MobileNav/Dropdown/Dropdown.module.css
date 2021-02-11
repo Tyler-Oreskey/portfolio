@@ -1,0 +1,23 @@
+.Dropdown {
+  background: hsl(212, 87%, 3%);
+  height: 100%;
+  transition: transform 0.3s ease-out;
+  display: block;
+  position: relative;
+  z-index: 5;
+}
+
+.Dropdown ul {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+  padding: 0;
+}
+
+.Open {
+  transform: translate(0, 0);
+}
+
+.Close {
+  transform: translate(0, -100%);
+}
