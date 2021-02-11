@@ -3,10 +3,14 @@ import React from "react";
 import classes from "./NavigationItem.module.css";
 
 const NavigationItem = (props) => {
+  const updateNavs = (ref) => {
+    props.closed();
+    props.scrollToDiv(ref);
+  };
   return (
     <li
       className={classes.NavigationItem}
-      onClick={() => props.scrollToDiv(props.item.ref)}
+      onClick={() => updateNavs(props.item.ref)}
     >
       {props.name.toUpperCase()}
     </li>

@@ -12,7 +12,12 @@ const MobileNav = (props) => {
       <nav className={classes.MobileNav}>
         <DropdownToggle clicked={props.dropdownToggleHandler} />
       </nav>
-      <Dropdown open={props.open} allNavigationRefs={props.allNavigationRefs} />
+      <Dropdown
+        open={props.open}
+        allNavigationRefs={props.allNavigationRefs}
+        scrollToDiv={props.scrollToDiv}
+        closed={props.closed}
+      />
     </Auxiliary>
   );
 };

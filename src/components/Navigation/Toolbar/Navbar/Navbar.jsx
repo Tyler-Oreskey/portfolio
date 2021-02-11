@@ -23,6 +23,7 @@ const Navbar = (props) => {
         <DesktopNav
           allNavigationRefs={props.allNavigationRefs}
           scrollToDiv={props.scrollToDiv}
+          closed={dropdownClosedHandler}
         />
       </nav>
       <div className={classes.MobileNav}>

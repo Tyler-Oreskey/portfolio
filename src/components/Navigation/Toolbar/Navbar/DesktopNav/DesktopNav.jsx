@@ -10,6 +10,7 @@ const DesktopNav = (props) => {
       <NavigationItems
         allNavigationRefs={props.allNavigationRefs}
         scrollToDiv={props.scrollToDiv}
+        closed={props.closed}
       />
     </div>
   );

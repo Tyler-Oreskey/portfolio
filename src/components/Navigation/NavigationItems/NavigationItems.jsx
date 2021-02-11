@@ -12,6 +12,7 @@ const NavigationItems = (props) => (
         name={key}
         item={value}
         scrollToDiv={props.scrollToDiv}
+        closed={props.closed}
       />
     ))}
   </ul>
