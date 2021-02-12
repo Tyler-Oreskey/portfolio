@@ -6,3 +6,21 @@
   height: 100vh;
   flex-direction: column;
 }
+
+.HomeButtonRows {
+  padding-top: 20px;
+}
+
+.HomeButton {
+  float: left;
+}
+
+@media (max-width: 343px) {
+  .HomeButtonRows {
+    text-align: center;
+  }
+  .HomeButton {
+    width: 100%;
+    padding-top: 10px;
+  }
+}

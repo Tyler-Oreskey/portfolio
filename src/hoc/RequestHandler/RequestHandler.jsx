@@ -15,10 +15,14 @@ const RequestHandler = (WrappedComponent, axios) => {
     };
 
     componentDidMount() {
-      this.reqInterceptor = axios.interceptors.request.use((req) => {
-        this.setState({ error: null });
-        return req;
-      });
+      this.reqInterceptor = axios.interceptors.request.use(
+        (req) => {
+          return req;
+        },
+        (error) => {
+          return Promise.reject(error);
+        }
+      );
 
       this.resInterceptor = axios.interceptors.response.use(
         (res) => {
@@ -37,7 +41,7 @@ const RequestHandler = (WrappedComponent, axios) => {
             icon: errorIcon,
             backgroundColor: "#d9534f",
           });
-          return error;
+          return Promise.reject(error);
         }
       );
     }

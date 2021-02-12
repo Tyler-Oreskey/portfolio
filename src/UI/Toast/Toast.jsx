@@ -8,9 +8,7 @@ const Toast = (props) => {
   const { toastList, position } = props;
   const [list, setList] = useState(toastList);
 
-  useEffect(() => {
-    setList(toastList);
-  }, [toastList, list]);
+  useEffect(() => setList(toastList), [toastList, list]);
 
   const deleteToast = useCallback(
     (id) => {
