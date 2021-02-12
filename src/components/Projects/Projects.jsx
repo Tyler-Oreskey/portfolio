@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import ProjectNav from "./ProjectNav/ProjectNav";
+// import ProjectNav from "./ProjectNav/ProjectNav";
 import ProjectGroup from "./ProjectGroup/ProjectGroup";
 import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
 import Modal from "../../UI/Modal/Modal";

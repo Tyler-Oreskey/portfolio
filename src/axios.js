@@ -1,6 +1,8 @@
 import axios from "axios";
 import config from "./config";
 
-const instance = axios.create({ baseURL: config.apiURL });
+const email = axios.create({ baseURL: config.apiURL });
 
-export default instance;
+const resume = axios.create({ baseURL: config.apiURL });
+
+export default { email, resume };

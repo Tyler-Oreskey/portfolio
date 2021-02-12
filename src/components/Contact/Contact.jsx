@@ -105,7 +105,7 @@ class Contact extends Component {
 
     try {
       this.setState({ loading: true });
-      const res = await axios.post("/email/sendEmail", { ...body });
+      const res = await axios.email.post("/email/sendEmail", { ...body });
       if (res.status === 200) {
         this.resetValues();
       }
@@ -153,4 +153,4 @@ class Contact extends Component {
   }
 }
 
-export default RequestHandler(Contact, axios);
+export default RequestHandler(Contact, axios.email);
