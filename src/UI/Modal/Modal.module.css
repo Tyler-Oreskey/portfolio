@@ -1,8 +1,5 @@
 .Modal {
   position: fixed;
-  left: 0;
-  right: 0;
-  top: 5%;
   width: 100%;
   max-width: 700px;
   margin: auto;
@@ -14,6 +11,10 @@
   max-height: 93%;
   overflow-y: auto;
   overflow-x: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 4px 3px #383838f5;
 }
 
 .ModalExit {

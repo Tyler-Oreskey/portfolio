@@ -5,16 +5,14 @@
   font-size: 15px;
   text-transform: uppercase;
   color: white;
-  padding: 15px 0px;
+  padding: 13px 0px;
   margin: 0px 20px;
   display: inline-block;
   position: relative;
-  opacity: 1;
 }
 
 .NavigationItem:hover {
   cursor: pointer;
-  opacity: 0.75;
   text-decoration: none;
 }
 
