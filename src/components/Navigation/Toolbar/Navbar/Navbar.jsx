@@ -13,29 +13,37 @@ const Navbar = (props) => {
   const navAnimation = props.passedNavbar ? classes.NavAnimation : null;
 
   return (
-    <header
-      className={[classes.Navbar, navAnimation].join(" ")}
+    <div
+      className={classes.NavWrapper}
       style={{
-        position: props.passedNavbar ? "fixed" : "relative",
+        height: props.navbarHeight,
       }}
     >
-      <nav className={classes.DesktopNav}>
-        <DesktopNav
-          allNavigationRefs={props.allNavigationRefs}
-          scrollToDiv={props.scrollToDiv}
-          closed={dropdownClosedHandler}
-        />
-      </nav>
-      <div className={classes.MobileNav}>
-        <MobileNav
-          allNavigationRefs={props.allNavigationRefs}
-          scrollToDiv={props.scrollToDiv}
-          open={showDropdown}
-          closed={dropdownClosedHandler}
-          dropdownToggleHandler={dropdownToggleHandler}
-        />
-      </div>
-    </header>
+      <header
+        className={[classes.Navbar, navAnimation].join(" ")}
+        style={{
+          height: props.navbarHeight,
+          position: props.passedNavbar ? "fixed" : "relative",
+        }}
+      >
+        <nav className={classes.DesktopNav}>
+          <DesktopNav
+            allNavigationRefs={props.allNavigationRefs}
+            scrollToDiv={props.scrollToDiv}
+            closed={dropdownClosedHandler}
+          />
+        </nav>
+        <div className={classes.MobileNav}>
+          <MobileNav
+            allNavigationRefs={props.allNavigationRefs}
+            scrollToDiv={props.scrollToDiv}
+            open={showDropdown}
+            closed={dropdownClosedHandler}
+            dropdownToggleHandler={dropdownToggleHandler}
+          />
+        </div>
+      </header>
+    </div>
   );
 };
 

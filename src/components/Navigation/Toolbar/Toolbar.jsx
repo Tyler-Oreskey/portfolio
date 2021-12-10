@@ -7,6 +7,7 @@ import classes from "./Toolbar.module.css";
 const Toolbar = (props) => {
   const [passedNavbar, setPassedNavbar] = useState(false);
   const [startingPosition, setStartingPosition] = useState(0);
+  const navbarHeight = 50; // needed in order to fix jumping issue
   const navbarRef = useRef(null);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const Toolbar = (props) => {
       if (yScroll <= 0 && !passedNavbar) {
         setPassedNavbar(true);
       }
-      if (yScroll > 0 && passedNavbar) {
+      if (yScroll > navbarHeight && passedNavbar) {
         setPassedNavbar(false);
       }
     };
@@ -31,6 +32,7 @@ const Toolbar = (props) => {
   return (
     <div className={classes.Toolbar} ref={navbarRef}>
       <Navbar
+        navbarHeight={navbarHeight}
         passedNavbar={passedNavbar}
         allNavigationRefs={props.allNavigationRefs}
         scrollToDiv={props.scrollToDiv}
