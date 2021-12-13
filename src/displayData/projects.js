@@ -1,5 +1,6 @@
 export default {
-  React: [
+  ALL: [],
+  REACT: [
     {
       name: "Fishtopia",
       description:
@@ -25,7 +26,7 @@ export default {
         "https://www.greaterseattleonthecheap.com/wordpress/wp-content/uploads/2020/05/Fly-fishing-with-Emerald-Water-Anglers.jpg",
     },
   ],
-  "React Native": [
+  "REACT NATIVE": [
     {
       name: "Good Samaratin",
       description:
@@ -51,7 +52,7 @@ export default {
         "https://www.benzinga.com/files/images/story/2012/life-extension-technology-and-cannabis-formulations.jpg",
     },
   ],
-  JavaScript: [
+  JAVASCRIPT: [
     {
       name: "Hackateam",
       description:
@@ -75,5 +76,4 @@ export default {
         "https://www.phocuswire.com/uploadedimages/uploads/2018/01/hedna-hackathon.jpg?width=800&height=400&scale=both&mode=crop",
     },
   ],
-  "In Progress": [],
 };

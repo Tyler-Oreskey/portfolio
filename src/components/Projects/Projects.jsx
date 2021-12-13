@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-// import ProjectNav from "./ProjectNav/ProjectNav";
+import ProjectNav from "./ProjectNav/ProjectNav";
 import ProjectGroup from "./ProjectGroup/ProjectGroup";
 import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
 import Modal from "../../UI/Modal/Modal";
@@ -13,32 +13,26 @@ class Projects extends Component {
   state = {
     showModal: false,
     modalContent: null,
-    projects: {},
-    projectGroups: [],
-    selectedProjectGroup: [],
+    allProjects: {},
     navIndex: 0,
+    selectedProjectGroup: [],
+    defaultProjectGroup: "ALL",
   };
 
   componentDidMount() {
-    const allProjects = { ...projectItems };
+    const allProjects = projectItems;
 
     for (const key in allProjects) {
-      if (allProjects[key].length === 0) {
-        delete allProjects[key];
+      if (key !== this.state.defaultProjectGroup) {
+        projectItems[key].map((project) => {
+          allProjects[this.state.defaultProjectGroup].push(project);
+        });
       }
     }
 
-    allProjects.all = { ...allProjects };
-
-    const allProjectGroups = Object.keys(allProjects);
-    const all = allProjectGroups.pop();
-
-    allProjectGroups.unshift(all);
-
     this.setState({
-      projectGroups: allProjectGroups,
-      projects: allProjects,
-      selectedProjectGroup: allProjects[all],
+      allProjects: allProjects,
+      selectedProjectGroup: allProjects[this.state.defaultProjectGroup],
     });
   }
 
@@ -51,11 +45,12 @@ class Projects extends Component {
 
   handleCloseModal = () => this.setState({ showModal: false });
 
-  handleChangeProjectGroup = (projectGroup, navIndex) =>
+  handleChangeProjectGroup = (projectGroup, navIndex) => {
     this.setState({
-      selectedProjectGroup: this.state.projects[projectGroup],
+      selectedProjectGroup: this.state.allProjects[projectGroup],
       navIndex,
     });
+  };
 
   render() {
     return (
@@ -64,11 +59,11 @@ class Projects extends Component {
           <h1>PROJECTS</h1>
           <div className="container">
             <div className="row">
-              {/* <ProjectNav
+              <ProjectNav
                 navIndex={this.state.navIndex}
-                projectGroups={this.state.projectGroups}
+                allProjects={this.state.allProjects}
                 handleChangeProjectGroup={this.handleChangeProjectGroup}
-              /> */}
+              />
             </div>
             <div className="row">
               <ProjectGroup
