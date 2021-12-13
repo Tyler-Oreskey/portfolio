@@ -8,14 +8,14 @@ const ProjectNav = (props) => {
     backgroundColor: "#dc143c",
   };
 
-  const projectGroupItems = props.projectGroups.map((group, index) => {
+  const projectGroupItems = Object.keys(props.allProjects).map((group, idx) => {
     return (
       <li
-        key={group}
-        style={props.navIndex === index ? activeStyle : null}
-        onClick={() => props.handleChangeProjectGroup(group, index)}
+        key={idx}
+        style={props.navIndex === idx ? activeStyle : null}
+        onClick={() => props.handleChangeProjectGroup(group, idx)}
       >
-        {group.toUpperCase()}
+        {group}
       </li>
     );
   });
