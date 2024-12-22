@@ -10,7 +10,11 @@ import Toolbar from "./components/Navigation/Toolbar/Toolbar";
 import classes from "./App.module.css";
 
 const App = () => {
-  const scrollToDiv = (ref) => window.scrollTo(0, ref.current.offsetTop);
+  const scrollToDiv = (ref) => {
+    if (ref?.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const nonNavigableRefs = {
     home: { ref: useRef(null), name: "home" },
