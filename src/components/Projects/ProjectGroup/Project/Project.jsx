@@ -1,78 +1,28 @@
-import React, { Component } from "react";
-import { Spring, Transition, animated } from "react-spring/renderprops";
-
+import React, { useState } from "react";
 import Front from "./Front/Front";
 import Back from "./Back/Back";
-
 import classes from "./Project.module.css";
 
-class Project extends Component {
-  state = {
-    flipped: false,
-    hide: 0,
-    show: 1,
-  };
+export default function Project({ project, clickShowModal }) {
+  const [isHovered, setIsHovered] = useState(false);
 
-  handleToggleFlipped = (flipped) => this.setState({ flipped });
-
-  render() {
-    const { project, clickShowModal } = this.props;
-    const { flipped, hide, show } = this.state;
-
-    const front = <Front backgroundImage={project.image} />;
-
-    const back = (
-      <Back
-        clickShowModal={clickShowModal}
-        video={project.video}
-        projectName={project.name}
-        projectDescription={project.description}
-        techs={project.techs}
-        projectLinks={project.projectLinks}
-      />
-    );
-    return (
-      <div
-        className={classes.Project}
-        onMouseOver={() => this.handleToggleFlipped(true)}
-        onMouseLeave={() => this.handleToggleFlipped(false)}
-      >
-        <Spring
-          native
-          to={{
-            transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
-          }}
-        >
-          {(props) => (
-            <animated.div className={classes.Card} style={props}>
-              <Transition
-                native
-                unique
-                items={flipped}
-                from={{ opacity: hide }}
-                enter={{ opacity: show }}
-                leave={{ opacity: hide }}
-              >
-                {(flipped) => ({ opacity }) => (
-                  <animated.div
-                    style={{
-                      transform: `rotateX(${flipped ? 180 : 0}deg)`,
-                      opacity: opacity.interpolate({
-                        range: [0, 0.5, 1],
-                        output: [0, 0, 1],
-                      }),
-                    }}
-                  >
-                    {flipped ? back : front}
-                  </animated.div>
-                )}
-              </Transition>
-            </animated.div>
-          )}
-        </Spring>
-      </div>
-    );
-  }
+  return (
+    <div
+      className={classes.Card}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {isHovered ? (
+        <Back
+          clickShowModal={() => clickShowModal(project)}
+          name={project.name}
+          description={project.description}
+          techs={project.techs}
+          projectLinks={project.projectLinks}
+        />
+      ) : (
+        <Front backgroundImage={project.image} />
+      )}
+    </div>
+  );
 }
-
-export default Project;
