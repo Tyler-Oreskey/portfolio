@@ -47,7 +47,7 @@ function Occupation() {
 }
 
 function Resume() {
-  const initiateDownload = async () => {
+  const initiateDownload = () => {
     const link = document.createElement("a");
     link.href = resume;
     link.download = "Resume.pdf";
