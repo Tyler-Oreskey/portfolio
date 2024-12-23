@@ -1,6 +1,7 @@
 import React from "react";
 
 import InvertedTriangle from "../../UI/Shapes/Triangle/InvertedTriangle";
+import SocialIcons from "../Footer/SocialIcons/SocialIcons";
 
 import classes from "./Contact.module.css";
 
@@ -18,6 +19,7 @@ export default function Contact(props) {
         <p className={classes.ContactSubText}>
           Have a question or want to work together?
         </p>
+        <SocialIcons />
       </div>
     </>
   );
