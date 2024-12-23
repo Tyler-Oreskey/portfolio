@@ -42,9 +42,17 @@
 }
 
 .SocialIcon:nth-child(1) a:before {
-  background: #4078c0;
+  background: #FFC107;
 }
 
 .SocialIcon:nth-child(2) a:before {
+  background: #FF5722;
+}
+
+.SocialIcon:nth-child(3) a:before {
+  background: #4078c0;
+}
+
+.SocialIcon:nth-child(4) a:before {
   background: #0077b5;
 }
