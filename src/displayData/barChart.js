@@ -16,16 +16,20 @@ export default [
     percent: 90,
   },
   {
+    name: "Java",
+    percent: 90,
+  },
+  {
     name: "React",
-    percent: 80,
+    percent: 90,
   },
   {
     name: "Node.js",
-    percent: 70,
+    percent: 80,
   },
   {
     name: "REST",
-    percent: 70,
+    percent: 80,
   },
   {
     name: "Vue.js",
@@ -38,9 +42,5 @@ export default [
   {
     name: "Dev Ops",
     percent: 40,
-  },
-  {
-    name: "Java",
-    percent: 40,
-  },
+  }
 ];
