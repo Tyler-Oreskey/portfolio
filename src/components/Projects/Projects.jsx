@@ -8,8 +8,6 @@ import classes from "./Projects.module.css";
 const Projects = ({ reference }) => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
-  const [allProjects, setAllProjects] = useState({});
-  const [navIndex, setNavIndex] = useState(0);
   const [selectedProjectGroup, setSelectedProjectGroup] = useState([]);
   const defaultProjectGroup = "ALL";
 
@@ -26,7 +24,6 @@ const Projects = ({ reference }) => {
       }
     }
   
-    setAllProjects(allProjectsData);
     setSelectedProjectGroup(allProjectsData[defaultProjectGroup]);
   }, [defaultProjectGroup]);
   
@@ -37,34 +34,6 @@ const Projects = ({ reference }) => {
   };
 
   const handleCloseModal = () => setShowModal(false);
-
-  const handleChangeProjectGroup = (projectGroup, navIndex) => {
-    setSelectedProjectGroup(allProjects[projectGroup]);
-    setNavIndex(navIndex);
-  };
-
-  const ProjectNav = () => {
-    const activeStyle = {
-      color: "white",
-      backgroundColor: "#dc143c",
-    };
-
-    const projectGroupItems = Object.keys(allProjects).map((group, idx) => (
-      <li
-        key={idx}
-        style={navIndex === idx ? activeStyle : null}
-        onClick={() => handleChangeProjectGroup(group, idx)}
-      >
-        {group}
-      </li>
-    ));
-
-    return (
-      <div className={classes.ProjectNav}>
-        <ul>{projectGroupItems}</ul>
-      </div>
-    );
-  };
 
   const ProjectGroup = () => {
     return selectedProjectGroup.map((project, idx) => {
@@ -112,9 +81,6 @@ const Projects = ({ reference }) => {
       <div className={`${classes.Projects}`} ref={reference}>
         <h1>PROJECTS</h1>
         <div className="container">
-          <div className="row">
-            <ProjectNav />
-          </div>
           <div className="row">
             <ProjectGroup />
           </div>
