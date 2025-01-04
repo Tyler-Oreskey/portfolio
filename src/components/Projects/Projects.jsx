@@ -1,32 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Project from "./ProjectGroup/Project/Project";
 import Modal from "../../UI/Modal/Modal";
-import projectItems from "../../displayData/projects";
+import projects from "../../displayData/projects";
 
 import classes from "./Projects.module.css";
 
 const Projects = ({ reference }) => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
-  const [selectedProjectGroup, setSelectedProjectGroup] = useState([]);
-  const defaultProjectGroup = "ALL";
-
-  useEffect(() => {
-    const allProjectsData = JSON.parse(JSON.stringify(projectItems));
-  
-    allProjectsData[defaultProjectGroup] = [];
-  
-    for (const key in allProjectsData) {
-      if (key !== defaultProjectGroup) {
-        allProjectsData[key].forEach((project) => {
-          allProjectsData[defaultProjectGroup].push(project);
-        });
-      }
-    }
-  
-    setSelectedProjectGroup(allProjectsData[defaultProjectGroup]);
-  }, [defaultProjectGroup]);
-  
 
   const handleClickShowModal = (content) => {
     setModalContent(content);
@@ -36,7 +17,7 @@ const Projects = ({ reference }) => {
   const handleCloseModal = () => setShowModal(false);
 
   const ProjectGroup = () => {
-    return selectedProjectGroup.map((project, idx) => {
+    return projects.map((project, idx) => {
       return (
         <div className={`${classes.Project} col-12 col-md-6 col-lg-4`} key={idx}>
           <Project project={project} clickShowModal={handleClickShowModal} />
