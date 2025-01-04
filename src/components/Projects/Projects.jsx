@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Project from "./ProjectGroup/Project/Project";
+import Project from "./Project/Project";
 import Modal from "../../UI/Modal/Modal";
 import projects from "../../displayData/projects";
 
@@ -13,8 +13,6 @@ const Projects = ({ reference }) => {
     setModalContent(content);
     setShowModal(true);
   };
-
-  const handleCloseModal = () => setShowModal(false);
 
   const ProjectGroup = () => {
     return projects.map((project, idx) => {
@@ -67,7 +65,7 @@ const Projects = ({ reference }) => {
           </div>
         </div>
       </div>
-      <Modal show={showModal} closeModal={handleCloseModal}>
+      <Modal show={showModal} closeModal={() => setShowModal(false)}>
         <ProjectModalContent />
       </Modal>
     </>
