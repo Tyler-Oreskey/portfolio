@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
 
-import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
-
 import classes from "./Toast.module.css";
 
 const Toast = (props) => {
@@ -48,14 +46,14 @@ const Toast = (props) => {
   ));
 
   return (
-    <Auxiliary>
+    <>
       <div
         className={[classes.NotificationContainer, classes[position]].join(" ")}
       >
         {listedToast}
       </div>
       {props.children}
-    </Auxiliary>
+    </>
   );
 };
 

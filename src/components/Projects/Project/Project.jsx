@@ -12,20 +12,22 @@ export default function Project({ project, clickShowModal }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {isHovered ? (
-      <div className={classes.Back}>
-        <h1>{project.name}</h1>
-        <div className={classes.ToggleModalButton}>
-          <ButtonHoverEffect clicked={() => clickShowModal(project)} buttonText="LEARN MORE" />
-        </div>
+      <div
+        className={`${classes.Background} ${isHovered ? classes.Hovered : ""}`}
+        style={{ backgroundImage: `url(${project.image})` }}
+      ></div>
+      <div className={classes.Content}>
+        <h1 className={classes.ProjectName}>{project.name}</h1>
+        {isHovered && (
+          <div className={classes.ButtonOverlay}>
+            <ButtonHoverEffect
+              clicked={() => clickShowModal(project)}
+              buttonText="LEARN MORE"
+              textColor="white"
+            />
+          </div>
+        )}
       </div>
-      ) : (
-        <div
-          className={classes.Front}
-          style={{ backgroundImage: `url(${project.image})` }}
-        >
-      </div>
-      )}
     </div>
   );
 }

@@ -1,29 +1,56 @@
 .Card {
+  position: relative;
   width: 100%;
   height: 300px;
-  border-radius: 7px !important;
+  overflow: hidden;
 }
 
-.Card > div {
-  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
-}
-
-
-/* Back of card */
-.Back {
-  width: 100%;
-  height: 100%;
-  background-color: white;
-}
-
-.ToggleModalButton {
-  text-align: center;
-}
-
-
-/* Front of card */
-.Front {
+.Background {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-size: cover;
+  background-position: center;
+  transition: filter 0.3s, transform 0.3s;
+  filter: brightness(75%);
+}
+
+.Hovered {
+  filter: brightness(50%);
+}
+
+.Content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.Content h1 {
+  color: white !important;
+}
+
+.ProjectName {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 10px;
+  transition: none;
+}
+
+.ButtonOverlay {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.Card .ButtonOverlay {
+  opacity: 0;
+}
+
+.Card:hover .ButtonOverlay {
+  opacity: 1;
 }
