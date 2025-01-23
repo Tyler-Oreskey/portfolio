@@ -53,7 +53,7 @@ const projects = [
       backend: "https://github.com/agdillon/hackateam",
     },
     image:
-      "https://media.istockphoto.com/id/1866091361/photo/hackathon-concept-business-woman-using-laptop-computer-on-office-desk-with-hackathon-icon-on.jpg?s=612x612&w=0&k=20&c=nBe8hc7pRvhZ2cGue31EjOa7ZxMjB7Ql9wf8V9J8kNk=",
+      "https://get-thrive.com/wp-content/uploads/2020/09/AdobeStock_207118695_1280-1024x576.jpeg",
   },
   {
     name: "Ice Cap Monitor",
