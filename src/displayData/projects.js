@@ -16,8 +16,8 @@ const projects = [
     description: "Designed and developed a user-friendly mobile trip planning application for seamless tour creation and management. Enabled users to add locations to their tours by selecting points on a map or manually entering latitude and longitude coordinates. Implemented heuristic algorithms to optimize the total distance of trips, enhancing route efficiency and user convenience. Focused on intuitive design and functionality to provide a smooth and efficient trip planning experience.",
     techs: "Java, Spark, Junit, JavaScript, React, Jest, Node.js, MariaDB, Bootstrap, Mockito, Maven, JaCoCo",
     projectLinks: {
-      frontend: "https://github.com/CSU-CS-314-Fall-2023/t37/tree/main/client",
-      backend: "https://github.com/CSU-CS-314-Fall-2023/t37/tree/main/server",
+      frontend: "https://github.com/Tyler-Oreskey/Trip-Planner/tree/main/client",
+      backend: "https://github.com/Tyler-Oreskey/Trip-Planner/tree/main/server",
     },
     image: "https://roamingtheamericas.com/wp-content/uploads/2017/07/29-2366-post/rawpixel-com-191102.jpg",
   },
@@ -26,8 +26,8 @@ const projects = [
     description: "Developed a comprehensive company management web application with a user-centric interface to enable efficient management of employees and projects, streamlining business operations. Ensured high code quality and reliability with tools like JaCoCo, PIT, Evosuite, and SpotBugs.",
     techs: "Java, Spark, Junit, JavaScript, React, Jest, Node.js, Mockito, Maven, JaCoCo, PIT, Evosuite, SpotBugs",
     projectLinks: {
-      frontend: "https://github.com/CS-CS415-Spring2024/t08/tree/main/client",
-      backend: "https://github.com/CS-CS415-Spring2024/t08/tree/main/server",
+      frontend: "https://github.com/Tyler-Oreskey/Company-Project-Manager/tree/main/client",
+      backend: "https://github.com/Tyler-Oreskey/Company-Project-Manager/tree/main/server",
     },
     image: "https://kepner-tregoe.com/app/uploads/2021/10/68-1.jpg",
   },
