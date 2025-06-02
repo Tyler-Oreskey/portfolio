@@ -41,7 +41,7 @@ const projects = [
       backend: "https://github.com/Tyler-Oreskey/Good_Samaratin_Backend",
     },
     image:
-      "https://www.benzinga.com/files/images/story/2012/life-extension-technology-and-cannabis-formulations.jpg",
+      "https://t3.ftcdn.net/jpg/02/38/08/42/360_F_238084232_5XhGUddDZezzJxybvVXzfPp8cOKAuqRp.jpg",
   },
   {
     name: "Hackateam",
