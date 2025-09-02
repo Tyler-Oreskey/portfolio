@@ -29,7 +29,7 @@ const projects = [
       frontend: "https://github.com/Tyler-Oreskey/Company-Project-Manager/tree/main/client",
       backend: "https://github.com/Tyler-Oreskey/Company-Project-Manager/tree/main/server",
     },
-    image: "https://kepner-tregoe.com/app/uploads/2021/10/68-1.jpg",
+    image: "https://www.shutterstock.com/image-photo/group-healthcare-workers-businessman-using-600nw-1763058089.jpg",
   },
   {
     name: "Good Samaratin",
@@ -53,7 +53,7 @@ const projects = [
       backend: "https://github.com/agdillon/hackateam",
     },
     image:
-      "https://get-thrive.com/wp-content/uploads/2020/09/AdobeStock_207118695_1280-1024x576.jpeg",
+      "https://res.cloudinary.com/devex/image/fetch/c_scale,f_auto,q_auto,w_720/https://lh4.googleusercontent.com/VQyrPPyh-FGdV2BJtlcwDphesnxERD6SLWvGtARygLDVNSsXhFF0kzG_yXvLyiARZbKIG3VYF_CIbF4_B-Wy3Eu7kKhHKKR3pq_2ob2pdZgxt_Wz_uqXjRMrhIBKREQnJo--Ui9b",
   },
   {
     name: "Ice Cap Monitor",
